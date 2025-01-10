@@ -3,7 +3,7 @@
 </main>
 
 <style lang="scss">
-	@use "/src/styles/colors";
+	@use "/src/styles/variables/colors";
 
 	h1 {
 		color: colors.$adventure-background;

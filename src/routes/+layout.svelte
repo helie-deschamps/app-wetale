@@ -3,6 +3,7 @@
 	import { onMount, type Snippet } from "svelte"
 
 	import "lenis/dist/lenis.css"
+    import "/src/styles/reset.scss"
 
 	let { children }: { children: Snippet } = $props()
 
@@ -17,6 +18,14 @@
 	})
 </script>
 
-<div>
-	{@render children()}
-</div>
+<header></header>
+
+{@render children()}
+
+<style lang="scss">
+	@use "/src/styles/variables/colors";
+
+	:global(body) {
+		background-color: colors.$main-light;
+	}
+</style>
