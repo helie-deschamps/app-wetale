@@ -1,0 +1,17 @@
+@font-face {
+	font-family: "Figtree";
+	src: url("/fonts/Figtree/Figtree-Regular.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("/fonts/Figtree/Figtree-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+body {
+	padding: 30px;
+	font-family: "Figtree", sans-serif;
+}
