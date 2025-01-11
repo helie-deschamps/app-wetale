@@ -6,15 +6,15 @@
 <div>
 	<h2>Categories</h2>
 	<div class="grid">
-		<CategoryTilePreview category={TalesCategories.Adventure} format="tall" />
+		<CategoryTilePreview category={TalesCategories.Romance} format="tall" />
 		<CategoryTilePreview category={TalesCategories.Detective} format="square" />
-		<CategoryTilePreview category={TalesCategories.Fantasy} format="square" />
-		<CategoryTilePreview category={TalesCategories.Romance} format="large" />
 		<CategoryTilePreview
 			category={TalesCategories.ScienceFiction}
 			format="square"
 		/>
+		<CategoryTilePreview category={TalesCategories.Adventure} format="large" />
 		<CategoryTilePreview category={TalesCategories.Thriller} format="square" />
+		<CategoryTilePreview category={TalesCategories.Fantasy} format="square" />
 	</div>
 </div>
 

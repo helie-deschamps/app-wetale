@@ -1,6 +1,7 @@
 <script lang="ts">
 	import getCategoryDatas from "../../../../../utils/functions/getCategoryDatas"
 	import type { TalesCategories } from "../../../../../utils/enums/TalesCategories"
+	import CategoryIcon from "../../CategoryIcon/CategoryIcon.svelte"
 
 	type Props = {
 		category: TalesCategories
@@ -12,6 +13,9 @@
 
 <div class="tile {cssClass} {format}">
 	<p>{title}</p>
+	<span>
+		<CategoryIcon {category}></CategoryIcon>
+	</span>
 </div>
 
 <style lang="scss">
@@ -23,10 +27,15 @@
 		height: 160px;
 		border-radius: 16px;
 		position: relative;
+		overflow: hidden;
 		p {
 			position: absolute;
 			font-size: 25px;
 			font-weight: bold;
+			max-width: 135px;
+		}
+		span {
+			position: absolute;
 		}
 	}
 
@@ -47,6 +56,12 @@
 			left: 8px;
 			text-align: right;
 		}
+		span {
+			width: 201px;
+			left: -40px;
+			top: 50%;
+			transform: translateY(-50%);
+		}
 	}
 	.detective {
 		background-color: colors.$detective-background;
@@ -61,9 +76,14 @@
 		background-color: colors.$sf-background;
 		color: colors.$sf-content;
 		p {
-			bottom: 13px;
+			top: 13px;
 			right: 10px;
 			text-align: right;
+		}
+		span {
+			width: 179px;
+			left: -11px;
+			bottom: -12px;
 		}
 	}
 	.adventure {
@@ -74,6 +94,11 @@
 			left: 26px;
 			text-align: left;
 		}
+		span {
+			width: 244px;
+			right: 26px;
+			top: 12px;
+		}
 	}
 	.thriller {
 		background-color: colors.$thriller-background;
@@ -83,6 +108,11 @@
 			right: 14px;
 			text-align: right;
 		}
+		span {
+			width: 160px;
+			left: -40px;
+			top: -8px;
+		}
 	}
 	.fantasy {
 		background-color: colors.$fantasy-background;
@@ -91,6 +121,11 @@
 			bottom: 16px;
 			right: 10px;
 			text-align: right;
+		}
+		span {
+			width: 201px;
+			left: -60px;
+			top: -26px;
 		}
 	}
 </style>
