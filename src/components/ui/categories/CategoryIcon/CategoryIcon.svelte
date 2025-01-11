@@ -5,8 +5,8 @@
 	type Props = {
 		category: TalesCategories
 	}
-	const { category }: Props = $props()
-	const { cssClass } = getCategoryDatas(category)
+	const { category = $bindable() }: Props = $props()
+	const { cssClass } = $derived(getCategoryDatas(category))
 </script>
 
 {#if category === TalesCategories.Romance}

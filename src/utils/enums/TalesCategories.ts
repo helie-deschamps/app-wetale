@@ -1,8 +1,8 @@
 export enum TalesCategories {
-	Romance,
-	Detective,
-	ScienceFiction,
-	Adventure,
-	Thriller,
-	Fantasy,
+	Romance = "r",
+	Detective = "d",
+	ScienceFiction = "s",
+	Adventure = "a",
+	Thriller = "t",
+	Fantasy = "f",
 }

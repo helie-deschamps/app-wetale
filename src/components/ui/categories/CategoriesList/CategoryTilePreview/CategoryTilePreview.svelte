@@ -7,15 +7,15 @@
 		category: TalesCategories
 		format: "square" | "tall" | "large"
 	}
-	const { category, format }: Props = $props()
-	const { title, cssClass } = getCategoryDatas(category)
+	const { category = $bindable(), format }: Props = $props()
+	const { title, cssClass } = $derived(getCategoryDatas(category))
 </script>
 
 <div class="tile {cssClass} {format}">
-	<p>{title}</p>
-	<span>
+	<span aria-hidden="true">
 		<CategoryIcon {category}></CategoryIcon>
 	</span>
+	<p>{title}</p>
 </div>
 
 <style lang="scss">

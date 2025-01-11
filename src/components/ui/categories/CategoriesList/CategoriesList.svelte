@@ -4,7 +4,7 @@
 </script>
 
 <div>
-	<h2>Categories</h2>
+	<h2>Catégories</h2>
 	<div class="grid">
 		<CategoryTilePreview category={TalesCategories.Romance} format="tall" />
 		<CategoryTilePreview category={TalesCategories.Detective} format="square" />
