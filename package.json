@@ -20,7 +20,6 @@
 		"lenis": "^1.1.19"
 	},
 	"devDependencies": {
-		"@chromatic-com/storybook": "^3.2.3",
 		"@storybook/addon-a11y": "^8.4.7",
 		"@storybook/addon-essentials": "^8.4.7",
 		"@storybook/addon-interactions": "^8.4.7",

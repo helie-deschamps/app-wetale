@@ -42,6 +42,11 @@
 	.romance {
 		background-color: colors.$romance-background;
 		color: colors.$romance-content;
+		p {
+			top: calc(50% - 0.5em);
+			left: 8px;
+			text-align: right;
+		}
 	}
 	.detective {
 		background-color: colors.$detective-background;
