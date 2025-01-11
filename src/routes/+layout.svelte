@@ -17,6 +17,7 @@
 			console.log(e)
 		})
 	})
+	document.addEventListener("contextmenu", e => e.preventDefault())
 </script>
 
 <header></header>
