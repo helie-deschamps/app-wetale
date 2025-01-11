@@ -3,7 +3,8 @@
 	import { onMount, type Snippet } from "svelte"
 
 	import "lenis/dist/lenis.css"
-    import "/src/styles/reset.scss"
+	import "/src/styles/reset.scss"
+	import "/src/styles/base.scss"
 
 	let { children }: { children: Snippet } = $props()
 
