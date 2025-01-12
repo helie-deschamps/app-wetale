@@ -87,4 +87,10 @@ body {
 	padding: 30px;
 	font-family: "Figtree", sans-serif;
 	user-select: none;
+	box-sizing: border-box;
+}
+* {
+	&::-webkit-scrollbar {
+		display: none;
+	}
 }

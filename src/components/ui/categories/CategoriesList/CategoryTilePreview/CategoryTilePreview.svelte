@@ -6,12 +6,23 @@
 	type Props = {
 		category: TalesCategories
 		format: "square" | "tall" | "large"
+		width: number
+		height: number
 	}
-	const { category = $bindable(), format }: Props = $props()
+	const {
+		category = $bindable(),
+		format,
+		width = $bindable(),
+		height = $bindable(),
+	}: Props = $props()
 	const { title, cssClass } = $derived(getCategoryDatas(category))
 </script>
 
-<div class="tile {cssClass} {format}">
+<div
+	class="tile {cssClass} {format}"
+	style:width={`${width}px`}
+	style:height={`${height}px`}
+>
 	<span aria-hidden="true">
 		<CategoryIcon {category}></CategoryIcon>
 	</span>
@@ -23,8 +34,6 @@
 
 	.tile {
 		display: flex;
-		width: 160px;
-		height: 160px;
 		border-radius: 16px;
 		position: relative;
 		overflow: hidden;
@@ -40,11 +49,9 @@
 	}
 
 	.tall {
-		height: 334px;
 		grid-row: span 2;
 	}
 	.large {
-		width: 334px;
 		grid-column: span 2;
 	}
 

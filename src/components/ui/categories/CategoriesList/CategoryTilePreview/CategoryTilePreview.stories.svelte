@@ -16,31 +16,63 @@
 				},
 			},
 			format: { control: "select", options: ["square", "tall", "large"] },
+			width: { control: "number" },
+			height: { control: "number" },
 		},
 	})
 </script>
 
 <Story
 	name="Romance"
-	args={{ category: TalesCategories.Romance, format: "tall" }}
+	args={{
+		category: TalesCategories.Romance,
+		format: "tall",
+		width: 200,
+		height: 200,
+	}}
 />
 <Story
 	name="Detective"
-	args={{ category: TalesCategories.Detective, format: "square" }}
+	args={{
+		category: TalesCategories.Detective,
+		format: "square",
+		width: 200,
+		height: 200,
+	}}
 />
 <Story
 	name="ScienceFiction"
-	args={{ category: TalesCategories.ScienceFiction, format: "square" }}
+	args={{
+		category: TalesCategories.ScienceFiction,
+		format: "square",
+		width: 200,
+		height: 200,
+	}}
 />
 <Story
 	name="Adventure"
-	args={{ category: TalesCategories.Adventure, format: "large" }}
+	args={{
+		category: TalesCategories.Adventure,
+		format: "large",
+		width: 200,
+		height: 200,
+	}}
 />
 <Story
 	name="Thriller"
-	args={{ category: TalesCategories.Thriller, format: "square" }}
+	args={{
+		category: TalesCategories.Thriller,
+		format: "square",
+		width: 200,
+		height: 200,
+	}}
 />
 <Story
 	name="Fantasy"
-	args={{ category: TalesCategories.Fantasy, format: "square" }}
+	args={{
+		category: TalesCategories.Fantasy,
+		format: "square",
+		width: 200,
+		height: 200,
+	}}
 />
