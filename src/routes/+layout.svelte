@@ -20,7 +20,9 @@
 	document.addEventListener("contextmenu", e => e.preventDefault())
 </script>
 
-<header></header>
+<header>
+	<a href="/login">Connection</a>
+</header>
 
 {@render children()}
 

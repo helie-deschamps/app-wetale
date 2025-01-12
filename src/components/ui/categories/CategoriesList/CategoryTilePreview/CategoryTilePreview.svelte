@@ -2,6 +2,10 @@
 	import getCategoryDatas from "../../../../../utils/functions/getCategoryDatas"
 	import type { TalesCategories } from "../../../../../utils/enums/TalesCategories"
 	import CategoryIcon from "../../CategoryIcon/CategoryIcon.svelte"
+	import {
+		ontouchend,
+		ontouchstart,
+	} from "../../../../../utils/functions/touchHandlers"
 
 	type Props = {
 		category: TalesCategories
@@ -19,6 +23,8 @@
 </script>
 
 <div
+	{ontouchstart}
+	{ontouchend}
 	class="tile {cssClass} {format}"
 	style:width={`${width}px`}
 	style:height={`${height}px`}

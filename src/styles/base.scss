@@ -1,37 +1,37 @@
 @font-face {
 	font-family: "Figtree";
 	src: url("/fonts/Figtree/Figtree-Light.ttf") format("truetype");
-	font-weight: light;
+	font-weight: 300;
 	font-style: normal;
 }
 @font-face {
 	font-family: "Figtree";
 	src: url("/fonts/Figtree/Figtree-LightItalic.ttf") format("truetype");
-	font-weight: light;
+	font-weight: 300;
 	font-style: italic;
 }
 @font-face {
 	font-family: "Figtree";
 	src: url("/fonts/Figtree/Figtree-Regular.ttf") format("truetype");
-	font-weight: normal;
+	font-weight: 400;
 	font-style: normal;
 }
 @font-face {
 	font-family: "Figtree";
 	src: url("/fonts/Figtree/Figtree-Italic.ttf") format("truetype");
-	font-weight: normal;
+	font-weight: 400;
 	font-style: italic;
 }
 @font-face {
 	font-family: "Figtree";
 	src: url("/fonts/Figtree/Figtree-Medium.ttf") format("truetype");
-	font-weight: medium;
+	font-weight: 500;
 	font-style: normal;
 }
 @font-face {
 	font-family: "Figtree";
 	src: url("/fonts/Figtree/Figtree-MediumItalic.ttf") format("truetype");
-	font-weight: medium;
+	font-weight: 500;
 	font-style: italic;
 }
 @font-face {
@@ -49,13 +49,13 @@
 @font-face {
 	font-family: "Figtree";
 	src: url("/fonts/Figtree/Figtree-Bold.ttf") format("truetype");
-	font-weight: bold;
+	font-weight: 700;
 	font-style: normal;
 }
 @font-face {
 	font-family: "Figtree";
 	src: url("/fonts/Figtree/Figtree-BoldItalic.ttf") format("truetype");
-	font-weight: bold;
+	font-weight: 700;
 	font-style: italic;
 }
 @font-face {
@@ -73,13 +73,13 @@
 @font-face {
 	font-family: "Figtree";
 	src: url("/fonts/Figtree/Figtree-Black.ttf") format("truetype");
-	font-weight: black;
+	font-weight: 900;
 	font-style: normal;
 }
 @font-face {
 	font-family: "Figtree";
 	src: url("/fonts/Figtree/Figtree-BlackItalic.ttf") format("truetype");
-	font-weight: black;
+	font-weight: 900;
 	font-style: italic;
 }
 
@@ -89,8 +89,15 @@ body {
 	user-select: none;
 	box-sizing: border-box;
 }
+input {
+	font-family: "Figtree", sans-serif;
+}
 * {
 	&::-webkit-scrollbar {
 		display: none;
 	}
+}
+a {
+	text-decoration: none;
+	color: #1e4ae9;
 }
