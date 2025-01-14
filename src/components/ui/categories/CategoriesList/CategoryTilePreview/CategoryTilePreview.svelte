@@ -86,6 +86,11 @@
 			right: 15px;
 			text-align: right;
 		}
+		span {
+			width: 140px;
+			top: 38px;
+			left: -12px;
+		}
 	}
 	.sf {
 		background-color: colors.$sf-background;
