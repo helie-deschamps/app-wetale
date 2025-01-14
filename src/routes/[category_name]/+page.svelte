@@ -9,7 +9,7 @@
 </script>
 
 {#if categoryDatas}
-	<div>
+	<div style:view-transition-name="{categoryDatas.lowercaseTitle}paganim">
 		<h1>{categoryDatas.title}</h1>
 	</div>
 {/if}

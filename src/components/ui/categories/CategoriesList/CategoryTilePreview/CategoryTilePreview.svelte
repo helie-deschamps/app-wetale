@@ -24,6 +24,7 @@
 
 <a
 	href="/{lowercaseTitle}"
+	style:view-transition-name="{lowercaseTitle}paganim"
 	{ontouchstart}
 	{ontouchend}
 	class="tile {lowercaseTitle} {format}"
