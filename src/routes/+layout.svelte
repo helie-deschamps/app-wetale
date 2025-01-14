@@ -21,6 +21,7 @@
 </script>
 
 <header>
+	<a href="/">Home</a>
 	<a href="/login">Connection</a>
 </header>
 

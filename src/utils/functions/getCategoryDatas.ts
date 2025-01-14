@@ -2,7 +2,7 @@ import { TalesCategories } from "../enums/TalesCategories"
 
 type CategoryDatas = {
 	title: string
-	cssClass:
+	lowercaseTitle:
 		| "romance"
 		| "detective"
 		| "sf"
@@ -14,21 +14,24 @@ type CategoryDatas = {
 const categoriesDatas: { [key in TalesCategories]: CategoryDatas } = {
 	[TalesCategories.Romance]: {
 		title: "Romance",
-		cssClass: "romance",
+		lowercaseTitle: "romance",
 	},
-	[TalesCategories.Detective]: { title: "Policier", cssClass: "detective" },
+	[TalesCategories.Detective]: {
+		title: "Policier",
+		lowercaseTitle: "detective",
+	},
 	[TalesCategories.ScienceFiction]: {
 		title: "Science Fiction",
-		cssClass: "sf",
+		lowercaseTitle: "sf",
 	},
 	[TalesCategories.Adventure]: {
 		title: "Action et Aventure",
-		cssClass: "adventure",
+		lowercaseTitle: "adventure",
 	},
-	[TalesCategories.Thriller]: { title: "Thriller", cssClass: "thriller" },
-	[TalesCategories.Fantasy]: { title: "Fantasy", cssClass: "fantasy" },
+	[TalesCategories.Thriller]: { title: "Thriller", lowercaseTitle: "thriller" },
+	[TalesCategories.Fantasy]: { title: "Fantasy", lowercaseTitle: "fantasy" },
 }
 
-export default function (category: TalesCategories) {
+export default function (category: TalesCategories): CategoryDatas {
 	return categoriesDatas[category]
 }

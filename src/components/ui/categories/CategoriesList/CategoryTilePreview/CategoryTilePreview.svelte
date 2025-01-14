@@ -19,13 +19,14 @@
 		width = $bindable(),
 		height = $bindable(),
 	}: Props = $props()
-	const { title, cssClass } = $derived(getCategoryDatas(category))
+	const { title, lowercaseTitle } = $derived(getCategoryDatas(category))
 </script>
 
-<div
+<a
+	href="/{lowercaseTitle}"
 	{ontouchstart}
 	{ontouchend}
-	class="tile {cssClass} {format}"
+	class="tile {lowercaseTitle} {format}"
 	style:width={`${width}px`}
 	style:height={`${height}px`}
 >
@@ -33,7 +34,7 @@
 		<CategoryIcon {category}></CategoryIcon>
 	</span>
 	<p>{title}</p>
-</div>
+</a>
 
 <style lang="scss">
 	@use "/src/styles/variables/colors";
