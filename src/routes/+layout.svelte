@@ -6,8 +6,14 @@
 	import "/src/styles/reset.scss"
 	import "/src/styles/base.scss"
 	import { onNavigate } from "$app/navigation"
+	import { navBar } from "../utils/stores/navBar"
 
 	let { children }: { children: Snippet } = $props()
+	let localNavBar: HTMLElement | undefined = $state()
+
+	$effect(() => {
+		navBar.set(localNavBar)
+	})
 
 	onMount(() => {
 		const lenis = new Lenis({
@@ -18,6 +24,7 @@
 			console.log(e)
 		})
 	})
+
 	document.addEventListener("contextmenu", e => e.preventDefault())
 
 	onNavigate(async navigation => {
@@ -35,15 +42,33 @@
 <header>
 	<a href="/">Home</a>
 	<a href="/login">Connection</a>
+	<a href="/s/08G4DPV43A">Story</a>
 </header>
 
 {@render children()}
+
+<nav bind:this={localNavBar}>Navbar UwU</nav>
 
 <style lang="scss">
 	@use "/src/styles/variables/colors";
 
 	:global(body) {
 		background-color: colors.$main-light;
+	}
+
+	nav {
+		position: fixed;
+		bottom: 3em;
+		background-color: colors.$main-dark;
+		color: colors.$main-light;
+		padding: 1.2em 0;
+		margin: 0 -10px;
+		width: calc(100% - 40px);
+		border-radius: 16px;
+		text-align: center;
+		z-index: 12;
+		view-transition-name: navbar;
+		transition: translate 0.3s ease;
 	}
 
 	@keyframes fade-in {
