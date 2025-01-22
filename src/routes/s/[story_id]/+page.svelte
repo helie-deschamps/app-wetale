@@ -14,7 +14,10 @@
 		const newScroll = window.scrollY
 		const scrollDiff = oldScroll - newScroll
 		oldScroll = newScroll
-		navBarYWoundedPosition = Math.max(Math.min((navBarYWoundedPosition + scrollDiff), 0),-100 )
+		navBarYWoundedPosition = Math.max(
+			Math.min(navBarYWoundedPosition + scrollDiff, 0),
+			-100,
+		)
 		$navBar.style.translate = `0 ${navBarYWoundedPosition}px`
 
 		if (scrollDiff > 0) {

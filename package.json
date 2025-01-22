@@ -11,6 +11,8 @@
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --write .",
 		"tauri:dev": "tauri dev",
+		"tauri:android:dev": "tauri android dev",
+		"tauri:google-play:build": "pnpm tauri android build --aab",
 		"storybook": "storybook dev"
 	},
 	"license": "MIT",
