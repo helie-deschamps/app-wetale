@@ -19,17 +19,21 @@
 		width = $bindable(),
 		height = $bindable(),
 	}: Props = $props()
-	const { title, lowercaseTitle } = $derived(getCategoryDatas(category))
+	const { title, lowercaseTitle, colorBackground, colorText } = $derived(
+		getCategoryDatas(category),
+	)
 </script>
 
 <a
 	href="/{lowercaseTitle}"
-	style:view-transition-name="{lowercaseTitle}paganim"
 	{ontouchstart}
 	{ontouchend}
 	class="tile {lowercaseTitle} {format}"
+	style:view-transition-name="{lowercaseTitle}paganim"
 	style:width={`${width}px`}
 	style:height={`${height}px`}
+	style:background-color={colorBackground}
+	style:color={colorText}
 >
 	<span aria-hidden="true">
 		<CategoryIcon {category}></CategoryIcon>
@@ -64,8 +68,6 @@
 	}
 
 	.romance {
-		background-color: colors.$romance-background;
-		color: colors.$romance-content;
 		p {
 			top: calc(50% - 0.5em);
 			left: 8px;
@@ -79,8 +81,6 @@
 		}
 	}
 	.detective {
-		background-color: colors.$detective-background;
-		color: colors.$detective-content;
 		p {
 			top: 6px;
 			right: 15px;
@@ -93,8 +93,6 @@
 		}
 	}
 	.sf {
-		background-color: colors.$sf-background;
-		color: colors.$sf-content;
 		p {
 			top: 13px;
 			right: 10px;
@@ -107,8 +105,6 @@
 		}
 	}
 	.adventure {
-		background-color: colors.$adventure-background;
-		color: colors.$adventure-content;
 		p {
 			bottom: 26px;
 			left: 26px;
@@ -121,8 +117,6 @@
 		}
 	}
 	.thriller {
-		background-color: colors.$thriller-background;
-		color: colors.$thriller-content;
 		p {
 			bottom: 21px;
 			right: 14px;
@@ -135,8 +129,6 @@
 		}
 	}
 	.fantasy {
-		background-color: colors.$fantasy-background;
-		color: colors.$fantasy-content;
 		p {
 			bottom: 16px;
 			right: 10px;

@@ -1,27 +1,8 @@
 import { TalesCategories } from "../enums/TalesCategories"
+import { categoriesDatas } from "./getCategoryDatas"
 
-export default function (category: string): TalesCategories | null {
-	switch (category) {
-		case "romance": {
-			return TalesCategories.Romance
-		}
-		case "detective": {
-			return TalesCategories.Detective
-		}
-		case "sf": {
-			return TalesCategories.ScienceFiction
-		}
-		case "adventure": {
-			return TalesCategories.Adventure
-		}
-		case "thriller": {
-			return TalesCategories.Thriller
-		}
-		case "fantasy": {
-			return TalesCategories.Fantasy
-		}
-		default: {
-			return null
-		}
-	}
+export default function (category: Lowercase<string>): TalesCategories | null {
+	for (const [key, value] of Object.entries(categoriesDatas))
+		if (value.lowercaseTitle === category) return key as TalesCategories
+	return null
 }
