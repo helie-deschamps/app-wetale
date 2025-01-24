@@ -15,6 +15,7 @@
 			bind:value={username}
 			required={true}
 			tabindex={1}
+			icon="email"
 		/>
 		<TextInput
 			category="password"
@@ -22,6 +23,7 @@
 			bind:value={password}
 			required={true}
 			tabindex={2}
+			icon="password"
 		/>
 		<a href="/forgotpassword">Mot de passe oublié</a>
 		<Button isSubmit={true} tabindex={3}>Se connecter</Button>
@@ -49,7 +51,7 @@
 	form {
 		display: flex;
 		flex-direction: column;
-		align-items: end;
+		align-items: stretch;
 	}
 	a {
 		padding: 0.3em 1em 0.9em 1em;
