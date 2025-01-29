@@ -1,6 +1,6 @@
 import { TalesCategories } from "../enums/TalesCategories"
 
-type CategoryDatas = {
+export type CategoryDatas = {
 	title: string
 	lowercaseTitle: Lowercase<string>
 	colorBackground?: string

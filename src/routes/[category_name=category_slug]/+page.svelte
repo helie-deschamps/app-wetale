@@ -1,11 +1,12 @@
 <script lang="ts">
 	import getCategoryDatas from "../../utils/functions/getCategoryDatas"
 	import { goto } from "$app/navigation"
+	import type { TalesCategories } from "../../utils/enums/TalesCategories"
 
 	let { data } = $props()
 
-	if (!data.category) goto(`/`)
-	let categoryDatas = data.category ? getCategoryDatas(data.category) : null
+	if (data.category === null) goto(`/`)
+	let categoryDatas = getCategoryDatas(data.category as TalesCategories)
 </script>
 
 {#if categoryDatas}
