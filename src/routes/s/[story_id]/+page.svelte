@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { navBar } from "../../../utils/stores/navBar"
+	import { navBar } from "../../../components/ui/NavBar/NavBar.svelte"
 	import { onMount } from "svelte"
 	import { Spring } from "svelte/motion"
 

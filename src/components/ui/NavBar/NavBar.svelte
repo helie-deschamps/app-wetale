@@ -1,7 +1,10 @@
-<script lang="ts">
-	import { navBar } from "../../../utils/stores/navBar"
+<script module lang="ts">
+	import { type Writable, writable } from "svelte/store"
+	export const navBar: Writable<HTMLElement | undefined> = writable(undefined)
+</script>
 
-	let localNavBar: HTMLElement | undefined = $state()
+<script lang="ts">
+	let localNavBar: HTMLElement | undefined = $state(undefined)
 
 	$effect(() => {
 		navBar.set(localNavBar)
