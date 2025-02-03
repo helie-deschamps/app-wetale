@@ -1,4 +1,4 @@
-import { TalesCategories } from "../enums/TalesCategories"
+import { TalesCategories } from "../../enums/TalesCategories"
 import { categoriesDatas } from "./getCategoryDatas"
 
 export default function (category: Lowercase<string>): TalesCategories | null {

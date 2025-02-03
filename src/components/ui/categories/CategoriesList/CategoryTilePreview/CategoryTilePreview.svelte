@@ -1,11 +1,11 @@
 <script lang="ts">
-	import getCategoryDatas from "../../../../../utils/functions/getCategoryDatas"
+	import getCategoryDatas from "../../../../../utils/functions/categories/getCategoryDatas"
 	import type { TalesCategories } from "../../../../../utils/enums/TalesCategories"
 	import CategoryIcon from "../../CategoryIcon/CategoryIcon.svelte"
 	import {
 		ontouchend,
 		ontouchstart,
-	} from "../../../../../utils/functions/touchHandlers"
+	} from "../../../../../utils/component_features/touchHandlers"
 
 	type Props = {
 		category: TalesCategories

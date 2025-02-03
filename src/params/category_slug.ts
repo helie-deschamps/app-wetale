@@ -1,4 +1,4 @@
-import { categoriesDatas } from "../utils/functions/getCategoryDatas"
+import { categoriesDatas } from "../utils/functions/categories/getCategoryDatas"
 
 export function match(value) {
 	return Object.values(categoriesDatas).some(

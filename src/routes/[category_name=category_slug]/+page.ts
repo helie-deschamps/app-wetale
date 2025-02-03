@@ -1,5 +1,5 @@
-import getCategoryFromLowercaseTitle from "../../utils/functions/getCategoryFromLowercaseTitle"
-import type { CategoryDatas } from "../../utils/functions/getCategoryDatas"
+import getCategoryFromLowercaseTitle from "../../utils/functions/categories/getCategoryFromLowercaseTitle"
+import type { CategoryDatas } from "../../utils/functions/categories/getCategoryDatas"
 
 export const load = ({ params }) => {
 	const category = getCategoryFromLowercaseTitle(

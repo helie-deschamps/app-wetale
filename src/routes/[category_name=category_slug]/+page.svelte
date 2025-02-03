@@ -1,5 +1,5 @@
 <script lang="ts">
-	import getCategoryDatas from "../../utils/functions/getCategoryDatas"
+	import getCategoryDatas from "../../utils/functions/categories/getCategoryDatas"
 	import { goto } from "$app/navigation"
 	import type { TalesCategories } from "../../utils/enums/TalesCategories"
 

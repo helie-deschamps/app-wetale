@@ -2,7 +2,7 @@
 	import {
 		ontouchend,
 		ontouchstart,
-	} from "../../../../utils/functions/touchHandlers"
+	} from "../../../../utils/component_features/touchHandlers"
 
 	type Props = {
 		category?: "text" | "email" | "password"

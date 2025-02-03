@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { TalesCategories } from "../../../../utils/enums/TalesCategories"
-	import getCategoryDatas from "../../../../utils/functions/getCategoryDatas"
+	import getCategoryDatas from "../../../../utils/functions/categories/getCategoryDatas"
 
 	type Props = {
 		category: TalesCategories

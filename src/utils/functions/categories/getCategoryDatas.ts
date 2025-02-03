@@ -1,4 +1,4 @@
-import { TalesCategories } from "../enums/TalesCategories"
+import { TalesCategories } from "../../enums/TalesCategories"
 
 export type CategoryDatas = {
 	title: string
