@@ -100,6 +100,7 @@ input {
 a {
 	text-decoration: none;
 	color: #1e4ae9;
+	-webkit-touch-callout: none;
 }
 input:hover {
 	cursor: pointer;
