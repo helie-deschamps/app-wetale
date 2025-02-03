@@ -1,35 +1,37 @@
 <script lang="ts">
 	import { navBar } from "../../../components/ui/NavBar/NavBar.svelte"
-	import { onMount } from "svelte"
-	import { Spring } from "svelte/motion"
+	import { onDestroy, onMount } from "svelte"
 
 	let { data } = $props()
 	let { storyID, StoryTitle, storyBody, StoryCategory } = data
 
-	let navBarYPosition = 0
-	let navBarYWoundedPosition = 0
 	let oldScroll = 0
-	const onScrollDiv = (e: Event) => {
-		if ($navBar === undefined) return
+	let navBarPosition = 0
+	let ticking = false
+
+	const onScrollDiv = () => {
 		const newScroll = window.scrollY
 		const scrollDiff = oldScroll - newScroll
-		oldScroll = newScroll
-		navBarYWoundedPosition = Math.max(
-			Math.min(navBarYWoundedPosition + scrollDiff, 0),
-			-100,
+		navBarPosition = Math.min(
+			Math.max(navBarPosition - scrollDiff * 1.2, 0),
+			150,
 		)
-		$navBar.style.translate = `0 ${navBarYWoundedPosition}px`
-
-		if (scrollDiff > 0) {
-			//$navBar.style.translate = `0 0`
-		} else {
-			console.error("descend")
-			//$navBar.style.translate = `0 ${scrollDiff * 3}px`
+		oldScroll = newScroll
+		if (!ticking) {
+			ticking = true
+			requestAnimationFrame(() => {
+				if ($navBar) $navBar.style.translate = `0 ${navBarPosition}px`
+				ticking = false
+			})
 		}
 	}
-	console.log($navBar)
+
 	onMount(() => {
-		document.body.onscroll = onScrollDiv
+		window.addEventListener("scroll", onScrollDiv)
+	})
+	onDestroy(() => {
+		if ($navBar) $navBar.style.translate = `0 0`
+		window.removeEventListener("scroll", onScrollDiv)
 	})
 </script>
 
