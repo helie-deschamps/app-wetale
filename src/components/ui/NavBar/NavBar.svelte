@@ -22,8 +22,8 @@
 		background-color: colors.$main-dark;
 		color: colors.$main-light;
 		padding: 1.2em 0;
-		margin: 0 -10px;
-		width: calc(100% - 40px);
+		margin: 0 14px;
+		width: calc(100vw - 28px);
 		border-radius: 16px;
 		text-align: center;
 		z-index: 12;

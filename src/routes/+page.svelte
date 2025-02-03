@@ -13,4 +13,7 @@
 	h1 {
 		color: colors.$adventure-background;
 	}
+	main {
+		padding: 30px;
+	}
 </style>

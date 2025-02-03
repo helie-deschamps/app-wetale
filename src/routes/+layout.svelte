@@ -7,6 +7,7 @@
 	import "/src/styles/base.scss"
 	import { onNavigate } from "$app/navigation"
 	import NavBar from "../components/ui/NavBar/NavBar.svelte"
+	import Header from "../components/ui/Header/Header.svelte"
 
 	let { children }: { children: Snippet } = $props()
 
@@ -30,11 +31,7 @@
 	})
 </script>
 
-<header>
-	<a href="/">Home</a>
-	<a href="/login">Connection</a>
-	<a href="/s/08G4DPV43A">Story</a>
-</header>
+<Header />
 
 {@render children()}
 
