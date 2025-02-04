@@ -26,7 +26,7 @@
 		width: calc(100vw - 28px);
 		border-radius: 16px;
 		text-align: center;
-		z-index: 12;
+		z-index: 1000;
 		view-transition-name: navbar;
 		transition: translate 0.3s ease;
 	}

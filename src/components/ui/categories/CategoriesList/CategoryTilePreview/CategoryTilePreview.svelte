@@ -23,6 +23,7 @@
 
 <a
 	href="/{lowercaseTitle}"
+	aria-labelledby={`tile-${lowercaseTitle}`}
 	use:touchHandlers
 	class="tile {lowercaseTitle} {format}"
 	style:view-transition-name="{lowercaseTitle}paganim"
@@ -34,7 +35,7 @@
 	<span aria-hidden="true">
 		<CategoryIcon {category}></CategoryIcon>
 	</span>
-	<p>{title}</p>
+	<p id={`tile-${lowercaseTitle}`}>{title}</p>
 </a>
 
 <style lang="scss">

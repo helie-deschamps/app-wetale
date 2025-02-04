@@ -55,6 +55,7 @@
 	@use "/src/styles/variables/colors";
 
 	header {
+		z-index: 1000;
 		position: absolute;
 		width: calc(100% - 50px);
 		background-color: colors.$main-light;
