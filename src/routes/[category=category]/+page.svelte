@@ -5,7 +5,6 @@
 
 	let { data } = $props()
 
-	if (data.category === null) goto(`/`)
 	let categoryDatas = getCategoryDatas(data.category as TalesCategories)
 </script>
 

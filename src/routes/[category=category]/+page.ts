@@ -3,10 +3,10 @@ import type { CategoryDatas } from "../../utils/functions/categories/getCategory
 
 export const load = ({ params }) => {
 	const category = getCategoryFromLowercaseTitle(
-		params.category_name as CategoryDatas["lowercaseTitle"],
+		params.category as CategoryDatas["lowercaseTitle"],
 	)
 	return {
 		category: category,
-		category_name: params.category_name,
+		category_name: params.category,
 	}
 }
