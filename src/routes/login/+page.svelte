@@ -9,7 +9,7 @@
 </script>
 
 <div class:global_container={true} out:fade>
-	<div class:login_container={true} in:fly={{ y: 200 }}>
+	<div class:login_container={true} in:fly={{ y: 200 }} out:fly={{ y: 200 }}>
 		<form>
 			<h2>Connectez-vous !</h2>
 			<TextInput
