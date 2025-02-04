@@ -1,7 +1,7 @@
 <script lang="ts">
 	import getCategoryDatas from "../../utils/functions/categories/getCategoryDatas"
-	import { goto } from "$app/navigation"
 	import type { TalesCategories } from "../../utils/enums/TalesCategories"
+	import { headerHeight } from "../../components/ui/Header/Header.svelte"
 
 	let { data } = $props()
 
@@ -9,7 +9,10 @@
 </script>
 
 {#if categoryDatas}
-	<div style:view-transition-name="{categoryDatas.lowercaseTitle}paganim">
+	<div
+		style={`padding-top: ${($headerHeight ?? 0) + 32}px`}
+		style:view-transition-name="{categoryDatas.lowercaseTitle}paganim"
+	>
 		<h1>{categoryDatas.title}</h1>
 	</div>
 {/if}

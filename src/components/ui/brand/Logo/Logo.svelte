@@ -1,4 +1,6 @@
 <svg
+	role="img"
+	aria-label="Wetale"
 	width="102"
 	height="24"
 	viewBox="0 0 102 24"

@@ -1,12 +1,30 @@
-<script>
-	import Logo from "../brand/Logo/Logo.svelte"
+<script module lang="ts">
+	import { type Writable, writable } from "svelte/store"
+	export const header: Writable<HTMLElement | undefined> = writable(undefined)
+	export const headerHeight: Writable<number | undefined> = writable(undefined)
 </script>
 
-<header>
+<script lang="ts">
+	import Logo from "../brand/Logo/Logo.svelte"
+
+	let localHeader: HTMLElement | undefined = $state(undefined)
+	let localHeaderHeight: number | undefined = $state(undefined)
+
+	$effect(() => {
+		header.set(localHeader)
+	})
+	$effect(() => {
+		headerHeight.set(localHeaderHeight)
+	})
+</script>
+
+<header bind:this={localHeader} bind:offsetHeight={localHeaderHeight}>
 	<Logo />
 	<a href="/s/bethesda.net">s</a>
 	<a href="/login" aria-label="Mon compte">
 		<svg
+			role="img"
+			aria-label="Se connecter"
 			width="23"
 			height="27"
 			viewBox="0 0 23 27"

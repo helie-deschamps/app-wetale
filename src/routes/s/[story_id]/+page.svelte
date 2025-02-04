@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { navBar } from "../../../components/ui/NavBar/NavBar.svelte"
 	import { onDestroy, onMount } from "svelte"
+	import { headerHeight } from "../../../components/ui/Header/Header.svelte"
 
 	let { data } = $props()
 	let { storyID, StoryTitle, storyBody, StoryCategory } = data
@@ -35,7 +36,7 @@
 	})
 </script>
 
-<div>
+<div style={`padding-top: ${($headerHeight ?? 0) + 32}px`}>
 	<h1>Story {storyID}</h1>
 	<p>{storyBody}</p>
 </div>
