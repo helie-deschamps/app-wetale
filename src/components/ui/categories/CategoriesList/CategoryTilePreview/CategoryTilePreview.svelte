@@ -2,10 +2,7 @@
 	import getCategoryDatas from "../../../../../utils/functions/categories/getCategoryDatas"
 	import type { TalesCategories } from "../../../../../utils/enums/TalesCategories"
 	import CategoryIcon from "../../CategoryIcon/CategoryIcon.svelte"
-	import {
-		ontouchend,
-		ontouchstart,
-	} from "../../../../../utils/component_features/touchHandlers"
+	import { touchHandlers } from "../../../../../utils/component_features/touchHandlers"
 
 	type Props = {
 		category: TalesCategories
@@ -26,8 +23,7 @@
 
 <a
 	href="/{lowercaseTitle}"
-	{ontouchstart}
-	{ontouchend}
+	use:touchHandlers
 	class="tile {lowercaseTitle} {format}"
 	style:view-transition-name="{lowercaseTitle}paganim"
 	style:width={`${width}px`}

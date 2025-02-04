@@ -1,9 +1,6 @@
 <script lang="ts">
 	import { onMount, type Snippet } from "svelte"
-	import {
-		ontouchend,
-		ontouchstart,
-	} from "../../../utils/component_features/touchHandlers"
+	import { touchHandlers } from "../../../utils/component_features/touchHandlers"
 
 	type Props =
 		| {
@@ -27,11 +24,10 @@
 		value={"Se connecter"}
 		onclick={onTap}
 		{tabindex}
-		{ontouchstart}
-		{ontouchend}
+		use:touchHandlers
 	/>
 {:else}
-	<button onclick={onTap} {ontouchstart} {ontouchend}>
+	<button onclick={onTap} use:touchHandlers>
 		{@render children()}
 	</button>
 {/if}
@@ -49,6 +45,5 @@
 		text-transform: uppercase;
 		border-radius: 8px;
 		border: none;
-		transition: transform 0.1s;
 	}
 </style>

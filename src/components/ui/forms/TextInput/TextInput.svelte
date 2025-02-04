@@ -1,8 +1,5 @@
 <script lang="ts">
-	import {
-		ontouchend,
-		ontouchstart,
-	} from "../../../../utils/component_features/touchHandlers"
+	import { touchHandlers } from "../../../../utils/component_features/touchHandlers"
 
 	type Props = {
 		category?: "text" | "email" | "password"
@@ -26,15 +23,13 @@
 	}: Props = $props()
 </script>
 
-<div class:icon>
+<div use:touchHandlers class:icon>
 	<input
 		type={category}
 		{placeholder}
 		bind:value
 		{required}
 		{tabindex}
-		{ontouchstart}
-		{ontouchend}
 		{pattern}
 		{defaultValue}
 	/>
