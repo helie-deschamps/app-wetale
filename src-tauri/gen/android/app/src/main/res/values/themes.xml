@@ -2,7 +2,12 @@
     <!-- Base application theme. -->
     <style name="Theme.wetale" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="android:statusBarColor">#F7F0E6</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:windowLightStatusBar">true</item>
-    </style>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:navigationBarColor">#F7F0E6</item>
+        <item name="android:windowLightNavigationBar">true</item>
+        <!-- <item name="android:windowTranslucentNavigation">true</item> -->
+  </style>
 </resources>

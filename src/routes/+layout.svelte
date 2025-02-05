@@ -15,6 +15,18 @@
 		new Lenis({
 			autoRaf: true,
 		})
+
+		//décale le body en fonction de la taille de la barre de statut
+		//décale le body en fonction de la taille de la barre de statut
+		//document.body.style.paddingTop = `${window.screen.height - window.visualViewport.height}px`
+		//document.body.style.paddingTop = `env(safe-area-inset-top)`
+		//document.body.style.paddingTop = `constant(safe-area-inset-top)`
+		//document.body.style.paddingTop = `25px`
+		//document.body.style.paddingBottom = `${window.outerHeight - window.innerHeight}px`
+		//document.body.style.paddingBottom = `25px`
+		if (window.visualViewport)
+			document.body.style.paddingTop = `${window.screen.height - window.visualViewport.height}px`
+		else document.body.style.paddingTop = "25px"
 	})
 
 	document.addEventListener("contextmenu", e => e.preventDefault())
