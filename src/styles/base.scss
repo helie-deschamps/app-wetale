@@ -92,6 +92,7 @@ input {
 	font-family: "Figtree", sans-serif;
 }
 * {
+	-webkit-tap-highlight-color: transparent;
 	&::-webkit-scrollbar {
 		display: none;
 	}
