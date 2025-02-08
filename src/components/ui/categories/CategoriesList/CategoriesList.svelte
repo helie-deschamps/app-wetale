@@ -1,13 +1,14 @@
 <script>
-	import CategoryTilePreview from "./CategoryTilePreview/CategoryTilePreview.svelte"
+	import CategoryTilePreview from "./CategoryTilePreview.svelte"
 	import { TalesCategories } from "../../../../utils/enums/TalesCategories"
+	import SectionTitle from "../../sections/SectionTitle.svelte"
 
 	let gridWith = $state()
 	let tileSide = $derived(gridWith / 2 - 7)
 </script>
 
 <div>
-	<h2>Catégories</h2>
+	<SectionTitle text="Catégories" />
 	<div
 		class="grid"
 		bind:clientWidth={gridWith}

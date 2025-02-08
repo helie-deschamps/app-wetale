@@ -42,4 +42,7 @@
 </div>
 
 <style lang="scss">
+	div {
+		padding: 30px;
+	}
 </style>
