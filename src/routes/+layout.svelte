@@ -17,7 +17,7 @@
 			autoRaf: true,
 		})
 
-		if (platform() === "android") {
+		if (window.__TAURI_OS_PLUGIN_INTERNALS__ && platform() === "android") {
 			if (window.visualViewport)
 				document.body.style.paddingTop = `${window.screen.height - window.visualViewport.height}px`
 			else document.body.style.paddingTop = "25px"

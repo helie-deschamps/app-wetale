@@ -12,8 +12,7 @@
 		"lint": "prettier --write .",
 		"tauri:dev": "tauri dev",
 		"tauri:android:dev": "tauri android dev",
-		"tauri:google-play:build": "pnpm tauri android build --aab",
-		"storybook": "storybook dev"
+		"tauri:google-play:build": "pnpm tauri android build --aab"
 	},
 	"license": "MIT",
 	"dependencies": {
@@ -23,14 +22,6 @@
 		"lenis": "^1.1.19"
 	},
 	"devDependencies": {
-		"@storybook/addon-a11y": "^8.4.7",
-		"@storybook/addon-essentials": "^8.4.7",
-		"@storybook/addon-interactions": "^8.4.7",
-		"@storybook/addon-svelte-csf": "^5.0.0-next.21",
-		"@storybook/blocks": "^8.4.7",
-		"@storybook/svelte": "^8.4.7",
-		"@storybook/sveltekit": "^8.4.7",
-		"@storybook/test": "^8.4.7",
 		"@sveltejs/adapter-static": "^3.0.6",
 		"@sveltejs/kit": "^2.9.0",
 		"@sveltejs/vite-plugin-svelte": "^5.0.0",
@@ -38,7 +29,6 @@
 		"prettier": "^3.4.2",
 		"prettier-plugin-svelte": "^3.3.2",
 		"sass-embedded": "^1.83.1",
-		"storybook": "^8.4.7",
 		"svelte": "^5.0.0",
 		"svelte-check": "^4.0.0",
 		"typescript": "~5.6.2",
