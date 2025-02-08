@@ -30,4 +30,7 @@
 		view-transition-name: navbar;
 		transition: translate 0.3s ease;
 	}
+	:global(::view-transition-group(navbar)) {
+		z-index: 1000;
+	}
 </style>
