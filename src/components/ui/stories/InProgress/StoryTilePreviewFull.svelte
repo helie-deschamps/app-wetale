@@ -32,7 +32,6 @@
 	.global {
 		border: 2px solid #000;
 		border-radius: 16px;
-		margin-bottom: 14px;
 		color: #1a191d;
 		display: flex;
 		padding: 10px 5px 10px 0;

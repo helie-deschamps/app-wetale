@@ -87,8 +87,8 @@
 	]
 </script>
 
+<div class:image={true}></div>
 <main
-	style={`padding-top: ${($headerHeight ?? 0) + 32}px`}
 	style:view-transition-name="{categoryDatas.lowercaseTitle}paganim"
 >
 	<InProgressStory story={storiesList[0]} />
@@ -97,8 +97,19 @@
 </main>
 
 <style lang="scss">
+  @use "/src/styles/variables/colors";
+
+  .image {
+		background: #D9D9D9;
+		height: 312px; // 52px pour le border
+	}
+
 	main {
-		padding: 0 30px;
+    clip-path: polygon(0 104px, 45px 52px, calc(100% - 45px) 52px, 100% 0, 100% 100%, 0 100%);
+		padding: 83px 30px 0 30px;// 52px pour le border
+		margin-top: -104px;
+		z-index: 10000;
+		background-color: colors.$main-light;
 	}
 	h1 {
 		color: red;
