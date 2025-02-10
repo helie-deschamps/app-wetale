@@ -9,21 +9,18 @@
 	let categoryDatas = getCategoryDatas(data.category as TalesCategories)
 </script>
 
-<main>
+<main
+	style={`padding-top: ${($headerHeight ?? 0) + 32}px`}
+	style:view-transition-name="{categoryDatas.lowercaseTitle}paganim">
 	{#if categoryDatas}
-		<div
-			style={`padding-top: ${($headerHeight ?? 0) + 32}px`}
-			style:view-transition-name="{categoryDatas.lowercaseTitle}paganim"
-		>
 			<h1>{categoryDatas.title}</h1>
-		</div>
-		<StoriesList />
+			<StoriesList />
 	{/if}
 </main>
 
 <style lang="scss">
 	main {
-		padding: 30px;
+		padding: 0 30px;
 	}
 	h1 {
 		color: red;

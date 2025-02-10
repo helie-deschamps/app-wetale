@@ -12,13 +12,13 @@
 			type: TalesCategories.Thriller,
 		},
 		{
-			title: "La magie 2",
+			title: "La magie",
 			blurb:
 				"Un magicien découvre qu'il peut vraiment faire des tours de magie.",
 			type: TalesCategories.Fantasy,
 		},
 		{
-			title: "La magie 2",
+			title: "La magie 2, un voyage à Bucarest, ou l'oportunité de découvrir la Roumanie, inspiré par le film de Wes Anderson",
 			blurb:
 				"Un magicien découvre qu'il peut vraiment faire des tours de magieUn magicien découvre qu'il peut vraiment faire des tours de magieUn magicien découvre qu'il peut vraiment faire des tours de magieUn magicien découvre qu'il peut vraiment faire des tours de magieUn magicien découvre qu'il peut vraiment faire des tours de magie.",
 			type: TalesCategories.ScienceFiction,
@@ -27,9 +27,9 @@
 </script>
 
 <div>
-	<SectionTitle text="Stories" />
-	{#each storiesList as { title, blurb, type }}
-		<StoryTilePreview {title} {blurb} {type} />
+	<SectionTitle text="Suggestions" />
+	{#each storiesList as { title, blurb, type }, index}
+		<StoryTilePreview {title} {blurb} {type} onRight={index % 2 === 0} />
 	{/each}
 </div>
 

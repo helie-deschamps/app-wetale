@@ -65,5 +65,9 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+    view-transition-name: header;
 	}
+  :global(::view-transition-group(header)) {
+    z-index: 1000;
+  }
 </style>

@@ -3,17 +3,24 @@
 	import getCategoryDatas from "../../../../utils/functions/categories/getCategoryDatas"
 	import CategoryIcon from "../../categories/CategoryIcon/CategoryIcon.svelte"
 
-	const { title, blurb, type }: StoryBasic = $props()
+	const { title, blurb, type, onRight = false }: StoryBasic & { onRight?: boolean } = $props()
 </script>
 
 <div class:global={true}>
-	<span style={`background-color: ${getCategoryDatas(type).colorBackground};`}>
-		<CategoryIcon category={type} />
-	</span>
+	{#if !onRight}
+		<span class:left={true} style={`background-color: ${getCategoryDatas(type).colorBackground};`}>
+			<CategoryIcon category={type} />
+		</span>
+	{/if}
 	<div class:datas={true}>
-		<h3>{title}</h3>
-		<p>{blurb}</p>
+		<h3 style:text-align={onRight ? "right" : "left"}>{title}</h3>
+		<p style:text-align={onRight ? "right" : "left"}>{blurb}</p>
 	</div>
+	{#if onRight}
+		<span class:right={true} style={`background-color: ${getCategoryDatas(type).colorBackground};`}>
+			<CategoryIcon category={type} />
+		</span>
+	{/if}
 </div>
 
 <style lang="scss">
@@ -27,10 +34,15 @@
 		margin-bottom: 14px;
 	}
 	span {
-		border-radius: 0 16px 16px 0;
 		width: 74px;
 		overflow: hidden;
 		flex-shrink: 0;
+		.left {
+			border-radius: 16px 0 0 16px;
+		}
+		.right {
+			border-radius: 0 16px 16px 0;
+		}
 	}
 	.datas {
 		margin: 0 12px 0 15px;
@@ -41,6 +53,10 @@
 		font-weight: 900;
 		font-size: 1rem;
 		text-transform: uppercase;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 	}
 	p {
 		font-size: 0.8rem;
