@@ -3,6 +3,8 @@
 	import TextInput from "../../components/ui/forms/TextInput/TextInput.svelte"
 	import Button from "../../components/ui/Button/Button.svelte"
 	import { fade, fly } from "svelte/transition"
+	import GoogleOAuthButton from "../../components/ui/connections/OAuthButton/GoogleOAuthButton/GoogleOAuthButton.svelte"
+	import FacebookOAuthButton from "../../components/ui/connections/OAuthButton/FacebookOAuthButton/FacebookOAuthButton.svelte"
 
 	let username = $state(page.url.searchParams.get("email") ?? "")
 	let password = $state("")
@@ -33,8 +35,8 @@
 		</form>
 		<hr class:separator={true} />
 		<div>
-			<button>Se connecter avec Google</button>
-			<button>Se connecter avec Facebook</button>
+			<GoogleOAuthButton />
+			<FacebookOAuthButton />
 			<p class:lastLink={true}>
 				Vous n'avez pas de compte ? <a href="/inscription">Inscrivez-vous</a>
 			</p>

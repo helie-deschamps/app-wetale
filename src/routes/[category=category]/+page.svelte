@@ -5,6 +5,7 @@
 	import StoriesList from "../../components/ui/stories/StoriesList/StoriesList.svelte"
 	import InProgressStory from "../../components/ui/stories/InProgress/InProgressStory.svelte"
 	import type { StoryBasic } from "../../utils/types/StoryBasic"
+	import { navBarHeight } from "../../components/ui/NavBar/NavBar.svelte"
 
 	let { data } = $props()
 
@@ -90,6 +91,7 @@
 <div class:image={true}></div>
 <main
 	style:view-transition-name="{categoryDatas.lowercaseTitle}paganim"
+	style:padding-bottom={`${($navBarHeight ?? 0) + 60}px`}
 >
 	<InProgressStory story={storiesList[0]} />
 	<div class:separator={true}></div>
@@ -97,16 +99,23 @@
 </main>
 
 <style lang="scss">
-  @use "/src/styles/variables/colors";
+	@use "/src/styles/variables/colors";
 
-  .image {
-		background: #D9D9D9;
+	.image {
+		background: #d9d9d9;
 		height: 312px; // 52px pour le border
 	}
 
 	main {
-    clip-path: polygon(0 104px, 45px 52px, calc(100% - 45px) 52px, 100% 0, 100% 100%, 0 100%);
-		padding: 83px 30px 0 30px;// 52px pour le border
+		clip-path: polygon(
+			0 104px,
+			45px 52px,
+			calc(100% - 45px) 52px,
+			100% 0,
+			100% 100%,
+			0 100%
+		);
+		padding: 83px 30px 0 30px; // 52px pour le border
 		margin-top: -104px;
 		z-index: 10000;
 		background-color: colors.$main-light;

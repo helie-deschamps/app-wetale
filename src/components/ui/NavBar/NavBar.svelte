@@ -1,24 +1,31 @@
 <script module lang="ts">
 	import { type Writable, writable } from "svelte/store"
 	export const navBar: Writable<HTMLElement | undefined> = writable(undefined)
+	export const navBarHeight: Writable<number | undefined> = writable(undefined)
 </script>
 
 <script lang="ts">
 	let localNavBar: HTMLElement | undefined = $state(undefined)
+	let localNavBarHeight: number | undefined = $state(undefined)
 
 	$effect(() => {
 		navBar.set(localNavBar)
 	})
+	$effect(() => {
+		navBarHeight.set(localNavBarHeight)
+	})
 </script>
 
-<nav bind:this={localNavBar}>Navbar UwU</nav>
+<nav bind:this={localNavBar} bind:offsetHeight={localNavBarHeight}>
+	Navbar UwU
+</nav>
 
 <style lang="scss">
 	@use "/src/styles/variables/colors";
 
 	nav {
 		position: fixed;
-		bottom: 3em;
+		bottom: 30px;
 		background-color: colors.$main-dark;
 		color: colors.$main-light;
 		padding: 1.2em 0;
