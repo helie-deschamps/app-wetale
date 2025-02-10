@@ -11,10 +11,11 @@
 
 <main
 	style={`padding-top: ${($headerHeight ?? 0) + 32}px`}
-	style:view-transition-name="{categoryDatas.lowercaseTitle}paganim">
+	style:view-transition-name="{categoryDatas.lowercaseTitle}paganim"
+>
 	{#if categoryDatas}
-			<h1>{categoryDatas.title}</h1>
-			<StoriesList />
+		<h1>{categoryDatas.title}</h1>
+		<StoriesList />
 	{/if}
 </main>
 

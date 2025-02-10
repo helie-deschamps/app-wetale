@@ -4,4 +4,5 @@ export type StoryBasic = {
 	title: string
 	blurb: string
 	type: TalesCategories
+	uid: string
 }
