@@ -13,5 +13,6 @@
 		font-size: 1.5rem;
 		margin-bottom: 1rem;
 		text-transform: uppercase;
+		font-weight: 900;
 	}
 </style>

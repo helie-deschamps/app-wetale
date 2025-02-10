@@ -5,4 +5,6 @@ export type StoryBasic = {
 	blurb: string
 	type: TalesCategories
 	uid: string
+	lastChapitre: number
+	completionRatio: number
 }

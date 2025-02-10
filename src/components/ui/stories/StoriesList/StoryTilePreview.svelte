@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { StoryBasic } from "../../../../utils/types/StoryBasic"
 	import StoryTileIcon from "./StoryTileIcon.svelte"
+	import { touchHandlers } from "../../../../utils/component_features/touchHandlers"
 
 	const {
 		title,
@@ -9,19 +10,10 @@
 		uid,
 		onRight = false,
 	}: StoryBasic & { onRight?: boolean } = $props()
-
-	function hashToAngle(str: string): number {
-		let hash = 0
-		for (let i = 0; i < str.length; i++) {
-			hash = (hash * 31 + str.charCodeAt(i)) >>> 0 // 31 est un nombre premier souvent utilisé
-		}
-		let normalized = hash / 0xffffffff
-		return normalized * Math.PI * 2
-	}
 </script>
 
 <a href={`/s/${uid}`}>
-	<div class:global={true}>
+	<div use:touchHandlers class:global={true}>
 		{#if !onRight}
 			<StoryTileIcon stringForRotation={title} {type} />
 		{/if}
