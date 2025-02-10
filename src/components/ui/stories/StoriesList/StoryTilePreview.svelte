@@ -2,24 +2,30 @@
 	import type { StoryBasic } from "../../../../utils/types/StoryBasic"
 	import getCategoryDatas from "../../../../utils/functions/categories/getCategoryDatas"
 	import CategoryIcon from "../../categories/CategoryIcon/CategoryIcon.svelte"
+	import StoryTileIcon from "./StoryTileIcon.svelte"
 
 	const { title, blurb, type, onRight = false }: StoryBasic & { onRight?: boolean } = $props()
+
+	function hashToAngle(str: string): number {
+		let hash = 0;
+		for (let i = 0; i < str.length; i++) {
+			hash = (hash * 31 + str.charCodeAt(i)) >>> 0; // 31 est un nombre premier souvent utilisé
+		}
+		let normalized = hash / 0xFFFFFFFF;
+		return normalized * Math.PI * 2;
+	}
 </script>
 
 <div class:global={true}>
 	{#if !onRight}
-		<span class:left={true} style={`background-color: ${getCategoryDatas(type).colorBackground};`}>
-			<CategoryIcon category={type} />
-		</span>
+		<StoryTileIcon stringForRotation={title} {type} />
 	{/if}
 	<div class:datas={true}>
 		<h3 style:text-align={onRight ? "right" : "left"}>{title}</h3>
 		<p style:text-align={onRight ? "right" : "left"}>{blurb}</p>
 	</div>
 	{#if onRight}
-		<span class:right={true} style={`background-color: ${getCategoryDatas(type).colorBackground};`}>
-			<CategoryIcon category={type} />
-		</span>
+		<StoryTileIcon stringForRotation={title} {type} />
 	{/if}
 </div>
 
@@ -33,7 +39,7 @@
 		overflow: hidden;
 		margin-bottom: 14px;
 	}
-	span {
+	.icon {
 		width: 74px;
 		overflow: hidden;
 		flex-shrink: 0;
@@ -44,6 +50,12 @@
 			border-radius: 0 16px 16px 0;
 		}
 	}
+  .iconRotator {
+    width: 80%;
+		margin: 0 auto;
+    display: block;
+    height: 100%;
+  }
 	.datas {
 		margin: 0 12px 0 15px;
 		flex: 1;
