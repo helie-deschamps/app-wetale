@@ -36,7 +36,9 @@
 		<hr class:separator={true} />
 		<div>
 			<GoogleOAuthButton />
+			<div style:height=".8em"></div>
 			<FacebookOAuthButton />
+			<div style:height=".4em"></div>
 			<p class:lastLink={true}>
 				Vous n'avez pas de compte ? <a href="/inscription">Inscrivez-vous</a>
 			</p>

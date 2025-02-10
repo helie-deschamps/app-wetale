@@ -2,4 +2,4 @@
 	import OAuthButton from "../OAuthButton.svelte"
 </script>
 
-<OAuthButton service="Google" />
+<OAuthButton service="Google" icon="google" />

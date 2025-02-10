@@ -2,4 +2,4 @@
 	import OAuthButton from "../OAuthButton.svelte"
 </script>
 
-<OAuthButton service="Facebook" />
+<OAuthButton service="Facebook" icon="fb" />
