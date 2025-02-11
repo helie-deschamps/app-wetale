@@ -21,9 +21,9 @@
 </script>
 
 <nav bind:this={localNavBar} bind:offsetHeight={localNavBarHeight}>
-	<HomeIcon isCurrent={false} />
-	<LibraryIcon isCurrent={false} />
-	<FavoriteIcon isCurrent={false} />
+	<HomeIcon />
+	<LibraryIcon />
+	<FavoriteIcon />
 </nav>
 
 <style lang="scss">
