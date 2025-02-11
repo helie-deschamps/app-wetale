@@ -6,9 +6,11 @@
 	import "lenis/dist/lenis.css"
 	import "/src/styles/reset.scss"
 	import "/src/styles/base.scss"
-	import { onNavigate } from "$app/navigation"
+	import { beforeNavigate, goto, onNavigate } from "$app/navigation"
 	import NavBar from "../components/ui/NavBar/NavBar.svelte"
 	import Header from "../components/ui/Header/Header.svelte"
+	import getTabsDatas from "../components/ui/NavBar/tabsManager/getTabsDatas"
+	import { currentTab } from "../components/ui/NavBar/tabsManager/currentTab.store"
 
 	let { children }: { children: Snippet } = $props()
 
@@ -35,6 +37,10 @@
 				await navigation.complete
 			})
 		})
+	})
+
+	beforeNavigate(({ to }) => {
+		if (to) getTabsDatas($currentTab).currentPageUri = to.url.pathname
 	})
 </script>
 
