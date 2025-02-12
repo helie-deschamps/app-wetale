@@ -10,7 +10,7 @@
 
 <button
 	onclick={() => {
-		if (!isCurrent) changeTab(Tabs.Favorite)
+		changeTab(Tabs.Favorite)
 	}}
 >
 	{#if isCurrent}
