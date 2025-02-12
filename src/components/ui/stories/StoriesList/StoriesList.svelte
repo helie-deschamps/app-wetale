@@ -8,8 +8,8 @@
 
 <div>
 	<SectionTitle text="Suggestions" />
-	{#each storiesList as { title, blurb, type, uid }, index}
-		<StoryTilePreview {uid} {title} {blurb} {type} onRight={index % 2 === 0} />
+	{#each storiesList as story, index}
+		<StoryTilePreview {...story} />
 	{/each}
 </div>
 
