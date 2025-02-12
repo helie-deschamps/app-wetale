@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { navBar } from "../../../components/ui/NavBar/NavBar.svelte"
 	import { onDestroy, onMount } from "svelte"
-	import { headerHeight } from "../../../components/ui/Header/Header.svelte"
+	import ClassicPageWrapper from "../../../components/ui/pageWrappers/ClassicPageWrapper.svelte"
 
 	let { data } = $props()
 	let { storyID, StoryTitle, storyBody, StoryCategory } = data
@@ -36,13 +36,7 @@
 	})
 </script>
 
-<div style={`padding-top: ${($headerHeight ?? 0) + 32}px`}>
+<ClassicPageWrapper>
 	<h1>Story {storyID}</h1>
 	<p>{storyBody}</p>
-</div>
-
-<style lang="scss">
-	div {
-		padding: 30px;
-	}
-</style>
+</ClassicPageWrapper>
