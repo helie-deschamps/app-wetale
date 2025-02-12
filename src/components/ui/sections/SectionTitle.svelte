@@ -8,7 +8,7 @@
 	} = $props()
 </script>
 
-<h2 style:margin-bottom={(withMargin && "1rem;") || undefined}>{text}</h2>
+<h2 style="margin-bottom:{withMargin ? '1rem;' : undefined};">{text}</h2>
 
 <style lang="scss">
 	h2 {
