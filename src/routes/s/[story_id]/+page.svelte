@@ -4,7 +4,7 @@
 	import ClassicPageWrapper from "../../../components/ui/pageWrappers/ClassicPageWrapper.svelte"
 
 	let { data } = $props()
-	let { storyID, StoryTitle, storyBody, StoryCategory } = data
+	let { story } = data
 
 	let oldScroll = 0
 	let navBarPosition = 0
@@ -37,6 +37,6 @@
 </script>
 
 <ClassicPageWrapper>
-	<h1>Story {storyID}</h1>
-	<p>{storyBody}</p>
+	<h1>Story {story.uid}</h1>
+	<p>{story.body}</p>
 </ClassicPageWrapper>

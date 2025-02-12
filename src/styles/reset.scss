@@ -9,3 +9,20 @@ h6 {
 	margin: 0;
 	padding: 0;
 }
+
+.button_flat {
+	background: none;
+	border: none;
+	border-radius: 0;
+	padding: 0;
+}
+
+.link_simple {
+	font-size: 0.8rem;
+	font-weight: 600;
+	color: #f7f0e6;
+	background-color: #1a191d;
+	border-radius: 4px;
+	padding: 4px 6px;
+	display: inline-block;
+}

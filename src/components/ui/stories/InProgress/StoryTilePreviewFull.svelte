@@ -22,8 +22,12 @@
 		<h4>Chapitre: {lastChapitre}</h4>
 		<p>{blurb}</p>
 		<div class:links={true}>
-			<a use:touchHandlers href="/s/{uid}">Voir le résumé</a>
-			<a use:touchHandlers href="/s/{uid}">Continuer l’histoire</a>
+			<a class:link_simple={true} use:touchHandlers href="/s/{uid}/preview"
+				>Voir le résumé</a
+			>
+			<a class:link_simple={true} use:touchHandlers href="/s/{uid}"
+				>Continuer l’histoire</a
+			>
 		</div>
 	</div>
 </div>
@@ -68,13 +72,5 @@
 		display: flex;
 		justify-content: end;
 		gap: 7px;
-	}
-	a {
-		font-size: 0.8rem;
-		color: #f7f0e6;
-		background-color: #1a191d;
-		border-radius: 4px;
-		padding: 4px 6px;
-		display: inline-block;
 	}
 </style>
