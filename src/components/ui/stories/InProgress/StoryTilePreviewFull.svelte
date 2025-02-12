@@ -51,8 +51,8 @@
 		text-transform: uppercase;
 		overflow: hidden;
 		display: -webkit-box;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
+		-webkit-line-clamp: 2;
+		line-clamp: 2;
 		-webkit-box-orient: vertical;
 	}
 	h4 {
@@ -65,8 +65,8 @@
 		height: 2.2em;
 		overflow: hidden;
 		display: -webkit-box;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
+		-webkit-line-clamp: 2;
+		line-clamp: 2;
 		-webkit-box-orient: vertical;
 		margin: 0.4em 0;
 	}

@@ -27,7 +27,7 @@
 	@use "/src/styles/variables/colors";
 
 	.image {
-		height: 312px; // 52px pour le border
+		height: 312px;
 		position: sticky;
 		top: 0;
 		background-size: cover;
@@ -35,17 +35,24 @@
 	}
 
 	main {
-		clip-path: polygon(
-			0 104px,
-			45px 52px,
-			calc(100% - 45px) 52px,
-			100% 0,
-			100% 100%,
-			0 100%
-		);
-		padding: 83px 30px 0 30px; // 52px pour le border
-		margin-top: -104px;
-		z-index: 10000;
+		position: relative;
+		padding: 32px 30px 0 30px;
+		border-radius: 52px 0 0 0/ 45px 0 0 0;
+		margin-top: -52px;
 		background-color: colors.$main-light;
+		&:after {
+			content: "";
+			position: absolute;
+			top: -52px;
+			right: 0;
+			width: 45px;
+			height: 52px;
+			background-color: colors.$main-light;
+			mask-image: radial-gradient(
+				ellipse at left top,
+				transparent 45px,
+				black 46px
+			);
+		}
 	}
 </style>
