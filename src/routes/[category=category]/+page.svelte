@@ -6,6 +6,7 @@
 	import InProgressStory from "../../components/ui/stories/InProgress/InProgressStory.svelte"
 	import type { StoryBasic } from "../../utils/types/StoryBasic"
 	import { navBarHeight } from "../../components/ui/NavBar/NavBar.svelte"
+	import ImagePageWrapper from "../../components/ui/pageWrappers/ImagePageWrapper.svelte"
 
 	let { data } = $props()
 
@@ -88,22 +89,25 @@
 	]
 </script>
 
-<div class:image={true}></div>
-<main
-	style:view-transition-name="{categoryDatas.lowercaseTitle}paganim"
-	style:padding-bottom={`${($navBarHeight ?? 0) + 60}px`}
+<ImagePageWrapper
+	viewTransitionName="{categoryDatas.lowercaseTitle}paganim"
+	backgroundImageUri="https://wiki.leagueoflegends.com/en-us/images/02BW053-full.png?9f4f8"
 >
 	<InProgressStory story={storiesList[0]} />
 	<div class:separator={true}></div>
 	<StoriesList storiesList={storiesList.slice(1)} />
-</main>
+</ImagePageWrapper>
 
 <style lang="scss">
 	@use "/src/styles/variables/colors";
 
 	.image {
-		background: #d9d9d9;
+		//background: #d9d9d9;
 		height: 312px; // 52px pour le border
+		background-size: cover;
+		background-position: center center;
+		position: sticky;
+		top: 0;
 	}
 
 	main {
