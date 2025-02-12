@@ -38,23 +38,6 @@
 		margin-bottom: 14px;
 		color: #1a191d;
 	}
-	.icon {
-		width: 74px;
-		overflow: hidden;
-		flex-shrink: 0;
-		.left {
-			border-radius: 16px 0 0 16px;
-		}
-		.right {
-			border-radius: 0 16px 16px 0;
-		}
-	}
-	.iconRotator {
-		width: 80%;
-		margin: 0 auto;
-		display: block;
-		height: 100%;
-	}
 	.datas {
 		margin: 0 12px 0 15px;
 		flex: 1;

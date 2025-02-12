@@ -101,32 +101,6 @@
 <style lang="scss">
 	@use "/src/styles/variables/colors";
 
-	.image {
-		//background: #d9d9d9;
-		height: 312px; // 52px pour le border
-		background-size: cover;
-		background-position: center center;
-		position: sticky;
-		top: 0;
-	}
-
-	main {
-		clip-path: polygon(
-			0 104px,
-			45px 52px,
-			calc(100% - 45px) 52px,
-			100% 0,
-			100% 100%,
-			0 100%
-		);
-		padding: 83px 30px 0 30px; // 52px pour le border
-		margin-top: -104px;
-		z-index: 10000;
-		background-color: colors.$main-light;
-	}
-	h1 {
-		color: red;
-	}
 	.separator {
 		height: 41px;
 	}

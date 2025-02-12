@@ -55,11 +55,6 @@
 </div>
 
 <style>
-	h2 {
-		font-size: 1.5rem;
-		margin-bottom: 1rem;
-		text-transform: uppercase;
-	}
 	.grid {
 		display: grid;
 		grid-column-gap: 14px;
