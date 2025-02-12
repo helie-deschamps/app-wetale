@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { touchHandlers } from "../../../../utils/component_features/touchHandlers"
+
 	let {
 		checked = $bindable(),
 	}: {
@@ -16,6 +18,7 @@
 	role="checkbox"
 	aria-checked={true}
 	{onclick}
+	use:touchHandlers
 >
 	{#if checked}
 		<svg
