@@ -50,7 +50,7 @@
 			position: absolute;
 			font-size: 25px;
 			font-weight: bold;
-			max-width: 135px;
+			max-width: 80%;
 		}
 		span {
 			position: absolute;
@@ -62,6 +62,9 @@
 	}
 	.large {
 		grid-column: span 2;
+		p {
+			max-width: 40%;
+		}
 	}
 
 	.romance {
@@ -71,8 +74,8 @@
 			text-align: right;
 		}
 		span {
-			width: 201px;
-			left: -40px;
+			width: 130%;
+			left: -30%;
 			top: 50%;
 			transform: translateY(-50%);
 		}
@@ -84,9 +87,8 @@
 			text-align: right;
 		}
 		span {
-			width: 140px;
-			top: 38px;
-			left: -12px;
+			width: 90%;
+			bottom: -25%;
 		}
 	}
 	.sf {
@@ -96,9 +98,10 @@
 			text-align: right;
 		}
 		span {
-			width: 179px;
-			left: -11px;
-			bottom: -12px;
+			width: 120%;
+			bottom: -5%;
+			left: 50%;
+			transform: translateX(-50%);
 		}
 	}
 	.adventure {
@@ -108,9 +111,9 @@
 			text-align: left;
 		}
 		span {
-			width: 244px;
-			right: 26px;
-			top: 12px;
+			width: 75%;
+			right: 7%;
+			top: 5%;
 		}
 	}
 	.thriller {
@@ -120,9 +123,9 @@
 			text-align: right;
 		}
 		span {
-			width: 160px;
-			left: -40px;
-			top: -8px;
+			width: 105%;
+			left: -30%;
+			top: -7%;
 		}
 	}
 	.fantasy {
@@ -132,9 +135,10 @@
 			text-align: right;
 		}
 		span {
-			width: 201px;
-			left: -60px;
-			top: -26px;
+			width: 120%;
+			left: -28%;
+			top: 50%;
+			transform: translateY(-50%);
 		}
 	}
 </style>
