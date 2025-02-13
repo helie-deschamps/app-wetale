@@ -20,7 +20,6 @@
 
 <header bind:this={localHeader} bind:offsetHeight={localHeaderHeight}>
 	<Logo />
-	<a href="/s/bethesda.net">s</a>
 	<a href="/login" aria-label="Mon compte">
 		<svg
 			role="img"

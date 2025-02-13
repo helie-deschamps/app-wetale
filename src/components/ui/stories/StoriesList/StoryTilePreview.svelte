@@ -12,7 +12,7 @@
 	}: StoryBasic & { onRight?: boolean } = $props()
 </script>
 
-<a href={`/s/${uid}/preview`}>
+<a href={`/story/${uid}`}>
 	<div use:touchHandlers class:global={true}>
 		{#if !onRight}
 			<StoryTileIcon stringForRotation={title} {type} />

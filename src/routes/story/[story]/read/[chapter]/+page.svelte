@@ -1,10 +1,11 @@
 <script lang="ts">
-	import { navBar } from "../../../components/ui/NavBar/NavBar.svelte"
+	import { navBar } from "../../../../../components/ui/NavBar/NavBar.svelte"
 	import { onDestroy, onMount } from "svelte"
-	import ClassicPageWrapper from "../../../components/ui/pageWrappers/ClassicPageWrapper.svelte"
+	import ClassicPageWrapper from "../../../../../components/ui/pageWrappers/ClassicPageWrapper.svelte"
+	import Poll from "../../../../../components/ui/Poll/Poll.svelte"
 
 	let { data } = $props()
-	let { story } = data
+	let { story, chapter } = data
 
 	let oldScroll = 0
 	let navBarPosition = 0
@@ -38,5 +39,6 @@
 
 <ClassicPageWrapper>
 	<h1>Story {story.uid}</h1>
-	<p>{story.body}</p>
+	<p>{chapter.body}</p>
+	<Poll storyUid={story.uid} {chapter}></Poll>
 </ClassicPageWrapper>

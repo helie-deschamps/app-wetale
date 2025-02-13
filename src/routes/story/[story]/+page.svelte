@@ -1,9 +1,9 @@
 <script lang="ts">
-	import ImagePageWrapper from "../../../../components/ui/pageWrappers/ImagePageWrapper.svelte"
-	import SectionTitle from "../../../../components/ui/sections/SectionTitle.svelte"
-	import getCategoryDatas from "../../../../utils/functions/categories/getCategoryDatas"
-	import FavoriteStar from "../../../../components/ui/stories/FavoriteStar/FavoriteStar.svelte"
-	import { touchHandlers } from "../../../../utils/component_features/touchHandlers"
+	import ImagePageWrapper from "../../../components/ui/pageWrappers/ImagePageWrapper.svelte"
+	import SectionTitle from "../../../components/ui/sections/SectionTitle.svelte"
+	import getCategoryDatas from "../../../utils/functions/categories/getCategoryDatas"
+	import FavoriteStar from "../../../components/ui/stories/FavoriteStar/FavoriteStar.svelte"
+	import { touchHandlers } from "../../../utils/component_features/touchHandlers"
 
 	let { data } = $props()
 	let { story } = data
@@ -28,8 +28,10 @@
 		</div>
 		<p class:blurb={true}>{story.blurb}</p>
 		<div class:linkDiv={true}>
-			<a class:link_simple={true} use:touchHandlers href="/s/{story.uid}"
-				>Découvrir cette histoire</a
+			<a
+				class:link_simple={true}
+				use:touchHandlers
+				href="/story/{story.uid}/read/1">Découvrir cette histoire</a
 			>
 		</div>
 	</div>

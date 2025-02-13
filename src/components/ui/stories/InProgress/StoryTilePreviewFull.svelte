@@ -22,10 +22,10 @@
 		<h4>Chapitre: {lastChapitre}</h4>
 		<p>{blurb}</p>
 		<div class:links={true}>
-			<a class:link_simple={true} use:touchHandlers href="/s/{uid}/preview"
+			<a class:link_simple={true} use:touchHandlers href="/story/{uid}"
 				>Voir le résumé</a
 			>
-			<a class:link_simple={true} use:touchHandlers href="/s/{uid}"
+			<a class:link_simple={true} use:touchHandlers href="/story/{uid}"
 				>Continuer l’histoire</a
 			>
 		</div>
