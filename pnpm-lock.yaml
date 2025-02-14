@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@lottiefiles/dotlottie-svelte':
+        specifier: ^0.4.6
+        version: 0.4.6(svelte@5.17.3)
       '@tauri-apps/api':
         specifier: ^2
         version: 2.2.0
@@ -231,6 +234,14 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
+
+  '@lottiefiles/dotlottie-svelte@0.4.6':
+    resolution: {integrity: sha512-s5JxftcD73GUszRx+jz4qmIcZtCGLNrmYhXrppWwE2GoAWKngI8IYTp2oFw6yd9QwW8ipcTU2rrPuINSS0P1bA==}
+    peerDependencies:
+      svelte: ^4.0.0
+
+  '@lottiefiles/dotlottie-web@0.40.1':
+    resolution: {integrity: sha512-iNz1rr8zRTSJ0xCZEPeoCX6YnaNhBdkF7gJWhSa8bwB4NTrYZm0vAuC0jF/aLLhU7q9nf6ykxffrz0Sf4JPSPg==}
 
   '@polka/url@1.0.0-next.28':
     resolution: {integrity: sha512-8LduaNlMZGwdZ6qWrKlfa+2M4gahzFkprZiAt2TF8uS0qQgBizKXpXURqvTJ4WtmupWxaLqjRb2UCTe72mu+Aw==}
@@ -945,6 +956,13 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
+
+  '@lottiefiles/dotlottie-svelte@0.4.6(svelte@5.17.3)':
+    dependencies:
+      '@lottiefiles/dotlottie-web': 0.40.1
+      svelte: 5.17.3
+
+  '@lottiefiles/dotlottie-web@0.40.1': {}
 
   '@polka/url@1.0.0-next.28': {}
 

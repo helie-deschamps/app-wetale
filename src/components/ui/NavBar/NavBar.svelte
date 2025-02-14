@@ -5,8 +5,12 @@
 </script>
 
 <script lang="ts">
-	import HomeIcon from "./icons/HomeIcon.svelte"
+	//import HomeIcon from "./icons/HomeIcon.svelte"
 	import FavoriteIcon from "./icons/FavoriteIcon.svelte"
+	//import LibraryIcon from "./icons/LibraryIcon.svelte"
+	//import FavoriteLottie from "./icons/FavoriteLottie.svelte"
+	import LibraryLottie from "./icons/LibraryLottie.svelte"
+	import HomeLottie from "./icons/HomeLottie.svelte"
 	import LibraryIcon from "./icons/LibraryIcon.svelte"
 
 	let localNavBar: HTMLElement | undefined = $state(undefined)
@@ -21,8 +25,8 @@
 </script>
 
 <nav bind:this={localNavBar} bind:offsetHeight={localNavBarHeight}>
-	<HomeIcon />
-	<LibraryIcon />
+	<HomeLottie />
+	<LibraryLottie />
 	<FavoriteIcon />
 </nav>
 

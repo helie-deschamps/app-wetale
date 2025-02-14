@@ -30,9 +30,9 @@
 		}
 	}
 	.selected {
-		background-color: #87801F;
+		background-color: #87801f;
 		color: white;
-    outline: none;
+		outline: none;
 	}
 	input {
 		display: none;
