@@ -13,7 +13,7 @@
 </script>
 
 <a href={`/story/${uid}`}>
-	<div use:touchHandlers class:global={true}>
+	<div use:touchHandlers class:global={true} class:right={onRight}>
 		{#if !onRight}
 			<StoryTileIcon stringForRotation={title} {type} />
 		{/if}
@@ -62,5 +62,44 @@
 		-webkit-line-clamp: 3;
 		line-clamp: 3;
 		-webkit-box-orient: vertical;
+	}
+
+	.global {
+		animation: effectright linear both;
+		animation-timeline: view();
+		animation-range: entry 0 entry calc(98px + 50%);
+		&.right {
+			animation: effectleft linear both;
+			animation-timeline: view();
+			animation-range: entry 0 entry calc(98px + 50%);
+		}
+	}
+	@keyframes effectright {
+		0% {
+			transform: translateX(-50px) translateY(100%) scale(0.01);
+		}
+		40% {
+			transform: translateX(50px) translateY(60%) scale(0.4);
+		}
+		80% {
+			transform: translateX(-50px) translateY(20%) scale(0.8);
+		}
+		100% {
+			transform: translateX(0) translateY(0%) scale(1);
+		}
+	}
+	@keyframes effectleft {
+		0% {
+			transform: translateX(50px) translateY(100%) scale(0.01);
+		}
+		40% {
+			transform: translateX(-50px) translateY(60%) scale(0.4);
+		}
+		80% {
+			transform: translateX(50px) translateY(20%) scale(0.8);
+		}
+		100% {
+			transform: translateX(0) translateY(0%) scale(1);
+		}
 	}
 </style>
