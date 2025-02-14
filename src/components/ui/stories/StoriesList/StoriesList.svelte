@@ -9,7 +9,7 @@
 <div>
 	<SectionTitle text="Suggestions" />
 	{#each storiesList as story, index}
-		<StoryTilePreview {...story} />
+		<StoryTilePreview {...story} onRight={index % 2 === 0} />
 	{/each}
 </div>
 
