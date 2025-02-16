@@ -13,7 +13,7 @@ function ontouchend(event: TouchEvent) {
 }
 
 export const touchHandlers: Action<HTMLElement> = node => {
-	node.addEventListener("touchstart", ontouchstart)
+	node.addEventListener("touchstart", ontouchstart, { passive: false })
 	node.addEventListener("touchend", ontouchend)
 	node.addEventListener("touchcancel", ontouchend)
 
