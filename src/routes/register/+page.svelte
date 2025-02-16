@@ -13,20 +13,17 @@
 <div class:global_container={true} out:fade>
 	<div class:login_container={true} in:fly={{ y: 200 }} out:fly={{ y: 200 }}>
 		<form>
-			<h2>Connectez-vous !</h2>
-			<div class:email_div={true}>
-				<TextInput
-					category="email"
-					placeholder="Votre addresse mail"
-					bind:value={username}
-					defaultValue={page.url.searchParams.get("email") ?? undefined}
-					required={true}
-					tabindex={1}
-					icon="email"
-					autoComplete="username"
-				/>
-				<a class:forget_link={true} href="/forget-password">Mot de passe oublié</a>
-			</div>
+			<h2>Inscrivez vous !</h2>
+			<TextInput
+				category="email"
+				placeholder="Votre addresse mail"
+				bind:value={username}
+				defaultValue={page.url.searchParams.get("email") ?? undefined}
+				required={true}
+				tabindex={1}
+				icon="email"
+				autoComplete="username"
+			/>
 			<TextInput
 				category="password"
 				placeholder="Votre mot de passe"
@@ -34,9 +31,9 @@
 				required={true}
 				tabindex={2}
 				icon="password"
-				autoComplete="current-password"
+				autoComplete="new-password"
 			/>
-			<Button isSubmit={true} tabindex={3}>Se connecter</Button>
+			<Button isSubmit={true} tabindex={3}>S'inscrire</Button>
 		</form>
 		<hr class:separator={true} />
 		<div>
@@ -45,7 +42,7 @@
 			<FacebookOAuthButton />
 			<div style:height=".4em"></div>
 			<p class:lastLink={true}>
-				Vous n'avez pas de compte ? <a href="/register">Inscrivez-vous</a>
+				Vous avez dejà compte ? <a href="/login">Connectez-vous</a>
 			</p>
 		</div>
 	</div>
@@ -100,16 +97,6 @@
 			background-color: colors.$main-light;
 			padding: 0 16px;
 		}
-	}
-	.email_div {
-		position: relative;
-	}
-  .forget_link {
-		position: absolute;
-		bottom: calc(.3em + 13px);
-		right: -0.3em;
-		font-size: .8em;
-		padding: .3em 1em .2em 0;
 	}
 	.lastLink {
 		text-align: center;
