@@ -22,6 +22,7 @@
 				required={true}
 				tabindex={1}
 				icon="email"
+				autoComplete="username"
 			/>
 			<TextInput
 				category="password"
@@ -30,6 +31,7 @@
 				required={true}
 				tabindex={2}
 				icon="password"
+				autoComplete="current-password"
 			/>
 			<Button isSubmit={true} tabindex={3}>Se connecter</Button>
 		</form>

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { touchHandlers } from "../../../../utils/component_features/touchHandlers"
+	import type { FullAutoFill } from "svelte/elements"
 
 	type Props = {
 		category?: "text" | "email" | "password"
@@ -10,6 +11,7 @@
 		icon?: "email" | "password"
 		pattern?: string
 		defaultValue?: string
+		autoComplete?: FullAutoFill
 	}
 	let {
 		category = "text",
@@ -20,6 +22,7 @@
 		icon,
 		pattern,
 		defaultValue,
+		autoComplete,
 	}: Props = $props()
 </script>
 
@@ -32,6 +35,7 @@
 		{tabindex}
 		{pattern}
 		{defaultValue}
+		autocomplete={autoComplete}
 	/>
 	{#if icon === "email"}
 		<svg
