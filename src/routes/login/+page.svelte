@@ -25,7 +25,9 @@
 					icon="email"
 					autoComplete="username"
 				/>
-				<a class:forget_link={true} href="/forget-password">Mot de passe oublié</a>
+				<a class:forget_link={true} href="/forget-password"
+					>Mot de passe oublié</a
+				>
 			</div>
 			<TextInput
 				category="password"
@@ -104,12 +106,12 @@
 	.email_div {
 		position: relative;
 	}
-  .forget_link {
+	.forget_link {
 		position: absolute;
-		bottom: calc(.3em + 13px);
+		bottom: calc(0.3em + 13px);
 		right: -0.3em;
-		font-size: .8em;
-		padding: .3em 1em .2em 0;
+		font-size: 0.8em;
+		padding: 0.3em 1em 0.2em 0;
 	}
 	.lastLink {
 		text-align: center;

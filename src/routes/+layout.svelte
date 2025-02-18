@@ -11,6 +11,8 @@
 	import Header from "../components/ui/Header/Header.svelte"
 	import getTabsDatas from "../components/ui/NavBar/tabsManager/getTabsDatas"
 	import { currentTab } from "../components/ui/NavBar/tabsManager/currentTab.store"
+	import getCssOsBarsHeight from "../utils/functions/osInfos/getCssOsBarsHeight"
+	import { navBarHeight } from "../components/ui/NavBar/NavBar.svelte"
 
 	let { children }: { children: Snippet } = $props()
 
@@ -18,11 +20,13 @@
 		new Lenis({
 			autoRaf: true,
 		})
+	})
 
-		if (window.__TAURI_OS_PLUGIN_INTERNALS__ && platform() === "android") {
-			if (window.visualViewport)
-				document.body.style.paddingTop = `${window.screen.height - window.visualViewport.height}px`
-			else document.body.style.paddingTop = "25px"
+	onMount(async () => {
+		if (window.__TAURI_OS_PLUGIN_INTERNALS__) {
+			let { StatusBarHeight, NavigationBarHeight } = await getCssOsBarsHeight()
+			document.body.style.paddingTop = `${StatusBarHeight}px`
+			document.body.style.paddingBottom = `${($navBarHeight ?? 0) + NavigationBarHeight + 30}px`
 		}
 	})
 
@@ -42,6 +46,8 @@
 	beforeNavigate(({ to }) => {
 		if (to) getTabsDatas($currentTab).currentPageUri = to.url.pathname
 	})
+
+	let result = $state("")
 </script>
 
 <Header />

@@ -8,6 +8,8 @@
 	import LibraryLottie from "./icons/LibraryLottie.svelte"
 	import HomeLottie from "./icons/HomeLottie.svelte"
 	import FavoriteLottie from "./icons/FavoriteLottie.svelte"
+	import getCssOsBarsHeight from "../../../utils/functions/osInfos/getCssOsBarsHeight"
+	import { onMount } from "svelte"
 
 	let localNavBar: HTMLElement | undefined = $state(undefined)
 	let localNavBarHeight: number | undefined = $state(undefined)
@@ -17,6 +19,11 @@
 	})
 	$effect(() => {
 		navBarHeight.set(localNavBarHeight)
+	})
+
+	onMount(async () => {
+		;(localNavBar as HTMLElement).style.bottom =
+			(await getCssOsBarsHeight()).NavigationBarHeight + 20 + "px"
 	})
 </script>
 
@@ -31,7 +38,7 @@
 
 	nav {
 		position: fixed;
-		bottom: 30px;
+		bottom: 20px;
 		background-color: colors.$main-dark;
 		color: colors.$main-light;
 		padding: 14px 0 18px 0;

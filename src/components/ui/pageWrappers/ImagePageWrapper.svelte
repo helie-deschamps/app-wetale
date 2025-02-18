@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { navBarHeight } from "../../ui/NavBar/NavBar.svelte"
-	import type { Snippet } from "svelte"
+	import { onMount, type Snippet } from "svelte"
+	import getCssOsBarsHeight from "../../../utils/functions/osInfos/getCssOsBarsHeight"
 	let {
 		children,
 		viewTransitionName,
@@ -16,10 +17,7 @@
 	class:image={true}
 	style:background-image={`url(${backgroundImageUri})`}
 ></div>
-<main
-	style:view-transition-name={viewTransitionName}
-	style:padding-bottom={`${($navBarHeight ?? 0) + 60}px`}
->
+<main style:view-transition-name={viewTransitionName}>
 	{@render children()}
 </main>
 

@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { headerHeight } from "../../ui/Header/Header.svelte"
 	import { navBarHeight } from "../../ui/NavBar/NavBar.svelte"
-	import type { Snippet } from "svelte"
+	import { onMount, type Snippet } from "svelte"
+	import getCssOsBarsHeight from "../../../utils/functions/osInfos/getCssOsBarsHeight"
 	let {
 		children,
 	}: {
@@ -9,9 +10,7 @@
 	} = $props()
 </script>
 
-<main
-	style={`padding-top: ${($headerHeight ?? 0) + 32}px; padding-bottom: ${($navBarHeight ?? 0) + 60}px`}
->
+<main style={`padding-top: ${($headerHeight ?? 0) + 32}px`}>
 	{@render children()}
 </main>
 
