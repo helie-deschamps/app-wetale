@@ -19,7 +19,7 @@
 	<div class:container={true}>
 		<div class:titleDiv={true}>
 			{#await story}
-				<SectionTitle text="Chargement..." withMargin={false} />
+				<SectionTitle text={""} withMargin={false} isSkeleton />
 			{:then story}
 				<SectionTitle text={story.title} withMargin={false} />
 			{/await}
