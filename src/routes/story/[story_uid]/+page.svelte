@@ -6,58 +6,78 @@
 	import { touchHandlers } from "../../../utils/component_features/touchHandlers"
 	import getStoryFromUid from "../../../utils/functions/api/getStoryFromUid"
 	import ParagraphSkeleton from "../../../components/ui/skeleton/ParagraphSkeleton.svelte"
+	import { goto } from "$app/navigation"
+	import type { StoryBasic } from "../../../utils/types/StoryBasic"
+	import { ErrorOffline } from "../../../utils/errors/ErrorOffline"
+	import { ErrorApiNoRes } from "../../../utils/errors/ErrorApiNoRes"
 
 	let { data } = $props()
 	let { storyUid } = data
 
-	let story = getStoryFromUid(storyUid)
+	let storyPromise = getStoryFromUid(storyUid)
+	let error: Error | undefined = $state()
+	let story: StoryBasic | undefined = $state()
+
+	storyPromise.then(s => (story = s)).catch(e => (error = e))
 </script>
 
-<ImagePageWrapper
-	viewTransitionName=""
-	backgroundImageUri="https://api.time.com/wp-content/uploads/2025/02/TIM250224-Musk-Cover-FINAL.jpg"
->
-	<div class:container={true}>
-		<div class:titleDiv={true}>
-			{#await story}
-				<SectionTitle text={""} withMargin={false} isSkeleton />
-			{:then story}
-				<SectionTitle text={story.title} withMargin={false} />
-			{/await}
-			<FavoriteStar checked={true} />
-		</div>
-		{#await story}
-			<p class:chapter={true}><ParagraphSkeleton /></p>
-		{:then story}
-			<p class:chapter={true}>{story.lastChapitre} Chapitres</p>
-		{/await}
-		<div>
-			<p><b>Temps:</b> Environ 20 minutes par chapitres</p>
-			{#await story}
-				<p class:type={true}>
-					<b>Genre:</b>
-					<ParagraphSkeleton lettersCount={6} />
-				</p>
-			{:then story}
-				<p class:type={true}>
-					<b>Genre:</b>{getCategoryDatas(story.type).title}
-				</p>
-			{/await}
-		</div>
-		{#await story}
-			<ParagraphSkeleton linesCount={3} />
-		{:then story}
-			<p class:blurb={true}>{story.blurb}</p>
-			<div class:linkDiv={true}>
-				<a
-					class:link_simple={true}
-					use:touchHandlers
-					href="/story/{story.uid}/read/1">Découvrir cette histoire</a
-				>
+{#if error}
+	{#if error instanceof ErrorOffline}
+		<p>
+			Vous n'êtes pas connecté à internet, essayez d'activer les données mobiles
+		</p>
+	{:else if error instanceof ErrorApiNoRes}
+		<p>Aucune histoire n'a été trouvée</p>
+	{:else}
+		<p>Une erreur inconnu est survenue: {error.message}</p>
+	{/if}
+{:else}
+	<ImagePageWrapper
+		viewTransitionName=""
+		backgroundImageUri="https://api.time.com/wp-content/uploads/2025/02/TIM250224-Musk-Cover-FINAL.jpg"
+	>
+		<div class:container={true}>
+			<div class:titleDiv={true}>
+				<SectionTitle
+					text={story?.title ?? ""}
+					withMargin={false}
+					isSkeleton={story === undefined}
+				/>
+				<FavoriteStar checked={true} />
 			</div>
-		{/await}
-	</div>
-</ImagePageWrapper>
+			<p class:chapter={true}>
+				{#await storyPromise}
+					<ParagraphSkeleton />
+				{:then story}
+					{story.lastChapitre} Chapitres
+				{/await}
+			</p>
+			<div>
+				<p><b>Temps:</b> Environ 20 minutes par chapitres</p>
+				<p class:type={true}>
+					{#await storyPromise}
+						<b>Genre:</b>
+						<ParagraphSkeleton lettersCount={6} />
+					{:then story}
+						<b>Genre:</b>{getCategoryDatas(story.type).title}
+					{/await}
+				</p>
+			</div>
+			{#await storyPromise}
+				<ParagraphSkeleton linesCount={3} />
+			{:then story}
+				<p class:blurb={true}>{story.blurb}</p>
+				<div class:linkDiv={true}>
+					<a
+						class:link_simple={true}
+						use:touchHandlers
+						href="/story/{story.uid}/read/1">Découvrir cette histoire</a
+					>
+				</div>
+			{/await}
+		</div>
+	</ImagePageWrapper>
+{/if}
 
 <style lang="scss">
 	.titleDiv {
