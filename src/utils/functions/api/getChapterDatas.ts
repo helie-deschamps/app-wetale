@@ -1,7 +1,6 @@
 import { ErrorOffline } from "../../errors/ErrorOffline"
 import { ErrorApiNoRes } from "../../errors/ErrorApiNoRes"
 import type { Chapter } from "../../types/Chapter"
-import type { Choice } from "../../../components/ui/Poll/types/ChoiceData.type"
 
 export default async function (
 	StoryUid: string,

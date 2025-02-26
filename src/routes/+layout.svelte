@@ -1,7 +1,6 @@
 <script lang="ts">
 	import Lenis from "lenis"
 	import { onMount, type Snippet } from "svelte"
-	import { platform } from "@tauri-apps/plugin-os"
 
 	import "lenis/dist/lenis.css"
 	import "/src/styles/reset.scss"
@@ -13,6 +12,7 @@
 	import { currentTab } from "../components/ui/NavBar/tabsManager/currentTab.store"
 	import getCssOsBarsHeight from "../utils/functions/osInfos/getCssOsBarsHeight"
 	import { navBarHeight } from "../components/ui/NavBar/NavBar.svelte"
+	import("../styles/libs/svelte-material-ui/bare.min.css")
 
 	let { children }: { children: Snippet } = $props()
 

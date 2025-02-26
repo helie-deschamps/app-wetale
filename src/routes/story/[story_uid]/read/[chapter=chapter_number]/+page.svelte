@@ -3,12 +3,8 @@
 	import { onDestroy, onMount } from "svelte"
 	import ClassicPageWrapper from "../../../../../components/ui/pageWrappers/ClassicPageWrapper.svelte"
 	import Poll from "../../../../../components/ui/Poll/Poll.svelte"
-	import getStoryFromUid from "../../../../../utils/functions/api/getStoryFromUid"
-	import type { StoryBasic } from "../../../../../utils/types/StoryBasic"
-	import getCategoryDatas from "../../../../../utils/functions/categories/getCategoryDatas"
-	import SectionTitle from "../../../../../components/ui/sections/SectionTitle.svelte"
 	import getChapterDatas from "../../../../../utils/functions/api/getChapterDatas"
-	import type { Chapter } from "../../../../../utils/types/Chapter"
+	import CircularProgress from '@smui/circular-progress';
 
 	let { data } = $props()
 	let { storyUid, chapterNumber } = data
@@ -49,7 +45,10 @@
 
 <ClassicPageWrapper>
 	{#await chapterPromise}
-		<p>Loading...</p>
+		<div class={'loading'}>
+			<CircularProgress style="height: 32px; width: 32px;" indeterminate />
+			<i>Chargement de l'histoire</i>
+		</div>
 	{:then chapter}
 		<p>{chapter.body}</p>
 		<Poll {storyUid} {chapter}></Poll>
@@ -57,3 +56,13 @@
 		<p>{error.message}</p>
 	{/await}
 </ClassicPageWrapper>
+
+<style lang="scss">
+	.loading {
+    display: flex;
+		align-items: center;
+		margin-top: 4em;
+		flex-direction: column;
+		gap: .5em;
+	}
+</style>
