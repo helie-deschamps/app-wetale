@@ -4,9 +4,8 @@
 	"description": "",
 	"type": "module",
 	"scripts": {
-		"dev": "vite dev",
-		"build": "vite build",
-		"preview": "vite preview",
+		"dev": "pnpm --filter tauri-plugin-utils-api run build && vite dev",
+		"build": "pnpm --filter tauri-plugin-utils-api run build && vite build",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --write .",
