@@ -5,6 +5,7 @@
 	import FavoriteStar from "../../../components/ui/stories/FavoriteStar/FavoriteStar.svelte"
 	import { touchHandlers } from "../../../utils/component_features/touchHandlers"
 	import getStoryFromUid from "../../../utils/functions/api/getStoryFromUid"
+	import ParagraphSkeleton from "../../../components/ui/skeleton/ParagraphSkeleton.svelte"
 
 	let { data } = $props()
 	let { storyUid } = data
@@ -26,7 +27,7 @@
 			<FavoriteStar checked={true} />
 		</div>
 		{#await story}
-			<p class:chapter={true}>none</p>
+			<p class:chapter={true}><ParagraphSkeleton /></p>
 		{:then story}
 			<p class:chapter={true}>{story.lastChapitre} Chapitres</p>
 		{/await}
@@ -34,18 +35,17 @@
 			<p><b>Temps:</b> Environ 20 minutes par chapitres</p>
 			{#await story}
 				<p class:type={true}>
-					<b>Genre: Unknown</b>
+					<b>Genre:</b>
+					<ParagraphSkeleton lettersCount={6} />
 				</p>
 			{:then story}
 				<p class:type={true}>
-					<b>Genre:</b>
-					{getCategoryDatas(story.type).title}
+					<b>Genre:</b>{getCategoryDatas(story.type).title}
 				</p>
 			{/await}
 		</div>
 		{#await story}
-			<p class:blurb={true}>Unknown</p>
-			<div class:linkDiv={true}>Découvrir cette histoire</div>
+			<ParagraphSkeleton linesCount={3} />
 		{:then story}
 			<p class:blurb={true}>{story.blurb}</p>
 			<div class:linkDiv={true}>
@@ -69,5 +69,9 @@
 	}
 	.linkDiv {
 		text-align: end;
+	}
+	.type {
+		display: flex;
+		gap: 0.4em;
 	}
 </style>
