@@ -4,7 +4,7 @@
 	import ClassicPageWrapper from "../../../../../components/ui/pageWrappers/ClassicPageWrapper.svelte"
 	import Poll from "../../../../../components/ui/Poll/Poll.svelte"
 	import getChapterDatas from "../../../../../utils/functions/api/getChapterDatas"
-	import CircularProgress from '@smui/circular-progress';
+	import CircularProgress from "@smui/circular-progress"
 
 	let { data } = $props()
 	let { storyUid, chapterNumber } = data
@@ -45,7 +45,7 @@
 
 <ClassicPageWrapper>
 	{#await chapterPromise}
-		<div class={'loading'}>
+		<div class={"loading"}>
 			<CircularProgress style="height: 32px; width: 32px;" indeterminate />
 			<i>Chargement de l'histoire</i>
 		</div>
@@ -59,10 +59,10 @@
 
 <style lang="scss">
 	.loading {
-    display: flex;
+		display: flex;
 		align-items: center;
 		margin-top: 4em;
 		flex-direction: column;
-		gap: .5em;
+		gap: 0.5em;
 	}
 </style>
