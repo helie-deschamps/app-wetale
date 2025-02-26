@@ -23,11 +23,9 @@
 	})
 
 	onMount(async () => {
-		if (window.__TAURI_OS_PLUGIN_INTERNALS__) {
-			let { StatusBarHeight, NavigationBarHeight } = await getCssOsBarsHeight()
-			document.body.style.paddingTop = `${StatusBarHeight}px`
-			document.body.style.paddingBottom = `${($navBarHeight ?? 0) + NavigationBarHeight + 30}px`
-		}
+		let { StatusBarHeight, NavigationBarHeight } = await getCssOsBarsHeight()
+		document.body.style.paddingTop = `${StatusBarHeight}px`
+		document.body.style.paddingBottom = `${($navBarHeight ?? 0) + NavigationBarHeight + 30}px`
 	})
 
 	document.addEventListener("contextmenu", e => e.preventDefault())

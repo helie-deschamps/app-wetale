@@ -87,11 +87,6 @@
 			pointer-events: none;
 		}
 	}
-	.selected {
-		.selectedLayer {
-			//clip-path: ellipse(var(--button-width) var(--button-width) at 50% 50%);
-		}
-	}
 	input {
 		display: none;
 	}
