@@ -4,7 +4,6 @@
 	import ChoiceButton from "./ChoiceButton.svelte"
 
 	const {
-		storyUid,
 		chapter,
 	}: {
 		storyUid: string
@@ -15,7 +14,7 @@
 </script>
 
 <form>
-	{#each chapter.poll.choices as choice}
+	{#each chapter.poll.choices as choice (choice.id)}
 		<ChoiceButton voteId={choice.id} choiceText={choice.text} bind:userVote
 		></ChoiceButton>
 	{/each}

@@ -36,7 +36,7 @@
 
 <button onclick={() => changeTab(Tabs.Favorite)} aria-label="Favorite">
 	<DotLottieSvelte
-		src={"/favorite.lottie"}
+		src="/favorite.lottie"
 		dotLottieRefCallback={ref => (dotLottie = ref)}
 		mode={isCurrent ? "reverse" : "forward"}
 	/>

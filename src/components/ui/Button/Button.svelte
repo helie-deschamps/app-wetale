@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onMount, type Snippet } from "svelte"
+	import { type Snippet } from "svelte"
 	import { touchHandlers } from "../../../utils/component_features/touchHandlers"
 
 	type Props =
@@ -21,7 +21,7 @@
 {#if isSubmit}
 	<input
 		type="submit"
-		value={"Se connecter"}
+		value="Se connecter"
 		onclick={onTap}
 		{tabindex}
 		use:touchHandlers

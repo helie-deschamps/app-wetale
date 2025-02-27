@@ -1,11 +1,9 @@
 <script lang="ts">
 	import getCategoryDatas from "../../utils/functions/categories/getCategoryDatas"
 	import { TalesCategories } from "../../utils/enums/TalesCategories"
-	import { headerHeight } from "../../components/ui/Header/Header.svelte"
 	import StoriesList from "../../components/ui/stories/StoriesList/StoriesList.svelte"
 	import InProgressStory from "../../components/ui/stories/InProgress/InProgressStory.svelte"
 	import type { StoryBasic } from "../../utils/types/StoryBasic"
-	import { navBarHeight } from "../../components/ui/NavBar/NavBar.svelte"
 	import ImagePageWrapper from "../../components/ui/pageWrappers/ImagePageWrapper.svelte"
 
 	let { data } = $props()

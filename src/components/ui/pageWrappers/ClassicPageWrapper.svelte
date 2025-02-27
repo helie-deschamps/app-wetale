@@ -1,8 +1,6 @@
 <script lang="ts">
 	import { headerHeight } from "../../ui/Header/Header.svelte"
-	import { navBarHeight } from "../../ui/NavBar/NavBar.svelte"
-	import { onMount, type Snippet } from "svelte"
-	import getCssOsBarsHeight from "../../../utils/functions/osInfos/getCssOsBarsHeight"
+	import { type Snippet } from "svelte"
 	let {
 		children,
 	}: {

@@ -6,7 +6,6 @@
 	import { touchHandlers } from "../../../utils/component_features/touchHandlers"
 	import getStoryFromUid from "../../../utils/functions/api/getStoryFromUid"
 	import ParagraphSkeleton from "../../../components/ui/skeleton/ParagraphSkeleton.svelte"
-	import { goto } from "$app/navigation"
 	import type { StoryBasic } from "../../../utils/types/StoryBasic"
 	import { ErrorOffline } from "../../../utils/errors/ErrorOffline"
 	import { ErrorApiNoRes } from "../../../utils/errors/ErrorApiNoRes"

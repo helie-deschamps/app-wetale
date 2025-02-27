@@ -6,7 +6,6 @@
 	const {
 		title,
 		blurb,
-		type,
 		uid,
 		lastChapitre,
 		completionRatio,

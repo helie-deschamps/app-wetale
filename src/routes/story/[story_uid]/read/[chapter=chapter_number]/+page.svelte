@@ -10,9 +10,7 @@
 	let { storyUid, chapterNumber } = data
 
 	let chapterPromise = getChapterDatas(storyUid, chapterNumber)
-
-	chapterPromise
-
+	
 	let oldScroll = 0
 	let navBarPosition = 0
 	let ticking = false
@@ -45,7 +43,7 @@
 
 <ClassicPageWrapper>
 	{#await chapterPromise}
-		<div class={"loading"}>
+		<div class="loading">
 			<CircularProgress style="height: 32px; width: 32px;" indeterminate />
 			<i>Chargement de l'histoire</i>
 		</div>

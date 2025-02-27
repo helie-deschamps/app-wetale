@@ -8,7 +8,7 @@
 
 <div>
 	<SectionTitle text="Suggestions" />
-	{#each storiesList as story, index}
+	{#each storiesList as story, index (story.uid)}
 		<StoryTilePreview {...story} onRight={index % 2 === 0} />
 	{/each}
 </div>
