@@ -7,8 +7,8 @@
 <script lang="ts">
 	import Logo from "../brand/Logo/Logo.svelte"
 
-	let localHeader: HTMLElement | undefined = $state(undefined)
-	let localHeaderHeight: number | undefined = $state(undefined)
+	let localHeader: HTMLElement | undefined = $state()
+	let localHeaderHeight: number | undefined = $state()
 
 	$effect(() => {
 		header.set(localHeader)

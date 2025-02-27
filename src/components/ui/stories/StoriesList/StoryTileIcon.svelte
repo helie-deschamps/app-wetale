@@ -24,7 +24,7 @@
 		const translateX = Math.cos(angle) * 10 // de -20% à 20%
 		const translateY = Math.sin(angle) * 10 // de -20% à 20%
 
-		return `rotate(${angle}rad) translate(${translateX}%, ${translateY}%)`
+		return `rotate(${String(angle)}rad) translate(${String(translateX)}%, ${String(translateY)}%)`
 	}
 
 	let transform = getTransform(stringForRotation)
@@ -32,7 +32,7 @@
 
 <span
 	class:icon={true}
-	style={`background-color: ${getCategoryDatas(type).colorBackground};`}
+	style={`background-color: ${getCategoryDatas(type).colorBackground ?? "transparent"}`}
 >
 	<span
 		class:iconRotator={true}

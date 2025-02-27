@@ -2,6 +2,9 @@ import { ErrorOffline } from "../../errors/ErrorOffline"
 import { ErrorApiNoRes } from "../../errors/ErrorApiNoRes"
 import type { Chapter } from "../../types/Chapter"
 
+/**
+ * @throws {ErrorOffline, ErrorApiNoRes}
+ */
 export default async function (
 	StoryUid: string,
 	chapterNumber: number,

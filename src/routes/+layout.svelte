@@ -12,7 +12,7 @@
 	import { currentTab } from "../components/ui/NavBar/tabsManager/currentTab.store"
 	import getCssOsBarsHeight from "../utils/functions/osInfos/getCssOsBarsHeight"
 	import { navBarHeight } from "../components/ui/NavBar/NavBar.svelte"
-	import("../styles/libs/svelte-material-ui/bare.min.css")
+	void import("../styles/libs/svelte-material-ui/bare.min.css")
 
 	let { children }: { children: Snippet } = $props()
 
@@ -24,15 +24,15 @@
 
 	onMount(async () => {
 		let { StatusBarHeight, NavigationBarHeight } = await getCssOsBarsHeight()
-		document.body.style.paddingTop = `${StatusBarHeight}px`
-		document.body.style.paddingBottom = `${($navBarHeight ?? 0) + NavigationBarHeight + 30}px`
+		document.body.style.paddingTop = `${String(StatusBarHeight)}px`
+		document.body.style.paddingBottom = `${String(Number($navBarHeight) + NavigationBarHeight + 30)}px`
 	})
 
-	document.addEventListener("contextmenu", e => e.preventDefault())
+	document.addEventListener("contextmenu", e => {
+		e.preventDefault()
+	})
 
 	onNavigate(async navigation => {
-		if (!document.startViewTransition) return
-
 		return new Promise(resolve => {
 			document.startViewTransition(async () => {
 				resolve()

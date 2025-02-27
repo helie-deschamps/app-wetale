@@ -6,11 +6,18 @@
 	import getChapterDatas from "../../../../../utils/functions/api/getChapterDatas"
 	import CircularProgress from "@smui/circular-progress"
 
-	let { data } = $props()
+	let {
+		data,
+	}: {
+		data: {
+			storyUid: string
+			chapterNumber: number
+		}
+	} = $props()
 	let { storyUid, chapterNumber } = data
 
 	let chapterPromise = getChapterDatas(storyUid, chapterNumber)
-	
+
 	let oldScroll = 0
 	let navBarPosition = 0
 	let ticking = false
@@ -26,7 +33,9 @@
 		if (!ticking) {
 			ticking = true
 			requestAnimationFrame(() => {
-				if ($navBar) $navBar.style.translate = `0 ${navBarPosition}px`
+				if ($navBar)
+					($navBar as HTMLElement).style.translate =
+						`0 ${String(navBarPosition)}px`
 				ticking = false
 			})
 		}
@@ -36,7 +45,7 @@
 		window.addEventListener("scroll", onScrollDiv)
 	})
 	onDestroy(() => {
-		if ($navBar) $navBar.style.translate = `0 0`
+		if ($navBar) ($navBar as HTMLElement).style.translate = `0 0`
 		window.removeEventListener("scroll", onScrollDiv)
 	})
 </script>

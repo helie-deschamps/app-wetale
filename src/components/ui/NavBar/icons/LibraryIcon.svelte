@@ -10,7 +10,7 @@
 
 <button
 	onclick={() => {
-		changeTab(Tabs.Library)
+		void changeTab(Tabs.Library)
 	}}
 >
 	{#if isCurrent}

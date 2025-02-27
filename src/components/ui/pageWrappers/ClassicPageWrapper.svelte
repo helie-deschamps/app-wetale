@@ -8,7 +8,7 @@
 	} = $props()
 </script>
 
-<main style={`padding-top: ${($headerHeight ?? 0) + 32}px`}>
+<main style={`padding-top: ${String(Number($headerHeight ?? 0) + 32)}px`}>
 	{@render children()}
 </main>
 

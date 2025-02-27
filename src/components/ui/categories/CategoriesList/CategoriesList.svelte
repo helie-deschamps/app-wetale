@@ -12,8 +12,8 @@
 	<div
 		class="grid"
 		bind:clientWidth={gridWith}
-		style:grid-template-columns={`repeat(2, ${tileSide}px)`}
-		style:grid-template-rows={`repeat(auto-fill, ${tileSide}px)`}
+		style:grid-template-columns={`repeat(2, ${String(tileSide)}px)`}
+		style:grid-template-rows={`repeat(auto-fill, ${String(tileSide)}px)`}
 	>
 		<CategoryTilePreview
 			category={TalesCategories.Romance}

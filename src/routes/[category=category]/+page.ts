@@ -1,7 +1,7 @@
 import getCategoryFromLowercaseTitle from "../../utils/functions/categories/getCategoryFromLowercaseTitle"
 import type { CategoryDatas } from "../../utils/functions/categories/getCategoryDatas"
 
-export const load = ({ params }) => {
+export const load = ({ params }: { params: { category: string } }) => {
 	const category = getCategoryFromLowercaseTitle(
 		params.category as CategoryDatas["lowercaseTitle"],
 	)

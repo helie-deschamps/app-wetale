@@ -10,14 +10,22 @@
 	import { ErrorOffline } from "../../../utils/errors/ErrorOffline"
 	import { ErrorApiNoRes } from "../../../utils/errors/ErrorApiNoRes"
 
-	let { data } = $props()
+	let {
+		data,
+	}: {
+		data: {
+			storyUid: string
+		}
+	} = $props()
 	let { storyUid } = data
 
 	let storyPromise = getStoryFromUid(storyUid)
 	let error: Error | undefined = $state()
 	let story: StoryBasic | undefined = $state()
 
-	storyPromise.then(s => (story = s)).catch(e => (error = e))
+	storyPromise
+		.then(s => (story = s))
+		.catch((e: unknown) => (error = e as Error))
 </script>
 
 {#if error}

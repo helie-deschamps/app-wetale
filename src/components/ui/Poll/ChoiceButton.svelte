@@ -22,15 +22,14 @@
 	})
 	const startAnimate = (fingerPosition: { x: string; y: string }) => {
 		if (!selectedLayer) return
-		;(selectedLayer as HTMLSpanElement).style.transition = "none"
-		;(selectedLayer as HTMLSpanElement).style.clipPath =
-			`ellipse(0 0 at ${fingerPosition.x} ${fingerPosition.y})`
-		requestAnimationFrame(() => {
-			;(selectedLayer as HTMLSpanElement).style.transition =
-				"clip-path 0.4s ease-in-out"
-			;(selectedLayer as HTMLSpanElement).style.clipPath =
-				`ellipse(var(--button-width) var(--button-width) at ${fingerPosition.x} ${fingerPosition.y})`
-		})
+		selectedLayer.style.transition = "none"
+		selectedLayer.style.clipPath = `ellipse(0 0 at ${fingerPosition.x} ${fingerPosition.y})`
+		requestAnimationFrame(
+			((selectedLayer: HTMLSpanElement) => {
+				selectedLayer.style.transition = "clip-path 0.4s ease-in-out"
+				selectedLayer.style.clipPath = `ellipse(var(--button-width) var(--button-width) at ${fingerPosition.x} ${fingerPosition.y})`
+			}).bind(null, selectedLayer),
+		)
 	}
 </script>
 
@@ -44,8 +43,8 @@
 		if (userVote === voteId) return
 		userVote = voteId
 		startAnimate({
-			x: e.offsetX + "px",
-			y: e.offsetY + "px",
+			x: String(e.offsetX) + "px",
+			y: String(e.offsetY) + "px",
 		})
 	}}
 >

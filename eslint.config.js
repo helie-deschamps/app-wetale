@@ -10,8 +10,8 @@ const gitignorePath = fileURLToPath(new URL("./.gitignore", import.meta.url))
 
 export default ts.config(
 	includeIgnoreFile(gitignorePath),
-	js.configs.recommended,
-	...ts.configs.recommended,
+	//js.configs.recommended,
+	ts.configs.strictTypeChecked,
 	...svelte.configs.recommended,
 	prettier,
 	...svelte.configs["flat/prettier"],
@@ -24,11 +24,9 @@ export default ts.config(
 		},
 	},
 	{
-		files: ["**/*.svelte", "**/*.svelte.ts", "**/*.svelte.js"],
-		ignores: ["eslint.config.js", "svelte.config.js"],
-
 		languageOptions: {
 			parserOptions: {
+				tsconfigRootDir: import.meta.dirname,
 				projectService: true,
 				extraFileExtensions: [".svelte"],
 				parser: ts.parser,
@@ -37,6 +35,24 @@ export default ts.config(
 		},
 	},
 	{
-		ignores: ["src-tauri/**/*", "tauri-plugin-utils/**/*", "!tauri-plugin-utils/src/**/*"]
-	}
+		files: ["**/*.svelte", "**/*.svelte.ts", "**/*.svelte.js"],
+
+		languageOptions: {
+			parserOptions: {
+				tsconfigRootDir: import.meta.dirname,
+				projectService: true,
+				parser: ts.parser,
+			},
+		},
+	},
+	{
+		ignores: [
+			"vite.config.js",
+			"eslint.config.js",
+			"svelte.config.js",
+			"src-tauri/**/*",
+			"tauri-plugin-utils/**/*",
+			"!tauri-plugin-utils/src/**/*",
+		],
+	},
 )

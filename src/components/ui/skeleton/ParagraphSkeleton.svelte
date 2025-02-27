@@ -15,9 +15,11 @@
 		let lineHeight = window.getComputedStyle(div as HTMLDivElement).lineHeight
 		lineHeight = lineHeight === "normal" ? "1.2em" : lineHeight
 		;(div as HTMLDivElement).style.height =
-			`calc(${lineHeight} * ${linesCount})`
+			`calc(${lineHeight} * ${String(linesCount)})`
 		;(div as HTMLDivElement).style.borderRadius = `calc(${lineHeight} / 4)`
-		;(div as HTMLDivElement).style.width = `calc(${lettersCount} * 1em)`
+		;(div as HTMLDivElement).style.width = lettersCount
+			? `calc(${String(lettersCount)} * 1em)`
+			: "auto"
 	})
 </script>
 

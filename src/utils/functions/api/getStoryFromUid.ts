@@ -5,6 +5,9 @@ import { ErrorApiNoRes } from "../../errors/ErrorApiNoRes"
 
 const storiesCache = new Map<string, StoryBasic>()
 
+/**
+ * @throws {ErrorOffline, ErrorApiNoRes}
+ */
 export default async function (UID: string): Promise<StoryBasic> {
 	if (!storiesCache.has(UID)) {
 		// @todo fetch story from API

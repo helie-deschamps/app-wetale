@@ -35,7 +35,7 @@
 <button onclick={() => changeTab(Tabs.Library)} aria-label="Library">
 	<DotLottieSvelte
 		src="/library.lottie"
-		dotLottieRefCallback={ref => (dotLottie = ref)}
+		dotLottieRefCallback={(ref: DotLottie) => (dotLottie = ref)}
 		mode={isCurrent ? "reverse" : "forward"}
 	/>
 </button>

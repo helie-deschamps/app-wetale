@@ -27,8 +27,8 @@
 	use:touchHandlers
 	class="tile {lowercaseTitle} {format}"
 	style:view-transition-name="{lowercaseTitle}paganim"
-	style:width={`${width}px`}
-	style:height={`${height}px`}
+	style:width={`${String(width)}px`}
+	style:height={`${String(height)}px`}
 	style:background-color={colorBackground}
 	style:color={colorText}
 >

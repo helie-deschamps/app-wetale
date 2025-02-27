@@ -11,8 +11,8 @@
 	import getCssOsBarsHeight from "../../../utils/functions/osInfos/getCssOsBarsHeight"
 	import { onMount } from "svelte"
 
-	let localNavBar: HTMLElement | undefined = $state(undefined)
-	let localNavBarHeight: number | undefined = $state(undefined)
+	let localNavBar: HTMLElement | undefined = $state()
+	let localNavBarHeight: number | undefined = $state()
 
 	$effect(() => {
 		navBar.set(localNavBar)
@@ -23,7 +23,7 @@
 
 	onMount(async () => {
 		;(localNavBar as HTMLElement).style.bottom =
-			(await getCssOsBarsHeight()).NavigationBarHeight + 20 + "px"
+			String((await getCssOsBarsHeight()).NavigationBarHeight + 20) + "px"
 	})
 </script>
 

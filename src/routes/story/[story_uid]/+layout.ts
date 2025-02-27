@@ -2,6 +2,8 @@ export const prerender = false
 
 export const load = ({
 	params,
+}: {
+	params: { story_uid: string }
 }): {
 	storyUid: string
 } => {

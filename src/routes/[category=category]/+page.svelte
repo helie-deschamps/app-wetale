@@ -6,9 +6,13 @@
 	import type { StoryBasic } from "../../utils/types/StoryBasic"
 	import ImagePageWrapper from "../../components/ui/pageWrappers/ImagePageWrapper.svelte"
 
-	let { data } = $props()
+	let {
+		data,
+	}: {
+		data: { category: TalesCategories; category_name: string }
+	} = $props()
 
-	let categoryDatas = getCategoryDatas(data.category as TalesCategories)
+	let categoryDatas = getCategoryDatas(data.category)
 
 	var storiesList: StoryBasic[] = [
 		{
