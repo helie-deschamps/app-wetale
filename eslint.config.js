@@ -1,5 +1,4 @@
 import prettier from "eslint-config-prettier"
-import js from "@eslint/js"
 import { includeIgnoreFile } from "@eslint/compat"
 import svelte from "eslint-plugin-svelte"
 import globals from "globals"
@@ -10,7 +9,6 @@ const gitignorePath = fileURLToPath(new URL("./.gitignore", import.meta.url))
 
 export default ts.config(
 	includeIgnoreFile(gitignorePath),
-	//js.configs.recommended,
 	ts.configs.strictTypeChecked,
 	...svelte.configs.recommended,
 	prettier,
@@ -54,5 +52,10 @@ export default ts.config(
 			"tauri-plugin-utils/**/*",
 			"!tauri-plugin-utils/src/**/*",
 		],
+	},
+	{
+		rules: {
+			"prefer-template": "error",
+		},
 	},
 )

@@ -23,7 +23,7 @@
 
 	onMount(async () => {
 		;(localNavBar as HTMLElement).style.bottom =
-			String((await getCssOsBarsHeight()).NavigationBarHeight + 20) + "px"
+			`${String((await getCssOsBarsHeight()).NavigationBarHeight + 20)}px`
 	})
 </script>
 

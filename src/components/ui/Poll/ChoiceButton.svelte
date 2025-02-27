@@ -43,8 +43,8 @@
 		if (userVote === voteId) return
 		userVote = voteId
 		startAnimate({
-			x: String(e.offsetX) + "px",
-			y: String(e.offsetY) + "px",
+			x: `${String(e.offsetX)}px`,
+			y: `${String(e.offsetY)}px`,
 		})
 	}}
 >
