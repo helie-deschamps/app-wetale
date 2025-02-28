@@ -1,7 +1,7 @@
 <script module lang="ts">
 	import { type Writable, writable } from "svelte/store"
-	export const header: Writable<HTMLElement | undefined> = writable(undefined)
-	export const headerHeight: Writable<number | undefined> = writable(undefined)
+	export const header: Writable<HTMLElement | undefined> = writable()
+	export const headerHeight: Writable<number | undefined> = writable()
 </script>
 
 <script lang="ts">

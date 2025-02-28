@@ -4,7 +4,7 @@
 	import CategoryIcon from "../CategoryIcon/CategoryIcon.svelte"
 	import { touchHandlers } from "../../../../utils/component_features/touchHandlers"
 
-	type Props = {
+	type Properties = {
 		category: TalesCategories
 		format: "square" | "tall" | "large"
 		width: number
@@ -15,7 +15,7 @@
 		format,
 		width = $bindable(),
 		height = $bindable(),
-	}: Props = $props()
+	}: Properties = $props()
 	const { title, lowercaseTitle, colorBackground, colorText } = $derived(
 		getCategoryDatas(category),
 	)

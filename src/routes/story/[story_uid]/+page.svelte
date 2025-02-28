@@ -8,7 +8,9 @@
 	import ParagraphSkeleton from "../../../components/ui/skeleton/ParagraphSkeleton.svelte"
 	import type { StoryBasic } from "../../../utils/types/StoryBasic"
 	import { ErrorOffline } from "../../../utils/errors/ErrorOffline"
-	import { ErrorApiNoRes } from "../../../utils/errors/ErrorApiNoRes"
+	import { ErrorApiNoResult } from "../../../utils/errors/ErrorApiNoResult"
+	import Error from "../../+error.svelte"
+	import { onMount } from "svelte"
 
 	let {
 		data,
@@ -23,9 +25,14 @@
 	let error: Error | undefined = $state()
 	let story: StoryBasic | undefined = $state()
 
-	storyPromise
-		.then(s => (story = s))
-		.catch((e: unknown) => (error = e as Error))
+	onMount(async () => {
+		try {
+			story = await storyPromise
+		} catch (error_) {
+			console.error(error_)
+			error = error_ as Error
+		}
+	})
 </script>
 
 {#if error}
@@ -33,7 +40,7 @@
 		<p>
 			Vous n'êtes pas connecté à internet, essayez d'activer les données mobiles
 		</p>
-	{:else if error instanceof ErrorApiNoRes}
+	{:else if error instanceof ErrorApiNoResult}
 		<p>Aucune histoire n'a été trouvée</p>
 	{:else}
 		<p>Une erreur inconnu est survenue: {error.message}</p>

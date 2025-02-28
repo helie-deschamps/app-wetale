@@ -1,11 +1,11 @@
 import { ErrorOffline } from "../../errors/ErrorOffline"
-import { ErrorApiNoRes } from "../../errors/ErrorApiNoRes"
+import { ErrorApiNoResult } from "../../errors/ErrorApiNoResult"
 import type { Chapter } from "../../types/Chapter"
 
 /**
- * @throws {ErrorOffline, ErrorApiNoRes}
+ * @throws {ErrorOffline, ErrorApiNoResult}
  */
-export default async function (
+export default async function getChapterDatas(
 	StoryUid: string,
 	chapterNumber: number,
 ): Promise<Chapter> {
@@ -13,7 +13,7 @@ export default async function (
 	if (!navigator.onLine) throw new ErrorOffline()
 
 	await new Promise(resolve => setTimeout(resolve, 4000))
-	if (Math.random() < 0.1) throw new ErrorApiNoRes("No story found")
+	if (Math.random() < 0.1) throw new ErrorApiNoResult("No story found")
 	return {
 		title: "Sous le pont",
 		body:

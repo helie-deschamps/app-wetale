@@ -11,16 +11,16 @@
 		type: TalesCategories
 	} = $props()
 
-	function hashToAngle(str: string): number {
+	function hashToAngle(string_: string): number {
 		let hash = 0
-		for (let i = 0; i < str.length; i++) {
-			hash = (hash * 31 + str.charCodeAt(i)) >>> 0 // 31 est un nombre premier souvent utilisé
+		for (let index = 0; index < string_.length; index++) {
+			hash = (hash * 31 + (string_.codePointAt(index) ?? 0)) >>> 0
 		}
-		let normalized = hash / 0xffffffff
+		let normalized = hash / 0xff_ff_ff_ff
 		return normalized * Math.PI * 2
 	}
-	function getTransform(str: string) {
-		const angle = hashToAngle(str)
+	function getTransform(string_: string) {
+		const angle = hashToAngle(string_)
 		const translateX = Math.cos(angle) * 10 // de -20% à 20%
 		const translateY = Math.sin(angle) * 10 // de -20% à 20%
 

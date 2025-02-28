@@ -46,6 +46,8 @@ export const categoriesDatas: { [key in TalesCategories]: CategoryDatas } = {
 	},
 }
 
-export default function (category: TalesCategories): CategoryDatas {
+export default function getCategoryDatas(
+	category: TalesCategories,
+): CategoryDatas {
 	return categoriesDatas[category]
 }

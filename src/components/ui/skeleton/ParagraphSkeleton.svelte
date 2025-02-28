@@ -12,7 +12,9 @@
 	let div: HTMLDivElement | undefined = $state()
 
 	onMount(() => {
-		let lineHeight = window.getComputedStyle(div as HTMLDivElement).lineHeight
+		let lineHeight = globalThis.getComputedStyle(
+			div as HTMLDivElement,
+		).lineHeight
 		lineHeight = lineHeight === "normal" ? "1.2em" : lineHeight
 		;(div as HTMLDivElement).style.height =
 			`calc(${lineHeight} * ${String(linesCount)})`

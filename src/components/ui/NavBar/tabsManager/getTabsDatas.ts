@@ -20,6 +20,6 @@ export const tabDatas: { [key in Tabs]: tabDataType } = {
 	},
 }
 
-export default function (tab: Tabs): tabDataType {
+export default function getTabsDatas(tab: Tabs): tabDataType {
 	return tabDatas[tab]
 }

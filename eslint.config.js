@@ -5,6 +5,7 @@ import globals from "globals"
 import { fileURLToPath } from "node:url"
 import ts from "typescript-eslint"
 import svelteConfig from "./svelte.config.js"
+import eslintPluginUnicorn from "eslint-plugin-unicorn"
 const gitignorePath = fileURLToPath(new URL("./.gitignore", import.meta.url))
 
 export default ts.config(
@@ -13,12 +14,21 @@ export default ts.config(
 	...svelte.configs.recommended,
 	prettier,
 	...svelte.configs["flat/prettier"],
+	eslintPluginUnicorn.configs.recommended,
 	{
-		languageOptions: {
-			globals: {
-				...globals.browser,
-				...globals.node,
-			},
+		rules: {
+			"unicorn/filename-case": [
+				"error",
+				{
+					cases: {
+						camelCase: true,
+						pascalCase: true,
+					},
+					multipleFileExtensions: false,
+				},
+			],
+			"unicorn/no-null": "off",
+			"unicorn/number-literal-case": "off",
 		},
 	},
 	{
@@ -56,6 +66,12 @@ export default ts.config(
 	{
 		rules: {
 			"prefer-template": "error",
+		},
+	},
+	{
+		files: ["src/routes/**/*", "src/params/**/*"],
+		rules: {
+			"unicorn/filename-case": "off",
 		},
 	},
 )

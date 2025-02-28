@@ -28,8 +28,8 @@
 		document.body.style.paddingBottom = `${String(Number($navBarHeight) + NavigationBarHeight + 30)}px`
 	})
 
-	document.addEventListener("contextmenu", e => {
-		e.preventDefault()
+	document.addEventListener("contextmenu", error => {
+		error.preventDefault()
 	})
 
 	onNavigate(async navigation => {

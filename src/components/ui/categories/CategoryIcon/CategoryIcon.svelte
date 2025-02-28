@@ -2,10 +2,10 @@
 	import { TalesCategories } from "../../../../utils/enums/TalesCategories"
 	import getCategoryDatas from "../../../../utils/functions/categories/getCategoryDatas"
 
-	type Props = {
+	type Properties = {
 		category: TalesCategories
 	}
-	const { category = $bindable() }: Props = $props()
+	const { category = $bindable() }: Properties = $props()
 	const { lowercaseTitle } = $derived(getCategoryDatas(category))
 </script>
 

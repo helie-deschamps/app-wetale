@@ -2,7 +2,7 @@
 	import { touchHandlers } from "../../../../utils/component_features/touchHandlers"
 	import type { FullAutoFill } from "svelte/elements"
 
-	type Props = {
+	type Properties = {
 		category?: "text" | "email" | "password"
 		placeholder: string
 		value: string
@@ -23,7 +23,7 @@
 		pattern,
 		defaultValue,
 		autoComplete,
-	}: Props = $props()
+	}: Properties = $props()
 </script>
 
 <div use:touchHandlers class:icon>

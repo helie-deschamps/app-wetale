@@ -2,7 +2,7 @@
 	import { type Snippet } from "svelte"
 	import { touchHandlers } from "../../../utils/component_features/touchHandlers"
 
-	type Props =
+	type Properties =
 		| {
 				isSubmit?: false
 				children: Snippet
@@ -15,7 +15,7 @@
 				onTap?: () => void
 				tabindex?: number
 		  }
-	let { isSubmit = false, children, onTap, tabindex }: Props = $props()
+	let { isSubmit = false, children, onTap, tabindex }: Properties = $props()
 </script>
 
 {#if isSubmit}

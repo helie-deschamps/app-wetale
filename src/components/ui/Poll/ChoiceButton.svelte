@@ -39,12 +39,12 @@
 	class:selected={userVote === voteId}
 	style="--text: '{choiceText}'; --button-width: {buttonWidth}px;"
 	bind:offsetWidth={buttonWidth}
-	onclick={e => {
+	onclick={error => {
 		if (userVote === voteId) return
 		userVote = voteId
 		startAnimate({
-			x: `${String(e.offsetX)}px`,
-			y: `${String(e.offsetY)}px`,
+			x: `${String(error.offsetX)}px`,
+			y: `${String(error.offsetY)}px`,
 		})
 	}}
 >

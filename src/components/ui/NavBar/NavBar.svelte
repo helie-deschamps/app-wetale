@@ -1,7 +1,7 @@
 <script module lang="ts">
 	import { type Writable, writable } from "svelte/store"
-	export const navBar: Writable<HTMLElement | undefined> = writable(undefined)
-	export const navBarHeight: Writable<number | undefined> = writable(undefined)
+	export const navBar: Writable<HTMLElement | undefined> = writable()
+	export const navBarHeight: Writable<number | undefined> = writable()
 </script>
 
 <script lang="ts">
@@ -22,8 +22,9 @@
 	})
 
 	onMount(async () => {
+		const { NavigationBarHeight } = await getCssOsBarsHeight()
 		;(localNavBar as HTMLElement).style.bottom =
-			`${String((await getCssOsBarsHeight()).NavigationBarHeight + 20)}px`
+			`${String(NavigationBarHeight + 20)}px`
 	})
 </script>
 
