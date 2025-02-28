@@ -7,10 +7,13 @@
 		"dev": "pnpm --filter tauri-plugin-utils-api run build && vite dev",
 		"build": "pnpm --filter tauri-plugin-utils-api run build && vite build",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"eslint": "pnpm dlx eslint",
+		"fullcheck": "svelte-kit sync && pnpm dlx eslint && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --write .",
 		"tauri:dev": "tauri dev",
 		"tauri:android:dev": "tauri android dev",
+		"tauri:android:build": "pnpm tauri android build --apk",
 		"tauri:google-play:build": "pnpm tauri android build --aab"
 	},
 	"license": "MIT",
