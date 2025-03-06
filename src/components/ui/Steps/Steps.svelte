@@ -22,8 +22,6 @@
 		list-style-type: none;
 		display: flex;
 		justify-content: space-around;
-		margin: 0;
-		margin-block: 0;
 		padding-inline-start: 0;
 		font-weight: 600;
 	}
