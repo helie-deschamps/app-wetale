@@ -15,8 +15,8 @@ export const tabDatas: { [key in Tabs]: tabDataType } = {
 		currentPageUri: "/",
 	},
 	[Tabs.Favorite]: {
-		basePageUri: "/",
-		currentPageUri: "/",
+		basePageUri: "/subscribe",
+		currentPageUri: "/subscribe",
 	},
 }
 
