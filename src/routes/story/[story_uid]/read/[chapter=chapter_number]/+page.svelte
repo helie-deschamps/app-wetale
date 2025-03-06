@@ -41,12 +41,40 @@
 		}
 	}
 
+	const onTapDiv = () => {
+		if ($navBar) ($navBar as HTMLElement).style.translate = `0 0`
+		navBarPosition = 0
+	}
+
+	let startX: number, startY: number, startTime: number;
+	const onTapStart = (event: MouseEvent) => {
+		startX = event.clientX;
+		startY = event.clientY;
+		startTime = Date.now();
+	}
+	const onTapEnd = (event: MouseEvent) => {
+		const elapsedTime = Date.now() - startTime;
+
+		const maxDistance = 10;
+		const maxDuration = 300;
+
+		const distance = Math.hypot((event.clientX - startX), (event.clientY - startY));
+
+		if (distance < maxDistance && elapsedTime < maxDuration) {
+			onTapDiv();
+		}
+	}
+
 	onMount(() => {
-		window.addEventListener("scroll", onScrollDiv)
+		globalThis.addEventListener("scroll", onScrollDiv)
+		globalThis.addEventListener("pointerdown", onTapStart)
+		globalThis.addEventListener("pointerup", onTapEnd)
 	})
 	onDestroy(() => {
 		if ($navBar) ($navBar as HTMLElement).style.translate = `0 0`
-		window.removeEventListener("scroll", onScrollDiv)
+		globalThis.removeEventListener("scroll", onScrollDiv)
+		globalThis.removeEventListener("pointerdown", onTapStart)
+		globalThis.removeEventListener("pointerup", onTapEnd)
 	})
 </script>
 
