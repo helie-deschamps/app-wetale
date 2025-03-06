@@ -94,14 +94,17 @@
 
 <ReadHeader bind:height={headerHeight} bind:textSizeMultiplier />
 <ClassicPageWrapper>
-	<div style:height="{headerHeight}px"></div>
+	<div style:height="{headerHeight + 12}px"></div>
 	{#await chapterPromise}
 		<div class="loading">
 			<CircularProgress style="height: 32px; width: 32px;" indeterminate />
 			<i>Chargement de l'histoire</i>
 		</div>
 	{:then chapter}
-		<p>{chapter.body}</p>
+		<h1>{chapter.title}</h1>
+		<p class="text_body" style="font-size: {textSizeMultiplier}rem">
+			{chapter.body}
+		</p>
 		<Poll {storyUid} {chapter}></Poll>
 	{:catch error}
 		<p>{error.message}</p>
@@ -115,5 +118,12 @@
 		margin-top: 4em;
 		flex-direction: column;
 		gap: 0.5em;
+	}
+	.text_body {
+		line-height: 142%;
+	}
+	h1 {
+		font-size: 1.3rem;
+		margin-bottom: 24px;
 	}
 </style>
