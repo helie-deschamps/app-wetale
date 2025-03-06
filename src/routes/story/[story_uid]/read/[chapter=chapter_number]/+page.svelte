@@ -5,6 +5,8 @@
 	import Poll from "../../../../../components/ui/Poll/Poll.svelte"
 	import getChapterDatas from "../../../../../utils/functions/api/getChapterDatas"
 	import CircularProgress from "@smui/circular-progress"
+	import { header } from "../../../../../components/ui/Header/Header.svelte"
+	import ReadHeader from "../../../../../components/ui/Header/ReadHeader.svelte"
 
 	let {
 		data,
@@ -17,6 +19,16 @@
 	let { storyUid, chapterNumber } = data
 
 	let chapterPromise = getChapterDatas(storyUid, chapterNumber)
+
+	let textSizeMultiplier = $state(1)
+	$effect(() => {
+		console.log(textSizeMultiplier)
+	})
+
+	let headerHeight: number = $state(0)
+	$effect(() => {
+		console.log(headerHeight)
+	})
 
 	let oldScroll = 0
 	let navBarPosition = 0
@@ -46,31 +58,33 @@
 		navBarPosition = 0
 	}
 
-	let startX: number, startY: number, startTime: number;
+	let startX: number, startY: number, startTime: number
 	const onTapStart = (event: MouseEvent) => {
-		startX = event.clientX;
-		startY = event.clientY;
-		startTime = Date.now();
+		startX = event.clientX
+		startY = event.clientY
+		startTime = Date.now()
 	}
 	const onTapEnd = (event: MouseEvent) => {
-		const elapsedTime = Date.now() - startTime;
+		const elapsedTime = Date.now() - startTime
 
-		const maxDistance = 10;
-		const maxDuration = 300;
+		const maxDistance = 10
+		const maxDuration = 300
 
-		const distance = Math.hypot((event.clientX - startX), (event.clientY - startY));
+		const distance = Math.hypot(event.clientX - startX, event.clientY - startY)
 
 		if (distance < maxDistance && elapsedTime < maxDuration) {
-			onTapDiv();
+			onTapDiv()
 		}
 	}
 
 	onMount(() => {
+		if ($header) ($header as HTMLElement).style.display = "none"
 		globalThis.addEventListener("scroll", onScrollDiv)
 		globalThis.addEventListener("pointerdown", onTapStart)
 		globalThis.addEventListener("pointerup", onTapEnd)
 	})
 	onDestroy(() => {
+		if ($header) ($header as HTMLElement).style.display = "flex"
 		if ($navBar) ($navBar as HTMLElement).style.translate = `0 0`
 		globalThis.removeEventListener("scroll", onScrollDiv)
 		globalThis.removeEventListener("pointerdown", onTapStart)
@@ -78,7 +92,9 @@
 	})
 </script>
 
+<ReadHeader bind:height={headerHeight} bind:textSizeMultiplier />
 <ClassicPageWrapper>
+	<div style:height="{headerHeight}px"></div>
 	{#await chapterPromise}
 		<div class="loading">
 			<CircularProgress style="height: 32px; width: 32px;" indeterminate />
