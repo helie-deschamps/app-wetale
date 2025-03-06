@@ -29,6 +29,7 @@ export default ts.config(
 			],
 			"unicorn/no-null": "off",
 			"unicorn/number-literal-case": "off",
+			"unicorn/prefer-top-level-await": "off",
 		},
 	},
 	{

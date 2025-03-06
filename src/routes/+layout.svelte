@@ -12,6 +12,7 @@
 	import { currentTab } from "../components/ui/NavBar/tabsManager/currentTab.store"
 	import getCssOsBarsHeight from "../utils/functions/osInfos/getCssOsBarsHeight"
 	import { navBarHeight } from "../components/ui/NavBar/NavBar.svelte"
+	import { initUserPrefs } from "../utils/stores/userPrefs"
 	void import("../styles/libs/svelte-material-ui/bare.min.css")
 
 	let { children }: { children: Snippet } = $props()
@@ -44,6 +45,8 @@
 	beforeNavigate(({ to }) => {
 		if (to) getTabsDatas($currentTab).currentPageUri = to.url.pathname
 	})
+
+	void initUserPrefs()
 </script>
 
 <Header />

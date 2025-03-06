@@ -9,6 +9,7 @@
     "core:default",
     "opener:default",
     "os:default",
-    "utils:default"
+    "utils:default",
+    "store:default"
   ]
 }

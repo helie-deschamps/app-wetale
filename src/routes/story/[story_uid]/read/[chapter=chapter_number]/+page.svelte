@@ -7,6 +7,7 @@
 	import CircularProgress from "@smui/circular-progress"
 	import { header } from "../../../../../components/ui/Header/Header.svelte"
 	import ReadHeader from "../../../../../components/ui/Header/ReadHeader.svelte"
+	import { userPrefs } from "../../../../../utils/stores/userPrefs"
 
 	let {
 		data,
@@ -20,15 +21,17 @@
 
 	let chapterPromise = getChapterDatas(storyUid, chapterNumber)
 
-	let textSizeMultiplier = $state(1)
+	let textSizeMultiplier = $state<number>(1)
+	void (async () => {
+		textSizeMultiplier = (await $userPrefs?.get("textSizeMultiplier")) ?? 1
+	})()
 	$effect(() => {
-		console.log(textSizeMultiplier)
+		void $userPrefs
+			?.set("textSizeMultiplier", textSizeMultiplier)
+			.then(() => void $userPrefs.save())
 	})
 
-	let headerHeight: number = $state(0)
-	$effect(() => {
-		console.log(headerHeight)
-	})
+	let headerHeight = $state<number>(0)
 
 	let oldScroll = 0
 	let navBarPosition = 0
