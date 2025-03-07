@@ -30,7 +30,7 @@
 			type: TalesCategories.Thriller,
 			uid: "chasseur",
 			lastChapitre: 12,
-			completionRatio: 0.87,
+			completionRatio: 87,
 		},
 		{
 			title: "Le Reflet du Chasseur",
@@ -39,7 +39,7 @@
 			type: TalesCategories.Thriller,
 			uid: "chasseur",
 			lastChapitre: 12,
-			completionRatio: 0.87,
+			completionRatio: 95,
 		},
 		{
 			title: "La magie",
@@ -48,7 +48,7 @@
 			type: TalesCategories.Fantasy,
 			uid: "magie",
 			lastChapitre: 12,
-			completionRatio: 0.87,
+			completionRatio: 33,
 		},
 		{
 			title:
@@ -58,7 +58,7 @@
 			type: TalesCategories.ScienceFiction,
 			uid: "bucarest",
 			lastChapitre: 12,
-			completionRatio: 0.87,
+			completionRatio: 87,
 		},
 		{
 			title: "Barman Night",
@@ -67,7 +67,7 @@
 			type: TalesCategories.Romance,
 			uid: "barman",
 			lastChapitre: 12,
-			completionRatio: 0.87,
+			completionRatio: 77,
 		},
 		{
 			title: "La fille et le loup",
@@ -76,7 +76,7 @@
 			type: TalesCategories.ScienceFiction,
 			uid: "loup",
 			lastChapitre: 12,
-			completionRatio: 0.87,
+			completionRatio: 42,
 		},
 		{
 			title: "Bertie le chien",
@@ -85,7 +85,7 @@
 			type: TalesCategories.Adventure,
 			uid: "chien",
 			lastChapitre: 12,
-			completionRatio: 0.87,
+			completionRatio: 13,
 		},
 		{
 			title: "1, 2, 3 soleil",
@@ -94,7 +94,7 @@
 			type: TalesCategories.Romance,
 			uid: "soleil",
 			lastChapitre: 12,
-			completionRatio: 0.87,
+			completionRatio: 12,
 		},
 	]
 </script>
@@ -103,7 +103,10 @@
 	viewTransitionName="{categoryDatas.lowercaseTitle}paganim"
 	backgroundImageUri={imageUri}
 >
-	<InProgressStory story={storiesList[0]} />
+	<InProgressStory
+		story={storiesList[0]}
+		mainColor={categoryDatas.colorBackground ?? "black"}
+	/>
 	<div class:separator={true}></div>
 	<StoriesList storiesList={storiesList.slice(1)} />
 </ImagePageWrapper>

@@ -4,7 +4,6 @@
 	import ClassicPageWrapper from "../../../../../components/ui/pageWrappers/ClassicPageWrapper.svelte"
 	import Poll from "../../../../../components/ui/Poll/Poll.svelte"
 	import getChapterDatas from "../../../../../utils/functions/api/getChapterDatas"
-	import CircularProgress from "@smui/circular-progress"
 	import { header } from "../../../../../components/ui/Header/Header.svelte"
 	import ReadHeader from "../../../../../components/ui/Header/ReadHeader.svelte"
 	import { userPrefs } from "../../../../../utils/stores/userPrefs"

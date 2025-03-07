@@ -25,7 +25,9 @@
 	let error: Error | undefined = $state()
 	let story: StoryBasic | undefined = $state()
 
-	let imageUri: string = $derived<string>(`/stories_preview_images/${story?.type.toString() ?? 'default'}.webp`)
+	let imageUri: string = $derived<string>(
+		`/stories_preview_images/${story?.type.toString() ?? "default"}.webp`,
+	)
 
 	onMount(async () => {
 		try {
@@ -48,10 +50,7 @@
 		<p>Une erreur inconnu est survenue: {error.message}</p>
 	{/if}
 {:else}
-	<ImagePageWrapper
-		viewTransitionName=""
-		backgroundImageUri={imageUri}
-	>
+	<ImagePageWrapper viewTransitionName="" backgroundImageUri={imageUri}>
 		<div class:container={true}>
 			<div class:titleDiv={true}>
 				<SectionTitle

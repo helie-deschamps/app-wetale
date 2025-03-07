@@ -3,7 +3,8 @@
 	import StoryTilePreviewFull from "./StoryTilePreviewFull.svelte"
 	import type { StoryBasic } from "../../../../utils/types/StoryBasic"
 
-	const { story }: { story: StoryBasic } = $props()
+	const { story, mainColor }: { story: StoryBasic; mainColor: string } =
+		$props()
 </script>
 
 <div>
@@ -15,6 +16,7 @@
 		uid={story.uid}
 		lastChapitre={story.lastChapitre}
 		completionRatio={story.completionRatio}
+		{mainColor}
 	/>
 </div>
 

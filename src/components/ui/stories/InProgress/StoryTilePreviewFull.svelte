@@ -9,12 +9,17 @@
 		uid,
 		lastChapitre,
 		completionRatio,
-	}: StoryBasic & { lastChapitre: number; completionRatio: number } = $props()
+		mainColor,
+	}: StoryBasic & {
+		lastChapitre: number
+		completionRatio: number
+		mainColor: string
+	} = $props()
 </script>
 
 <div class:global={true}>
 	<span class:completion={true}>
-		<CompletionRatio {completionRatio} />
+		<CompletionRatio {completionRatio} color={mainColor} />
 	</span>
 	<div>
 		<h3>{title}</h3>

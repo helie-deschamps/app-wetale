@@ -9,7 +9,7 @@
 <div>
 	<button
 		class="minimum"
-		class:selected={textSizeMultiplier === .8}
+		class:selected={textSizeMultiplier === 0.8}
 		aria-label="Définir à la taille minimum"
 		onclick={() => (textSizeMultiplier = 0.8)}
 	>
@@ -34,7 +34,7 @@
 </div>
 
 <style lang="scss">
-  @use "/src/styles/variables/colors";
+	@use "/src/styles/variables/colors";
 
 	button {
 		background-color: transparent;
