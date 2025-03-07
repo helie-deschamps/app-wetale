@@ -84,9 +84,12 @@
 
 	let supposedCategoryColor: string | null = null
 
-	if ($lastCategory)
+	if ($lastCategory) {
+		let category = getCategoryDatas($lastCategory)
 		supposedCategoryColor =
-			getCategoryDatas($lastCategory).colorBackground ?? null
+			(category.isAlternated ? category.colorText : category.colorBackground) ??
+			null
+	}
 
 	onMount(() => {
 		if ($header) ($header as HTMLElement).style.display = "none"

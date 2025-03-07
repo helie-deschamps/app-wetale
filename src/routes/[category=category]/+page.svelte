@@ -107,7 +107,9 @@
 >
 	<InProgressStory
 		story={storiesList[0]}
-		mainColor={categoryDatas.colorBackground ?? "black"}
+		mainColor={(categoryDatas.isAlternated
+			? categoryDatas.colorText
+			: categoryDatas.colorBackground) ?? "black"}
 	/>
 	<div class:separator={true}></div>
 	<StoriesList storiesList={storiesList.slice(1)} />

@@ -5,6 +5,7 @@ export type CategoryDatas = {
 	lowercaseTitle: Lowercase<string>
 	colorBackground?: string
 	colorText?: string
+	isAlternated?: boolean
 }
 
 export const categoriesDatas: { [key in TalesCategories]: CategoryDatas } = {
@@ -13,36 +14,42 @@ export const categoriesDatas: { [key in TalesCategories]: CategoryDatas } = {
 		lowercaseTitle: "romance",
 		colorBackground: "#f9f9f6",
 		colorText: "#e41d20",
+		isAlternated: true,
 	},
 	[TalesCategories.Detective]: {
 		title: "Policier",
 		lowercaseTitle: "detective",
 		colorBackground: "#7c1430",
 		colorText: "#eb8495",
+		isAlternated: false,
 	},
 	[TalesCategories.ScienceFiction]: {
 		title: "Science Fiction",
 		lowercaseTitle: "sf",
 		colorBackground: "#086169",
 		colorText: "#9ad2c8",
+		isAlternated: false,
 	},
 	[TalesCategories.Adventure]: {
 		title: "Action et Aventure",
 		lowercaseTitle: "adventure",
 		colorBackground: "#87801f",
 		colorText: "#f9f9f6",
+		isAlternated: false,
 	},
 	[TalesCategories.Thriller]: {
 		title: "Thriller",
 		lowercaseTitle: "thriller",
 		colorBackground: "#6d103c",
 		colorText: "#e94f1d",
+		isAlternated: false,
 	},
 	[TalesCategories.Fantasy]: {
 		title: "Fantasy",
 		lowercaseTitle: "fantasy",
 		colorBackground: "#f8be3f",
 		colorText: "#f9f9f6",
+		isAlternated: false,
 	},
 }
 
