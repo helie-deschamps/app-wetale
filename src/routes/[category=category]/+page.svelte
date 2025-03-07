@@ -14,6 +14,14 @@
 
 	let categoryDatas = getCategoryDatas(data.category)
 
+	let category = data.category
+	let imageUri: string = $state(`/stories_preview_images/default.webp`)
+	try {
+		imageUri = `/stories_preview_images/${category.toString()}.webp`
+	} catch (error) {
+		console.log(error)
+	}
+
 	var storiesList: StoryBasic[] = [
 		{
 			title: "Panique à bord",
@@ -93,7 +101,7 @@
 
 <ImagePageWrapper
 	viewTransitionName="{categoryDatas.lowercaseTitle}paganim"
-	backgroundImageUri="https://wiki.leagueoflegends.com/en-us/images/02BW053-full.png?9f4f8"
+	backgroundImageUri={imageUri}
 >
 	<InProgressStory story={storiesList[0]} />
 	<div class:separator={true}></div>

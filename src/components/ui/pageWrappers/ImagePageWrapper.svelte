@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { type Snippet } from "svelte"
+	import { onDestroy, onMount, type Snippet } from "svelte"
 	let {
 		children,
 		viewTransitionName,
@@ -9,11 +9,26 @@
 		viewTransitionName: string
 		backgroundImageUri: string
 	} = $props()
+
+	let blurState = $state<number>(0)
+
+	const onscroll = () => {
+		const scrollPosition = document.documentElement.scrollTop
+		blurState = scrollPosition / 50
+	}
+
+	onMount(() => {
+		globalThis.addEventListener("scroll", onscroll)
+	})
+	onDestroy(() => {
+		globalThis.removeEventListener("scroll", onscroll)
+	})
 </script>
 
 <div
 	class:image={true}
 	style:background-image={`url(${backgroundImageUri})`}
+	style:filter={`blur(${String(blurState)}px)`}
 ></div>
 <main style:view-transition-name={viewTransitionName}>
 	{@render children()}

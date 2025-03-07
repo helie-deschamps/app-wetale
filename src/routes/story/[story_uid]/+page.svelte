@@ -25,6 +25,8 @@
 	let error: Error | undefined = $state()
 	let story: StoryBasic | undefined = $state()
 
+	let imageUri: string = $derived<string>(`/stories_preview_images/${story?.type.toString() ?? 'default'}.webp`)
+
 	onMount(async () => {
 		try {
 			story = await storyPromise
@@ -48,7 +50,7 @@
 {:else}
 	<ImagePageWrapper
 		viewTransitionName=""
-		backgroundImageUri="https://api.time.com/wp-content/uploads/2025/02/TIM250224-Musk-Cover-FINAL.jpg"
+		backgroundImageUri={imageUri}
 	>
 		<div class:container={true}>
 			<div class:titleDiv={true}>
