@@ -52,7 +52,8 @@
 		&:hover {
 			cursor: pointer;
 		}
-		&:focus, &:focus-visible {
+		&:focus,
+		&:focus-visible {
 			outline-color: var(--marker-color);
 		}
 	}

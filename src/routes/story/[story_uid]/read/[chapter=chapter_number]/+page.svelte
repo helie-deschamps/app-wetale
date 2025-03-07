@@ -8,6 +8,7 @@
 	import { header } from "../../../../../components/ui/Header/Header.svelte"
 	import ReadHeader from "../../../../../components/ui/Header/ReadHeader.svelte"
 	import { userPrefs } from "../../../../../utils/stores/userPrefs"
+	import DefaultLoader from "../../../../../components/ui/skeleton/DefaultLoader.svelte"
 
 	let {
 		data,
@@ -99,10 +100,7 @@
 <ClassicPageWrapper>
 	<div style:height="{headerHeight + 12}px"></div>
 	{#await chapterPromise}
-		<div class="loading">
-			<CircularProgress style="height: 32px; width: 32px;" indeterminate />
-			<i>Chargement de l'histoire</i>
-		</div>
+		<DefaultLoader text="Chargement de l'histoire" />
 	{:then chapter}
 		<h1>{chapter.title}</h1>
 		<p class="text_body" style="font-size: {textSizeMultiplier}rem">
@@ -115,13 +113,6 @@
 </ClassicPageWrapper>
 
 <style lang="scss">
-	.loading {
-		display: flex;
-		align-items: center;
-		margin-top: 4em;
-		flex-direction: column;
-		gap: 0.5em;
-	}
 	.text_body {
 		line-height: 142%;
 	}
