@@ -12,7 +12,7 @@ export default async function getChapterDatas(
 	// @todo fetch story from API
 	if (!navigator.onLine) throw new ErrorOffline()
 
-	await new Promise(resolve => setTimeout(resolve, 4000))
+	await new Promise(resolve => setTimeout(resolve, 400000))
 	if (Math.random() < 0.1) throw new ErrorApiNoResult("No story found")
 	return {
 		title: "Sous le pont",

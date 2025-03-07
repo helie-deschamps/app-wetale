@@ -3,12 +3,14 @@
 
 	let {
 		text,
+		color = null,
 	}: {
 		text: string
+		color: string | null
 	} = $props()
 </script>
 
-<div class="loading">
+<div class="loading" style:--mdc-theme-primary={color ?? "black"}>
 	<CircularProgress style="height: 32px; width: 32px;" indeterminate />
 	<i>{text}</i>
 </div>

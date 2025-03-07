@@ -5,6 +5,7 @@
 	import InProgressStory from "../../components/ui/stories/InProgress/InProgressStory.svelte"
 	import type { StoryBasic } from "../../utils/types/StoryBasic"
 	import ImagePageWrapper from "../../components/ui/pageWrappers/ImagePageWrapper.svelte"
+	import { lastCategory } from "../../utils/writables/lastCategory"
 
 	let {
 		data,
@@ -15,6 +16,7 @@
 	let categoryDatas = getCategoryDatas(data.category)
 
 	let category = data.category
+	$lastCategory = category
 	let imageUri: string = $state(`/stories_preview_images/default.webp`)
 	try {
 		imageUri = `/stories_preview_images/${category.toString()}.webp`

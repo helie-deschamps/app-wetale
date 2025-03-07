@@ -8,6 +8,8 @@
 	import ReadHeader from "../../../../../components/ui/Header/ReadHeader.svelte"
 	import { userPrefs } from "../../../../../utils/stores/userPrefs"
 	import DefaultLoader from "../../../../../components/ui/skeleton/DefaultLoader.svelte"
+	import { lastCategory } from "../../../../../utils/writables/lastCategory"
+	import getCategoryDatas from "../../../../../utils/functions/categories/getCategoryDatas"
 
 	let {
 		data,
@@ -80,6 +82,12 @@
 		}
 	}
 
+	let supposedCategoryColor: string | null = null
+
+	if ($lastCategory)
+		supposedCategoryColor =
+			getCategoryDatas($lastCategory).colorBackground ?? null
+
 	onMount(() => {
 		if ($header) ($header as HTMLElement).style.display = "none"
 		globalThis.addEventListener("scroll", onScrollDiv)
@@ -99,7 +107,10 @@
 <ClassicPageWrapper>
 	<div style:height="{headerHeight + 12}px"></div>
 	{#await chapterPromise}
-		<DefaultLoader text="Chargement de l'histoire" />
+		<DefaultLoader
+			text="Chargement de l'histoire"
+			color={supposedCategoryColor}
+		/>
 	{:then chapter}
 		<h1>{chapter.title}</h1>
 		<p class="text_body" style="font-size: {textSizeMultiplier}rem">

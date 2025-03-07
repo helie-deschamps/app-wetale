@@ -11,6 +11,7 @@
 	import { ErrorApiNoResult } from "../../../utils/errors/ErrorApiNoResult"
 	import Error from "../../+error.svelte"
 	import { onMount } from "svelte"
+	import { lastCategory } from "../../../utils/writables/lastCategory"
 
 	let {
 		data,
@@ -32,6 +33,7 @@
 	onMount(async () => {
 		try {
 			story = await storyPromise
+			$lastCategory = story.type
 		} catch (error_) {
 			console.error(error_)
 			error = error_ as Error
