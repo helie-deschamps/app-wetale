@@ -35,9 +35,11 @@ impl<R: Runtime, T: Manager<R>> crate::UtilsExt<R> for T {
 /// Initializes the plugin.
 pub fn init<R: Runtime>() -> TauriPlugin<R> {
   Builder::new("utils")
-    .invoke_handler(tauri::generate_handler![commands::ping])
-    .invoke_handler(tauri::generate_handler![commands::get_status_bar_height])
-    .invoke_handler(tauri::generate_handler![commands::get_nav_bar_height])
+    .invoke_handler(tauri::generate_handler![
+        commands::ping,
+        commands::get_status_bar_height,
+        commands::get_nav_bar_height
+    ])
     .setup(|app, api| {
       #[cfg(mobile)]
       let utils = mobile::init(app, api)?;

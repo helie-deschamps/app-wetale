@@ -57,7 +57,7 @@
 		<PriceTile
 			onTap={() => {
 				pricingFormula = "IMMERSIVE"
-				startPayment()
+				void startPayment()
 			}}
 			color="#F8BE3F"
 			textColor="black"
