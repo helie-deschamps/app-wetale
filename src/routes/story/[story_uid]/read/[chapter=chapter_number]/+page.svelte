@@ -82,7 +82,7 @@
 		}
 	}
 
-	let supposedCategoryColor: string | null = null
+	let supposedCategoryColor: string | null = $state(null)
 
 	if ($lastCategory) {
 		let category = getCategoryDatas($lastCategory)

@@ -1,13 +1,8 @@
 <script lang="ts">
 	import CircularProgress from "@smui/circular-progress"
 
-	let {
-		text,
-		color = null,
-	}: {
-		text: string
-		color: string | null
-	} = $props()
+	export let text: string
+	export let color: string | null = null
 </script>
 
 <div class="loading" style:--mdc-theme-primary={color ?? "black"}>

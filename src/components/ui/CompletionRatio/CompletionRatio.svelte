@@ -52,21 +52,4 @@
 	svg {
 		position: absolute;
 	}
-	.circleComplete {
-		position: absolute;
-	}
-	.circleBkg {
-		width: 100%;
-		height: 100%;
-		background-color: #d9d9d9;
-		border-radius: 50%;
-		position: absolute;
-	}
-	.circleBkgInner {
-		width: calc(100% - 20px);
-		margin: 10px;
-		height: calc(100% - 20px);
-		background-color: #f7f0e6;
-		border-radius: 50%;
-	}
 </style>
