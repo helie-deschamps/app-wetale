@@ -128,6 +128,7 @@
 <style lang="scss">
 	.text_body {
 		line-height: 142%;
+		user-select: text;
 	}
 	h1 {
 		font-size: 1.3rem;
