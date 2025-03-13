@@ -23,6 +23,7 @@
 
 	let chapterPromise = getChapterDatas(storyUid, chapterNumber)
 
+	let isSettingOpen = $state(false)
 	let textSizeMultiplier = $state<number>(1)
 	void (async () => {
 		textSizeMultiplier = (await $userPrefs?.get("textSizeMultiplier")) ?? 1
@@ -30,6 +31,31 @@
 	$effect(() => {
 		void $userPrefs
 			?.set("textSizeMultiplier", textSizeMultiplier)
+			.then(() => void $userPrefs.save())
+	})
+	let darkTheme = $state<boolean>(false)
+	void (async () => {
+		darkTheme = (await $userPrefs?.get("darkTheme")) ?? false
+	})()
+	$effect(() => {
+		void $userPrefs
+			?.set("darkTheme", darkTheme)
+			.then(() => void $userPrefs.save())
+	})
+	let font = $state<"Inter" | "Comic Neue" | "Default">("Default")
+	void (async () => {
+		font = (await $userPrefs?.get("font")) ?? "Default"
+	})()
+	$effect(() => {
+		void $userPrefs?.set("font", font).then(() => void $userPrefs.save())
+	})
+	let interlignes = $state<number>(142)
+	void (async () => {
+		interlignes = (await $userPrefs?.get("interlignes")) ?? 142
+	})()
+	$effect(() => {
+		void $userPrefs
+			?.set("interlignes", interlignes)
 			.then(() => void $userPrefs.save())
 	})
 
@@ -106,24 +132,38 @@
 	})
 </script>
 
-<ReadHeader bind:height={headerHeight} bind:textSizeMultiplier />
-<ClassicPageWrapper>
-	<div style:height="{headerHeight + 12}px"></div>
-	{#await chapterPromise}
-		<DefaultLoader
-			text="Chargement de l'histoire"
-			color={supposedCategoryColor}
-		/>
-	{:then chapter}
-		<h1>{chapter.title}</h1>
-		<p class="text_body" style="font-size: {textSizeMultiplier}rem">
-			{chapter.body}
-		</p>
-		<Poll {storyUid} {chapter}></Poll>
-	{:catch error}
-		<p>{error.message}</p>
-	{/await}
-</ClassicPageWrapper>
+<div
+	style:--text-color={darkTheme ? "#f7f0e6" : "#1a191d"}
+	style:--background-color={darkTheme ? "#1a191d" : "#f7f0e6"}
+	style:display="contents"
+>
+	<ReadHeader
+		bind:darkTheme
+		bind:font
+		bind:interlignes
+		bind:height={headerHeight}
+		bind:textSizeMultiplier
+		bind:isSettingOpen
+	/>
+
+	<ClassicPageWrapper>
+		<div style:height="{headerHeight + 12}px"></div>
+		{#await chapterPromise}
+			<DefaultLoader
+				text="Chargement de l'histoire"
+				color={supposedCategoryColor}
+			/>
+		{:then chapter}
+			<h1>{chapter.title}</h1>
+			<p class="text_body" style="font-size: {textSizeMultiplier}rem">
+				{chapter.body}
+			</p>
+			<Poll {storyUid} {chapter}></Poll>
+		{:catch error}
+			<p>{error.message}</p>
+		{/await}
+	</ClassicPageWrapper>
+</div>
 
 <style lang="scss">
 	.text_body {
