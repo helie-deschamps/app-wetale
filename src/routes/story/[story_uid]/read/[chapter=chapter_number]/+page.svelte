@@ -136,6 +136,7 @@
 	style:--text-color={darkTheme ? "#f7f0e6" : "#1a191d"}
 	style:--background-color={darkTheme ? "#1a191d" : "#f7f0e6"}
 	style:--text-font={font}
+	style:--text-line-height="{interlignes}%"
 	style:display="contents"
 >
 	<ReadHeader
@@ -168,9 +169,9 @@
 
 <style lang="scss">
 	.text_body {
-		line-height: 142%;
+		line-height: var(--text-line-height, 142);
 		user-select: text;
-		font-family: var(--text-font, inherit), sans-serif;
+    font-family: var(--text-font, inherit), sans-serif;
 	}
 	h1 {
 		font-size: 1.3rem;

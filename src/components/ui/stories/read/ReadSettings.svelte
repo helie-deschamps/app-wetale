@@ -89,6 +89,36 @@
 				</p>
 			</div>
 		</div>
+		<div class="row">
+			<h4>Interlignes</h4>
+			<label class:selected={interlignes === 100}>
+				100%
+				<input
+					type="radio"
+					name="scoops"
+					value={100}
+					bind:group={interlignes}
+				/>
+			</label>
+			<label class:selected={interlignes === 142}>
+				140%
+				<input
+					type="radio"
+					name="scoops"
+					value={142}
+					bind:group={interlignes}
+				/>
+			</label>
+			<label class:selected={interlignes === 180}>
+				180%
+				<input
+					type="radio"
+					name="scoops"
+					value={180}
+					bind:group={interlignes}
+				/>
+			</label>
+		</div>
 	</div>
 {/if}
 
