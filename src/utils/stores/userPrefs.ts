@@ -4,7 +4,7 @@ import { writable, type Writable } from "svelte/store"
 /**
  * **textSizeMultiplier**: number (ex: 1.2)
  * **darkTheme**: boolean
- * **font**: "Inter" | "Comic Neue" | "Default"
+ * **font**: "'Inter'" | "'Comic Neue'" | "system-ui"
  * **interlignes**: number (ex: 140)
  */
 export const userPrefs: Writable<Store | undefined> = writable()

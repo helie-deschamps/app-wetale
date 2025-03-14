@@ -12,7 +12,7 @@
 	}: {
 		textSizeMultiplier: number
 		darkTheme: boolean
-		font: "Inter" | "Comic Neue" | "Default"
+		font: "'Inter'" | "'Comic Neue'" | "system-ui"
 		interlignes: number
 		isOpen: boolean
 		headerHeight: number
@@ -46,8 +46,48 @@
 				<input type="radio" name="scoops" value={true} bind:group={darkTheme} />
 			</label>
 		</div>
-		<div class="row">
+		<div class="column font_select">
 			<h4>Police</h4>
+			<div style:--font="'Inter'">
+				<label class:selected={font === "'Inter'"}>
+					Inter
+					<input type="radio" name="scoops" value="'Inter'" bind:group={font} />
+				</label>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et enim
+					mauris. Morbi risus eros, ullamcorper in iaculis.
+				</p>
+			</div>
+			<div style:--font="'Comic Neue'">
+				<label class:selected={font === "'Comic Neue'"}>
+					Comic neue
+					<input
+						type="radio"
+						name="scoops"
+						value="'Comic Neue'"
+						bind:group={font}
+					/>
+				</label>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et enim
+					mauris. Morbi risus eros, ullamcorper in iaculis.
+				</p>
+			</div>
+			<div style:--font="system-ui">
+				<label class:selected={font === "system-ui"}>
+					Par défaut (Android)
+					<input
+						type="radio"
+						name="scoops"
+						value="system-ui"
+						bind:group={font}
+					/>
+				</label>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et enim
+					mauris. Morbi risus eros, ullamcorper in iaculis.
+				</p>
+			</div>
 		</div>
 	</div>
 {/if}
@@ -56,11 +96,12 @@
 	@use "/src/styles/variables/colors";
 
 	.container {
+		width: 100vw;
+		box-sizing: border-box;
 		padding: 0 30px 30px 32px;
 		position: fixed;
 		top: 0;
 		left: 0;
-		width: 100%;
 		background-color: colors.$main-dark;
 		color: white;
 		z-index: 1500;
@@ -73,7 +114,14 @@
 		justify-content: start;
 		gap: 1em;
 		align-items: end;
-		width: calc(100% - 60px);
+		width: 100%;
+		flex-wrap: wrap;
+	}
+	.column {
+		display: flex;
+		flex-direction: column;
+		gap: 1em;
+		width: 100%;
 	}
 	label {
 		cursor: pointer;
@@ -82,6 +130,8 @@
 		padding: 0.3em 0.7em;
 		font-weight: bold;
 		font-size: 0.9em;
+		width: max-content;
+		white-space: nowrap;
 		&.selected {
 			background-color: #f7f0e6;
 			color: #1a191d;
@@ -89,5 +139,17 @@
 	}
 	input {
 		display: none;
+	}
+	.font_select {
+		h4 {
+			margin-bottom: -6px;
+		}
+		label {
+			display: block;
+			margin-bottom: 2px;
+		}
+		p {
+			font-family: var(--font, inherit), sans-serif;
+		}
 	}
 </style>

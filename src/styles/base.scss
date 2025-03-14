@@ -83,6 +83,55 @@
 	font-style: italic;
 }
 
+@font-face {
+	font-family: "Inter";
+	src: url("/fonts/Inter/InterVariable.ttf") format("truetype");
+	font-style: normal;
+}
+@font-face {
+	font-family: "Inter";
+	src: url("/fonts/Inter/InterVariable-Italic.ttf") format("truetype");
+	font-style: italic;
+}
+
+// Comic Neue
+@font-face {
+	font-family: "Comic Neue";
+	src: url("/fonts/Comic Neue/ComicNeue-Light.ttf") format("truetype");
+	font-weight: 300;
+	font-style: normal;
+}
+@font-face {
+	font-family: "Comic Neue";
+	src: url("/fonts/Comic Neue/ComicNeue-LightItalic.ttf") format("truetype");
+	font-weight: 300;
+	font-style: italic;
+}
+@font-face {
+	font-family: "Comic Neue";
+	src: url("/fonts/Comic Neue/ComicNeue-Regular.ttf") format("truetype");
+	font-weight: 400;
+	font-style: normal;
+}
+@font-face {
+	font-family: "Comic Neue";
+	src: url("/fonts/Comic Neue/ComicNeue-Italic.ttf") format("truetype");
+	font-weight: 400;
+	font-style: italic;
+}
+@font-face {
+	font-family: "Comic Neue";
+	src: url("/fonts/Comic Neue/ComicNeue-Bold.ttf") format("truetype");
+	font-weight: 700;
+	font-style: normal;
+}
+@font-face {
+	font-family: "Comic Neue";
+	src: url("/fonts/Comic Neue/ComicNeue-BoldItalic.ttf") format("truetype");
+	font-weight: 700;
+	font-style: italic;
+}
+
 body {
 	font-family: "Figtree", sans-serif;
 	user-select: none;

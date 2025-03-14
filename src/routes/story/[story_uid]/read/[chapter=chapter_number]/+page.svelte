@@ -42,9 +42,9 @@
 			?.set("darkTheme", darkTheme)
 			.then(() => void $userPrefs.save())
 	})
-	let font = $state<"Inter" | "Comic Neue" | "Default">("Default")
+	let font = $state<"'Inter'" | "'Comic Neue'" | "system-ui">("system-ui")
 	void (async () => {
-		font = (await $userPrefs?.get("font")) ?? "Default"
+		font = (await $userPrefs?.get("font")) ?? "system-ui"
 	})()
 	$effect(() => {
 		void $userPrefs?.set("font", font).then(() => void $userPrefs.save())
@@ -135,6 +135,7 @@
 <div
 	style:--text-color={darkTheme ? "#f7f0e6" : "#1a191d"}
 	style:--background-color={darkTheme ? "#1a191d" : "#f7f0e6"}
+	style:--text-font={font}
 	style:display="contents"
 >
 	<ReadHeader
@@ -169,6 +170,7 @@
 	.text_body {
 		line-height: 142%;
 		user-select: text;
+		font-family: var(--text-font, inherit), sans-serif;
 	}
 	h1 {
 		font-size: 1.3rem;

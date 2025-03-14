@@ -15,7 +15,7 @@
 <style lang="scss">
 	main {
 		padding: 30px;
-		background-color: var(--background-color);
-		color: var(--text-color);
+		background-color: var(--background-color, inherit);
+		color: var(--text-color, currentColor);
 	}
 </style>

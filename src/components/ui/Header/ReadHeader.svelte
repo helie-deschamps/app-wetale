@@ -15,7 +15,7 @@
 		height: number
 		textSizeMultiplier: number
 		darkTheme: boolean
-		font: "Inter" | "Comic Neue" | "Default"
+		font: "'Inter'" | "'Comic Neue'" | "system-ui"
 		interlignes: number
 		isSettingOpen: boolean
 	} = $props()
