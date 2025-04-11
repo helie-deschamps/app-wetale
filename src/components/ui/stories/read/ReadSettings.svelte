@@ -138,6 +138,7 @@
 		display: flex;
 		gap: 16px;
 		flex-direction: column;
+		border-radius: 0 0 16px 16px;
 	}
 	.row {
 		display: flex;

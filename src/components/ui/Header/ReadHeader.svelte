@@ -58,6 +58,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		gap: 1rem;
 	}
 	:global(::view-transition-group(header)) {
 		z-index: 1000;

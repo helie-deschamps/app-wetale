@@ -1,5 +1,4 @@
 <script lang="ts">
-	import FavoriteStar from "../stories/FavoriteStar/FavoriteStar.svelte"
 	import { type DotLottie, DotLottieSvelte } from "@lottiefiles/dotlottie-svelte"
 	import { touchHandlers } from "../../../utils/component_features/touchHandlers"
 
@@ -46,7 +45,7 @@
 	use:touchHandlers
 >
 	<DotLottieSvelte
-		src="/lotties/settings.json"
+		src="/lotties/settings.lottie"
 		dotLottieRefCallback={(reference: DotLottie) => (dotLottie = reference)}
 		mode={checked ? "forward" : "reverse"}
 	/>
@@ -59,5 +58,7 @@
 		border: none;
 		padding: 0;
 		color: white;
+    width: 27px;
+    height: 27px;
 	}
 </style>
