@@ -171,7 +171,7 @@
 	.text_body {
 		line-height: var(--text-line-height, 142);
 		user-select: text;
-    font-family: var(--text-font, inherit), sans-serif;
+		font-family: var(--text-font, inherit), sans-serif;
 	}
 	h1 {
 		font-size: 1.3rem;

@@ -1,5 +1,8 @@
 <script lang="ts">
-	import { type DotLottie, DotLottieSvelte } from "@lottiefiles/dotlottie-svelte"
+	import {
+		type DotLottie,
+		DotLottieSvelte,
+	} from "@lottiefiles/dotlottie-svelte"
 	import { touchHandlers } from "../../../utils/component_features/touchHandlers"
 
 	let {
@@ -58,7 +61,7 @@
 		border: none;
 		padding: 0;
 		color: white;
-    width: 27px;
-    height: 27px;
+		width: 27px;
+		height: 27px;
 	}
 </style>

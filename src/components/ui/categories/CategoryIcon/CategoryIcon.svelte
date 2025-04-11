@@ -1,19 +1,23 @@
 <script lang="ts">
 	import { TalesCategories } from "../../../../utils/enums/TalesCategories"
-	import getCategoryDatas, { type CategoryDatas } from "../../../../utils/functions/categories/getCategoryDatas"
+	import getCategoryDatas, {
+		type CategoryDatas,
+	} from "../../../../utils/functions/categories/getCategoryDatas"
 
-	type Properties = {
-		categoryData: CategoryDatas
-		category?: null
-	} | {
-		categoryData?: null
-		category: TalesCategories
-	}
-	const {
-		category = $bindable(null),
-		categoryData = null
-	}: Properties = $props()
-	const { lowercaseTitle } = $derived(categoryData ?? getCategoryDatas(category as TalesCategories))
+	type Properties =
+		| {
+				categoryData: CategoryDatas
+				category?: null
+		  }
+		| {
+				categoryData?: null
+				category: TalesCategories
+		  }
+	const { category = $bindable(null), categoryData = null }: Properties =
+		$props()
+	const { lowercaseTitle } = $derived(
+		categoryData ?? getCategoryDatas(category as TalesCategories),
+	)
 </script>
 
 {#if lowercaseTitle === "romance"}

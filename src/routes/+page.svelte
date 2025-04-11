@@ -8,7 +8,7 @@
 	<CategoriesList />
 	<div class="separator"></div>
 	<LinkButtonified href="/about-us">
-		WeTale :<br/>A propos de nous
+		WeTale :<br />A propos de nous
 	</LinkButtonified>
 </ClassicPageWrapper>
 

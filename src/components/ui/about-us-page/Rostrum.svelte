@@ -10,7 +10,9 @@
 </script>
 
 <ol>
-	<li style={`background-color: ${categoriesForStyles[0].colorBackground ?? "#fff"};`}>
+	<li
+		style={`background-color: ${categoriesForStyles[0].colorBackground ?? "#fff"};`}
+	>
 		<span class="icon">
 			<CategoryIcon categoryData={categoriesForStyles[0]} />
 		</span>
@@ -19,16 +21,21 @@
 			Choissisez une histoire qui vous intéresse et... lisez !
 		</p>
 	</li>
-	<li style={`background-color: ${categoriesForStyles[1].colorBackground ?? "#fff"};`}>
+	<li
+		style={`background-color: ${categoriesForStyles[1].colorBackground ?? "#fff"};`}
+	>
 		<span class="icon">
 			<CategoryIcon categoryData={categoriesForStyles[1]} />
 		</span>
 		<p>
 			<span class="number">2</span>
-			Votez pour la suite de l’histoire que vous préférez pour apporter votre patte à l’histoire
+			Votez pour la suite de l’histoire que vous préférez pour apporter votre patte
+			à l’histoire
 		</p>
 	</li>
-	<li style={`background-color: ${categoriesForStyles[2].colorBackground ?? "#fff"};`}>
+	<li
+		style={`background-color: ${categoriesForStyles[2].colorBackground ?? "#fff"};`}
+	>
 		<span class="icon">
 			<CategoryIcon categoryData={categoriesForStyles[2]} />
 		</span>
@@ -40,7 +47,7 @@
 </ol>
 
 <style lang="scss">
-  @use "../../../styles/variables/colors";
+	@use "../../../styles/variables/colors";
 
 	ol {
 		list-style: none;
@@ -49,9 +56,9 @@
 		gap: 6px;
 		justify-content: stretch;
 		align-items: center;
-    li {
+		li {
 			position: relative;
-      border-radius: 16px;
+			border-radius: 16px;
 			padding-top: 55px;
 			flex: 1;
 			overflow: hidden;
@@ -63,10 +70,10 @@
 				left: 10%;
 				height: fit-content;
 			}
-      p {
+			p {
 				position: relative;
 				z-index: 1;
-        .number {
+				.number {
 					font-size: 2rem;
 					font-weight: 900;
 					color: colors.$main-dark;
@@ -76,13 +83,13 @@
 					text-align: center;
 					display: block;
 				}
-        background-color: colors.$main-light;
-        color: colors.$main-dark;
+				background-color: colors.$main-light;
+				color: colors.$main-dark;
 				border-radius: 16px;
 				border: 3px solid colors.$main-dark;
 				padding: 12px 6px;
-				font-size: .95em;
-      }
-    }
+				font-size: 0.95em;
+			}
+		}
 	}
 </style>

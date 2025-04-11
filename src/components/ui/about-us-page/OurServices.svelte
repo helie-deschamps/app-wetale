@@ -12,8 +12,12 @@
 
 <div class="container">
 	<SectionTitle text="Nos services :" />
-	<p>Chez WETALE, nous redéfinissons la lecture en vous offrant des services interactifs et immersifs, où chaque utilisateur devient un acteur clé dans la création d’histoires captivantes.</p>
-	<ol>
+	<p>
+		Chez WETALE, nous redéfinissons la lecture en vous offrant des services
+		interactifs et immersifs, où chaque utilisateur devient un acteur clé dans
+		la création d’histoires captivantes.
+	</p>
+	<ul>
 		<li style:background-color={categoryForStyles.colorBackground ?? "#fff"}>
 			<div>
 				<span>Votez</span>
@@ -38,14 +42,20 @@
 		<li style:background-color={categoryForStyles.colorBackground ?? "#fff"}>
 			<div>
 				<span>Lisez</span>
-				<p>de nouveaux chapitres chaque jour sur chaque thème , <b><a href="register">incrivez-vous</a></b> pour voter et profitez d’encore plus de fonctionnalités en vous <b>abonnant</b>.</p>
+				<p>
+					de nouveaux chapitres chaque jour sur chaque thème , <b
+						><a href="register">incrivez-vous</a></b
+					>
+					pour voter et profitez d’encore plus de fonctionnalités en vous
+					<b>abonnant</b>.
+				</p>
 			</div>
 		</li>
-	</ol>
+	</ul>
 </div>
 
 <style lang="scss">
-  @use "../../../styles/variables/colors";
+	@use "../../../styles/variables/colors";
 
 	a {
 		color: inherit;
@@ -59,18 +69,18 @@
 	p {
 		margin-bottom: 1rem;
 	}
-	ol {
+	ul {
 		list-style: none;
 		display: flex;
 		padding: 0;
 		justify-content: stretch;
-    flex-wrap: wrap;
+		flex-wrap: wrap;
 		gap: 1rem;
 		margin: 0 1rem;
-    align-items: stretch;
-    li {
-      flex: 0 0 calc(50% - 0.5rem);
-      border-radius: 16px;
+		align-items: stretch;
+		li {
+			flex: 0 0 calc(50% - 0.5rem);
+			border-radius: 16px;
 			position: relative;
 			overflow: hidden;
 			.icon {
@@ -79,23 +89,23 @@
 				transform: translateY(40%);
 				width: 140%;
 			}
-      div {
+			div {
 				position: relative;
-        background-color: colors.$main-light;
-        border-radius: 16px;
-        border: 3px solid colors.$main-dark;
-        padding: 12px 6px;
-        font-size: .95em;
-        text-align: center;
-        box-sizing: border-box;
-        span {
-          font-weight: bold;
-          display: block;
-        }
+				background-color: colors.$main-light;
+				border-radius: 16px;
+				border: 3px solid colors.$main-dark;
+				padding: 12px 6px;
+				font-size: 0.95em;
+				text-align: center;
+				box-sizing: border-box;
+				span {
+					font-weight: bold;
+					display: block;
+				}
 				p {
 					margin-bottom: 0;
 				}
-      }
-    }
+			}
+		}
 	}
 </style>
