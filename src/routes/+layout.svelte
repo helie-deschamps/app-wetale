@@ -13,6 +13,7 @@
 	import getCssOsBarsHeight from "../utils/functions/osInfos/getCssOsBarsHeight"
 	import { navBarHeight } from "../components/ui/NavBar/NavBar.svelte"
 	import { initUserPrefs } from "../utils/stores/userPrefs"
+	import { initCurrentUser } from "../utils/stores/currentUser"
 	void import("../styles/libs/svelte-material-ui/bare.min.css")
 
 	let { children }: { children: Snippet } = $props()
@@ -47,6 +48,7 @@
 	})
 
 	void initUserPrefs()
+	void initCurrentUser()
 </script>
 
 <Header />
