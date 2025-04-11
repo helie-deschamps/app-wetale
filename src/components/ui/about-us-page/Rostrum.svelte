@@ -7,11 +7,8 @@
 	}: {
 		categoriesForStyles: [CategoryDatas, CategoryDatas, CategoryDatas]
 	} = $props()
-
-	console.log(categoriesForStyles[0])
 </script>
 
-<link rel="stylesheet" href="../../../styles/variables/colors.scss">
 <ol>
 	<li style={`background-color: ${categoriesForStyles[0].colorBackground ?? "#fff"};`}>
 		<span class="icon">
