@@ -8,6 +8,7 @@
 		title,
 		argues,
 		onTap,
+		withButton = false,
 	}: {
 		color: string
 		textColor: string
@@ -15,6 +16,7 @@
 		title: string
 		argues: string[]
 		onTap: () => void
+		withButton?: boolean
 	} = $props()
 
 	function handleKeydown(event: KeyboardEvent) {
@@ -25,14 +27,15 @@
 </script>
 
 <div
+	class={withButton ? "with-swap-button" : ""}
 	role="button"
 	tabindex="0"
 	onkeydown={handleKeydown}
 	onclick={onTap}
 	use:touchHandlers
-	style:background-color={color}
-	style:color={textColor}
-	style:--marker-color={markerColor}
+	style:background-color={withButton ? "" : color}
+	style:color={withButton ? "black" : textColor}
+	style:--marker-color={withButton ? "black" : markerColor}
 >
 	<h2>{title}</h2>
 	<ul>
@@ -42,6 +45,9 @@
 			</li>
 		{/each}
 	</ul>
+	{#if withButton}
+		<button class:swap-button={true}> Changer d’abonnement </button>
+	{/if}
 </div>
 
 <style lang="scss">
@@ -56,6 +62,9 @@
 		&:focus-visible {
 			outline-color: var(--marker-color);
 		}
+		&.with-swap-button {
+			border: 3px solid black;
+		}
 	}
 	h2 {
 		margin-bottom: 0.4em;
@@ -69,5 +78,19 @@
 	li::marker {
 		color: var(--marker-color);
 		font-size: 1.6em;
+	}
+	.swap-button {
+		background-color: black;
+		color: white;
+		border-radius: 8px;
+		padding: 0.55em 16px;
+		font-weight: 800;
+		font-size: 1.2em;
+		text-transform: uppercase;
+		display: block;
+		width: 100%;
+		border: none;
+		cursor: pointer;
+		margin-top: 1em;
 	}
 </style>

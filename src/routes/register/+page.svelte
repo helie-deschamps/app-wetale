@@ -15,9 +15,8 @@
 		if (createUser(email, password)) void goto("/my-account")
 	}
 
-	void (async ()  => {
-		if( await $currentUser?.get("eMail") )
-			void goto("/my-account")
+	void (async () => {
+		if (await $currentUser?.get("eMail")) void goto("/my-account")
 	})()
 </script>
 

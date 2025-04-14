@@ -72,13 +72,8 @@
 			]}
 		/>
 		<p>
-			Chez WETALE, nous croyons en la flexibilité et la liberté de nos
-			utilisateurs. Vous pouvez modifier ou annuler votre abonnement à tout
-			moment directement depuis votre compte, sans frais supplémentaires ni
-			engagement. Que vous souhaitiez passer à une formule différente ou mettre
-			fin à votre abonnement, le processus est simple et rapide. Votre
-			expérience est au cœur de nos priorités, et nous souhaitons qu’elle reste
-			toujours adaptée à vos besoins.
+			Les abonnements étant pris par période d’un mois, le résiliement de votre
+			abonnement lui donnera fin au premier du mois suivant.
 		</p>
 	{:else if currentStep === 1}
 		<DefaultLoader text="Paiement en cours" />
