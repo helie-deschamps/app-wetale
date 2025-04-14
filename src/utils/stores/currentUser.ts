@@ -12,7 +12,7 @@ export const currentUser: Writable<Store | undefined> = writable()
 
 export const initCurrentUser = async () => {
 	currentUser.set(await load("stores/current_user.json", { autoSave: false }))
-	if (get(currentUser)?.get("eMail")) isUserConnected.set(true)
+	if (await get(currentUser)?.get("eMail")) isUserConnected.set(true)
 }
 
 export const disconnectCurrentUser = async () => {
