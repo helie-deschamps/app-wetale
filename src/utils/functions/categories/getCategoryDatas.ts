@@ -6,6 +6,7 @@ export type CategoryDatas = {
 	colorBackground?: string
 	colorText?: string
 	isAlternated?: boolean
+	couldBeRotated?: boolean
 }
 
 export const categoriesDatas: { [key in TalesCategories]: CategoryDatas } = {
@@ -15,6 +16,7 @@ export const categoriesDatas: { [key in TalesCategories]: CategoryDatas } = {
 		colorBackground: "#f9f9f6",
 		colorText: "#e41d20",
 		isAlternated: true,
+		couldBeRotated: false,
 	},
 	[TalesCategories.Detective]: {
 		title: "Policier",
@@ -22,6 +24,7 @@ export const categoriesDatas: { [key in TalesCategories]: CategoryDatas } = {
 		colorBackground: "#7c1430",
 		colorText: "#eb8495",
 		isAlternated: false,
+		couldBeRotated: true,
 	},
 	[TalesCategories.ScienceFiction]: {
 		title: "Science Fiction",
@@ -29,6 +32,7 @@ export const categoriesDatas: { [key in TalesCategories]: CategoryDatas } = {
 		colorBackground: "#086169",
 		colorText: "#9ad2c8",
 		isAlternated: false,
+		couldBeRotated: true,
 	},
 	[TalesCategories.Adventure]: {
 		title: "Action et Aventure",
@@ -36,6 +40,7 @@ export const categoriesDatas: { [key in TalesCategories]: CategoryDatas } = {
 		colorBackground: "#87801f",
 		colorText: "#f9f9f6",
 		isAlternated: false,
+		couldBeRotated: true,
 	},
 	[TalesCategories.Thriller]: {
 		title: "Thriller",
@@ -43,6 +48,7 @@ export const categoriesDatas: { [key in TalesCategories]: CategoryDatas } = {
 		colorBackground: "#6d103c",
 		colorText: "#e94f1d",
 		isAlternated: false,
+		couldBeRotated: true,
 	},
 	[TalesCategories.Fantasy]: {
 		title: "Fantasy",
@@ -50,6 +56,7 @@ export const categoriesDatas: { [key in TalesCategories]: CategoryDatas } = {
 		colorBackground: "#f8be3f",
 		colorText: "#f9f9f6",
 		isAlternated: false,
+		couldBeRotated: true,
 	},
 }
 

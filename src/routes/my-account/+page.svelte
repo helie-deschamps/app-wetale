@@ -8,11 +8,16 @@
 	import { goto } from "$app/navigation"
 	import { SubscriptionPlans } from "../../utils/enums/SubscriptionPlans"
 	import PriceTile from "../../components/ui/subscribe/PriceTile.svelte"
+	import { getRandomCategories } from "../../utils/functions/categories/getRadomsCategories"
+	import type { CategoryDatas } from "../../utils/functions/categories/getCategoryDatas"
+	import CategoryIcon from "../../components/ui/categories/CategoryIcon/CategoryIcon.svelte"
 
 	let email = $state("")
 	let username = $state("")
 	let subscriptionPlan = $state<SubscriptionPlans | undefined>()
 	let password = $state("......")
+
+	const [categoryForTheme] = getRandomCategories(1) as [CategoryDatas]
 
 	void (async () => {
 		email = (await $currentUser?.get("eMail")) ?? ""
@@ -28,21 +33,33 @@
 
 <ClassicPageWrapper>
 	<section>
-		<SectionTitle text="Mon compte" />
-		<button onclick={disconnect}>Se déconnecter</button>
-		<div></div>
-		<label>
-			<span>Pseudonyme</span>
-			<input type="text" bind:value={username} />
-		</label>
-		<label>
-			<span>Adresse mail</span>
-			<input type="email" bind:value={email} />
-		</label>
-		<label>
-			<span>Mot de passe</span>
-			<input type="password" bind:value={password} />
-		</label>
+		<div class="title-div">
+			<SectionTitle text="Mon compte" withMargin={false} />
+			<button class="delete-account" onclick={disconnect}>
+				Supprimer mon compte
+			</button>
+		</div>
+		<div class="user-datas-div">
+			<div class="artwork" style:background={categoryForTheme.colorBackground}>
+				<div style:--rotation={categoryForTheme.couldBeRotated ? `${String(Math.random() * 360)  }deg` : "0deg"}>
+					<CategoryIcon categoryData={categoryForTheme} />
+				</div>
+			</div>
+			<div class="inputs-div">
+				<label>
+					<span>Pseudonyme</span>
+					<input type="text" bind:value={username} disabled={true} />
+				</label>
+				<label>
+					<span>Adresse mail</span>
+					<input type="email" bind:value={email} disabled={true} />
+				</label>
+				<label>
+					<span>Mot de passe</span>
+					<input type="password" bind:value={password} disabled={true} />
+				</label>
+			</div>
+		</div>
 	</section>
 	{#if subscriptionPlan || subscriptionPlan === SubscriptionPlans.Free}
 		<section>
@@ -87,5 +104,59 @@
 <style lang="scss" global>
 	section:not(:last-child) {
 		margin-bottom: 2rem;
+	}
+	.title-div {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+    .delete-account {
+      background: transparent;
+      border: none;
+      color: #ff0000;
+      font-weight: 550;
+    }
+	}
+	.user-datas-div {
+    margin-top: 1rem;
+		display: flex;
+		flex-direction: row;
+		gap: 1rem;
+    .artwork {
+			display: block;
+      min-height: 100%;
+			flex: 1;
+			border-radius: 16px;
+			overflow: hidden;
+			div {
+				width: 135%;
+				transform: translate(-20%, -10%) rotate(var(--rotation));
+			}
+    }
+		.inputs-div {
+			flex: 2;
+			display: flex;
+			flex-direction: column;
+			label:not(:first-child) {
+        margin-top: .45em;
+			}
+			span {
+				display: block;
+				font-weight: 520;
+			}
+			input {
+				display: block;
+        width: -webkit-fill-available;
+        width: fill-available;
+				padding: .6em;
+				font-size: 1.02em;
+        font-weight: 520;
+				border-radius: 6px;
+				border: none;
+				&:disabled {
+					background: #ffffff;
+					color: black;
+				}
+			}
+		}
 	}
 </style>
