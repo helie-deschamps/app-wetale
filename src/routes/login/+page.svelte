@@ -5,7 +5,7 @@
 	import { fade, fly } from "svelte/transition"
 	import connectUser from "../../utils/functions/currentUser/connectUser"
 	import { goto } from "$app/navigation"
-	import { currentUser } from "../../utils/stores/currentUser"
+	import { currentUser, isUserConnected } from "../../utils/stores/currentUser"
 
 	let email = $state(page.url.searchParams.get("email") ?? "")
 	let password = $state("")
@@ -16,7 +16,10 @@
 	}
 
 	void (async () => {
-		if (await $currentUser?.get("eMail")) void goto("/my-account")
+		if (await $currentUser?.get("eMail")) {
+			isUserConnected.set(true)
+			void goto("/my-account")
+		}
 	})()
 </script>
 

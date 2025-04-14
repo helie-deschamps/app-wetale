@@ -1,5 +1,5 @@
 import type { User } from "../../types/User"
-import { currentUser } from "../../stores/currentUser"
+import { currentUser, isUserConnected } from "../../stores/currentUser"
 import { get } from "svelte/store"
 import { SubscriptionPlans } from "../../enums/SubscriptionPlans"
 
@@ -28,6 +28,7 @@ export default function createUser(
 			await currentUserStore?.set("username", generateUsername())
 			await currentUserStore?.set("subscriptionPlan", SubscriptionPlans.Free)
 			await currentUserStore?.save()
+			isUserConnected.set(true)
 		})()
 	}
 
