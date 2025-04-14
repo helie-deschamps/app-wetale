@@ -12,6 +12,7 @@
 	import Error from "../../+error.svelte"
 	import { onMount } from "svelte"
 	import { lastCategory } from "../../../utils/writables/lastCategory"
+	import { isUserConnected } from "../../../utils/stores/currentUser"
 
 	let {
 		data,
@@ -60,7 +61,9 @@
 					withMargin={false}
 					isSkeleton={story === undefined}
 				/>
-				<FavoriteStar checked={true} />
+				{#if $isUserConnected}
+					<FavoriteStar checked={true} />
+				{/if}
 			</div>
 			<p class:chapter={true}>
 				{#await storyPromise}
