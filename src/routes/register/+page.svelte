@@ -1,20 +1,31 @@
-<script>
+<script lang="ts">
 	import { page } from "$app/state"
 	import TextInput from "../../components/ui/forms/TextInput/TextInput.svelte"
 	import Button from "../../components/ui/Button/Button.svelte"
 	import { fade, fly } from "svelte/transition"
+	import createUser from "../../utils/functions/currentUser/createUser"
+	import { goto } from "$app/navigation"
+	import { currentUser } from "../../utils/stores/currentUser"
 
 	let username = $state(page.url.searchParams.get("email") ?? "")
 	let password = $state("")
+
+	function sendFormAjax(event: SubmitEvent) {
+		event.preventDefault()
+		if (createUser(username, password)) void goto("/my-account")
+	}
+
+	if( $currentUser )
+		void goto("/my-account")
 </script>
 
 <div class:global_container={true} out:fade>
 	<div class:login_container={true} in:fly={{ y: 200 }} out:fly={{ y: 200 }}>
-		<form>
+		<form onsubmit={sendFormAjax}>
 			<h2>Inscrivez vous !</h2>
 			<TextInput
 				category="email"
-				placeholder="Votre addresse mail"
+				placeholder="Votre adresse mail"
 				bind:value={username}
 				defaultValue={page.url.searchParams.get("email") ?? undefined}
 				required={true}
@@ -33,14 +44,7 @@
 			/>
 			<Button isSubmit={true} tabindex={3}>S'inscrire</Button>
 		</form>
-		<hr class:separator={true} />
 		<div>
-			<!--
-			<GoogleOAuthButton />
-			<div style:height=".8em"></div>
-			<FacebookOAuthButton />
-			<div style:height=".4em"></div>
-			-->
 			<p class:lastLink={true}>
 				Vous avez dejà compte ? <a href="/login">Connectez-vous</a>
 			</p>
