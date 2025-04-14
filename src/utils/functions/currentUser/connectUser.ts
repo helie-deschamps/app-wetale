@@ -3,13 +3,13 @@ import { currentUser } from "../../stores/currentUser"
 import { get } from "svelte/store"
 
 export default function connectUser(
-	username: string,
+	email: string,
 	password: string,
 ): null | User {
 	let user: User | null = null
 
 	user = {
-		eMail: username,
+		eMail: email,
 		jwToken: password,
 		jwTExpiration: Date.now() + 3600 * 1000, // 1 hour
 	}

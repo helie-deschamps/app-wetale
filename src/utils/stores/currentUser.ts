@@ -1,8 +1,9 @@
 import { load, Store } from "@tauri-apps/plugin-store"
-import { writable, type Writable } from "svelte/store"
+import { get, writable, type Writable } from "svelte/store"
 
 /**
  * **eMail**: string (email)
+ * **username**: string
  * **jwToken**: string (JWT)
  * **jwTExpiration**: number (timestamp)
  */
@@ -10,4 +11,10 @@ export const currentUser: Writable<Store | undefined> = writable()
 
 export const initCurrentUser = async () => {
 	currentUser.set(await load("stores/current_user.json", { autoSave: false }))
+}
+
+export const disconnectCurrentUser = async () => {
+	const currentUserStore = get(currentUser)
+	await currentUserStore?.clear()
+	await currentUserStore?.save()
 }

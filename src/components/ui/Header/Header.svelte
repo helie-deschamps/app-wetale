@@ -20,7 +20,7 @@
 
 <header bind:this={localHeader} bind:offsetHeight={localHeaderHeight}>
 	<Logo />
-	<a href="/login" aria-label="Mon compte">
+	<a href="/register" aria-label="Mon compte">
 		<svg
 			role="img"
 			aria-label="Se connecter"

@@ -2,14 +2,18 @@ import type { User } from "../../types/User"
 import { currentUser } from "../../stores/currentUser"
 import { get } from "svelte/store"
 
+function generateUsername(): string {
+	return "rat noir"
+}
+
 export default function createUser(
-	username: string,
+	email: string,
 	password: string,
 ): null | User {
 	let user: User | null = null
 
 	user = {
-		eMail: username,
+		eMail: email,
 		jwToken: password,
 		jwTExpiration: Date.now() + 3600 * 1000, // 1 hour
 	}
@@ -20,6 +24,7 @@ export default function createUser(
 			await currentUserStore?.set("eMail", user.eMail)
 			await currentUserStore?.set("jwToken", user.jwToken)
 			await currentUserStore?.set("jwTExpiration", user.jwTExpiration)
+			await currentUserStore?.set("username", generateUsername())
 			await currentUserStore?.save()
 		})()
 	}

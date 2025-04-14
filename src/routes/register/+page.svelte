@@ -7,16 +7,18 @@
 	import { goto } from "$app/navigation"
 	import { currentUser } from "../../utils/stores/currentUser"
 
-	let username = $state(page.url.searchParams.get("email") ?? "")
+	let email = $state(page.url.searchParams.get("email") ?? "")
 	let password = $state("")
 
 	function sendFormAjax(event: SubmitEvent) {
 		event.preventDefault()
-		if (createUser(username, password)) void goto("/my-account")
+		if (createUser(email, password)) void goto("/my-account")
 	}
 
-	if( $currentUser )
-		void goto("/my-account")
+	void (async ()  => {
+		if( await $currentUser?.get("eMail") )
+			void goto("/my-account")
+	})()
 </script>
 
 <div class:global_container={true} out:fade>
@@ -26,7 +28,7 @@
 			<TextInput
 				category="email"
 				placeholder="Votre adresse mail"
-				bind:value={username}
+				bind:value={email}
 				defaultValue={page.url.searchParams.get("email") ?? undefined}
 				required={true}
 				tabindex={1}
