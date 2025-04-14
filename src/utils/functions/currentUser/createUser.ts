@@ -1,6 +1,7 @@
 import type { User } from "../../types/User"
 import { currentUser } from "../../stores/currentUser"
 import { get } from "svelte/store"
+import { SubscriptionPlans } from "../../enums/SubscriptionPlans"
 
 function generateUsername(): string {
 	return "rat noir"
@@ -25,6 +26,7 @@ export default function createUser(
 			await currentUserStore?.set("jwToken", user.jwToken)
 			await currentUserStore?.set("jwTExpiration", user.jwTExpiration)
 			await currentUserStore?.set("username", generateUsername())
+			await currentUserStore?.set("subscriptionPlan", SubscriptionPlans.Free)
 			await currentUserStore?.save()
 		})()
 	}

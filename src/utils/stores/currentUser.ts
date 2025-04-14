@@ -6,6 +6,7 @@ import { get, writable, type Writable } from "svelte/store"
  * **username**: string
  * **jwToken**: string (JWT)
  * **jwTExpiration**: number (timestamp)
+ * **subscriptionPlan**: 0 | 1 | 2 (cf. enum SubscriptionPlans)
  */
 export const currentUser: Writable<Store | undefined> = writable()
 

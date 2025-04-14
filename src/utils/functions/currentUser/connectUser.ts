@@ -1,6 +1,7 @@
 import type { User } from "../../types/User"
 import { currentUser } from "../../stores/currentUser"
 import { get } from "svelte/store"
+import { SubscriptionPlans } from "../../enums/SubscriptionPlans"
 
 export default function connectUser(
 	email: string,
@@ -20,6 +21,8 @@ export default function connectUser(
 			await currentUserStore?.set("eMail", user.eMail)
 			await currentUserStore?.set("jwToken", user.jwToken)
 			await currentUserStore?.set("jwTExpiration", user.jwTExpiration)
+			await currentUserStore?.set("username", "serpent bleu")
+			await currentUserStore?.set("subscriptionPlan", SubscriptionPlans.Free)
 			await currentUserStore?.save()
 		})()
 	}
