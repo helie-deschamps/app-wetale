@@ -41,7 +41,11 @@
 		</div>
 		<div class="user-datas-div">
 			<div class="artwork" style:background={categoryForTheme.colorBackground}>
-				<div style:--rotation={categoryForTheme.couldBeRotated ? `${String(Math.random() * 360)  }deg` : "0deg"}>
+				<div
+					style:--rotation={categoryForTheme.couldBeRotated
+						? `${String(Math.random() * 360)}deg`
+						: "0deg"}
+				>
 					<CategoryIcon categoryData={categoryForTheme} />
 				</div>
 			</div>
@@ -109,21 +113,21 @@
 		display: flex;
 		justify-content: space-around;
 		align-items: center;
-    .delete-account {
-      background: transparent;
-      border: none;
-      color: #ff0000;
-      font-weight: 550;
-    }
+		.delete-account {
+			background: transparent;
+			border: none;
+			color: #ff0000;
+			font-weight: 550;
+		}
 	}
 	.user-datas-div {
-    margin-top: 1rem;
+		margin-top: 1rem;
 		display: flex;
 		flex-direction: row;
 		gap: 1rem;
-    .artwork {
+		.artwork {
 			display: block;
-      min-height: 100%;
+			min-height: 100%;
 			flex: 1;
 			border-radius: 16px;
 			overflow: hidden;
@@ -131,13 +135,13 @@
 				width: 135%;
 				transform: translate(-20%, -10%) rotate(var(--rotation));
 			}
-    }
+		}
 		.inputs-div {
 			flex: 2;
 			display: flex;
 			flex-direction: column;
 			label:not(:first-child) {
-        margin-top: .45em;
+				margin-top: 0.45em;
 			}
 			span {
 				display: block;
@@ -145,11 +149,11 @@
 			}
 			input {
 				display: block;
-        width: -webkit-fill-available;
-        width: fill-available;
-				padding: .6em;
+				width: -webkit-fill-available;
+				width: fill-available;
+				padding: 0.6em;
 				font-size: 1.02em;
-        font-weight: 520;
+				font-weight: 520;
 				border-radius: 6px;
 				border: none;
 				&:disabled {
