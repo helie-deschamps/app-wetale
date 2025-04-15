@@ -53,6 +53,7 @@
 			svg {
 				transform: rotate(0);
 				transition: transform 0.3s ease-in-out;
+				margin-left: 0.7em;
 				&.open {
 					transform: rotate(45deg);
 				}
