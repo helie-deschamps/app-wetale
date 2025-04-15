@@ -90,22 +90,6 @@
 			margin-top: 27px;
 		}
 	}
-	.separator {
-		border: none;
-		border-top: 2px solid #cfdfe2;
-		color: #294957;
-		overflow: visible;
-		text-align: center;
-		margin: 31px 0 23px 0;
-		height: 0;
-		&::before {
-			content: "Ou";
-			position: relative;
-			top: -0.7em;
-			background-color: colors.$main-light;
-			padding: 0 16px;
-		}
-	}
 	.lastLink {
 		text-align: center;
 		a {

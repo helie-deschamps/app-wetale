@@ -15,7 +15,7 @@ export default function connectUser(
 		jwTExpiration: Date.now() + 3600 * 1000, // 1 hour
 	}
 
-	if (user) {
+	//if (user) {
 		void (async () => {
 			const currentUserStore = get(currentUser)
 			await currentUserStore?.set("eMail", user.eMail)
@@ -26,7 +26,7 @@ export default function connectUser(
 			await currentUserStore?.save()
 			isUserConnected.set(true)
 		})()
-	}
+	//}
 
 	return user
 }

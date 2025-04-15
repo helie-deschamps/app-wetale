@@ -19,7 +19,7 @@ export default function createUser(
 		jwTExpiration: Date.now() + 3600 * 1000, // 1 hour
 	}
 
-	if (user) {
+	//if (user) {
 		void (async () => {
 			const currentUserStore = get(currentUser)
 			await currentUserStore?.set("eMail", user.eMail)
@@ -30,7 +30,7 @@ export default function createUser(
 			await currentUserStore?.save()
 			isUserConnected.set(true)
 		})()
-	}
+	//}
 
 	return user
 }

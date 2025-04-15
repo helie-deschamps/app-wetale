@@ -11,7 +11,7 @@
 </script>
 
 <div>
-	<p class="question" onclick={() => (isOpen = !isOpen)}>
+	<button class="question" onclick={() => (isOpen = !isOpen)}>
 		{question}
 		<svg
 			class:open={isOpen}
@@ -28,7 +28,7 @@
 				stroke-linecap="round"
 			/>
 		</svg>
-	</p>
+	</button>
 	<p class="answer" class:open={isOpen} aria-hidden={!isOpen}>
 		{answer}
 	</p>
@@ -41,6 +41,9 @@
 		border: 3px solid colors.$main-dark;
 		border-radius: 16px;
 		.question {
+			border: 0;
+			background-color: transparent;
+			width: 100%;
 			padding: 1em 0.7em;
 			font-weight: bold;
 			cursor: pointer;
