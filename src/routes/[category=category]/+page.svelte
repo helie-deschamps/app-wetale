@@ -6,6 +6,8 @@
 	import type { StoryBasic } from "../../utils/types/StoryBasic"
 	import ImagePageWrapper from "../../components/ui/pageWrappers/ImagePageWrapper.svelte"
 	import { lastCategory } from "../../utils/writables/lastCategory"
+	import getStoriesListFromCategory from "../../utils/functions/api/getStoriesListFromCategory"
+	import DefaultLoader from "../../components/ui/skeleton/DefaultLoader.svelte"
 
 	let {
 		data,
@@ -24,95 +26,30 @@
 		console.log(error)
 	}
 
-	var storiesList: StoryBasic[] = [
-		{
-			title: "Panique à bord",
-			blurb:
-				"Un photographe découvre que des personnes capturées sur ses clichés sont assassinées peu après.",
-			type: TalesCategories.Thriller,
-			uid: "chasseur",
-			lastChapitre: 12,
-			completionRatio: 87,
-		},
-		{
-			title: "Le Reflet du Chasseur",
-			blurb:
-				"Un photographe découvre que des personnes capturées sur ses clichés sont assassinées peu après.",
-			type: TalesCategories.Thriller,
-			uid: "chasseur",
-			lastChapitre: 12,
-			completionRatio: 95,
-		},
-		{
-			title: "La magie",
-			blurb:
-				"Un magicien découvre qu'il peut vraiment faire des tours de magie.",
-			type: TalesCategories.Fantasy,
-			uid: "magie",
-			lastChapitre: 12,
-			completionRatio: 33,
-		},
-		{
-			title:
-				"La magie 2, un voyage à Bucarest, ou l'oportunité de découvrir la Roumanie, inspiré par le film de Wes Anderson",
-			blurb:
-				"Un magicien découvre qu'il peut vraiment faire des tours de magieUn magicien découvre qu'il peut vraiment faire des tours de magieUn magicien découvre qu'il peut vraiment faire des tours de magieUn magicien découvre qu'il peut vraiment faire des tours de magieUn magicien découvre qu'il peut vraiment faire des tours de magie.",
-			type: TalesCategories.ScienceFiction,
-			uid: "bucarest",
-			lastChapitre: 12,
-			completionRatio: 87,
-		},
-		{
-			title: "Barman Night",
-			blurb:
-				"Un magicien découvre qu'il peut vraiment faire des tours de magieUn magicien découvre qu'il peut vraiment faire des tours de magieUn magicien découvre qu'il peut vraiment faire des tours de magieUn magicien découvre qu'il peut vraiment faire des tours de magieUn magicien découvre qu'il peut vraiment faire des tours de magie.",
-			type: TalesCategories.Romance,
-			uid: "barman",
-			lastChapitre: 12,
-			completionRatio: 77,
-		},
-		{
-			title: "La fille et le loup",
-			blurb:
-				"Un magicien découvre qu'il peut vraiment faire des tours de magieUn magicien découvre qu'il peut vraiment faire des tours de magieUn magicien découvre qu'il peut vraiment faire des tours de magieUn magicien découvre qu'il peut vraiment faire des tours de magieUn magicien découvre qu'il peut vraiment faire des tours de magie.",
-			type: TalesCategories.ScienceFiction,
-			uid: "loup",
-			lastChapitre: 12,
-			completionRatio: 42,
-		},
-		{
-			title: "Bertie le chien",
-			blurb:
-				"Un magicien découvre qu'il peut vraiment faire des tours de magieUn magicien découvre qu'il peut vraiment faire des tours de magieUn magicien découvre qu'il peut vraiment faire des tours de magieUn magicien découvre qu'il peut vraiment faire des tours de magieUn magicien découvre qu'il peut vraiment faire des tours de magie.",
-			type: TalesCategories.Adventure,
-			uid: "chien",
-			lastChapitre: 12,
-			completionRatio: 13,
-		},
-		{
-			title: "1, 2, 3 soleil",
-			blurb:
-				"Un magicien découvre qu'il peut vraiment faire des tours de magieUn magicien découvre qu'il peut vraiment faire des tours de magieUn magicien découvre qu'il peut vraiment faire des tours de magieUn magicien découvre qu'il peut vraiment faire des tours de magieUn magicien découvre qu'il peut vraiment faire des tours de magie.",
-			type: TalesCategories.Romance,
-			uid: "soleil",
-			lastChapitre: 12,
-			completionRatio: 12,
-		},
-	]
+	let storiesListPromise: Promise<StoryBasic[]> = getStoriesListFromCategory(data.category)
 </script>
 
 <ImagePageWrapper
 	viewTransitionName="{categoryDatas.lowercaseTitle}paganim"
 	backgroundImageUri={imageUri}
 >
-	<InProgressStory
-		story={storiesList[0]}
-		mainColor={(categoryDatas.isAlternated
+	{#await storiesListPromise}
+		<DefaultLoader
+			text="Chargement de l'histoire"
+			color={categoryDatas.isAlternated ? categoryDatas.colorText : categoryDatas.colorBackground}
+		/>
+	{:then storiesList}
+		<InProgressStory
+			story={storiesList[0]}
+			mainColor={(categoryDatas.isAlternated
 			? categoryDatas.colorText
 			: categoryDatas.colorBackground) ?? "black"}
-	/>
-	<div class:separator={true}></div>
-	<StoriesList storiesList={storiesList.slice(1)} />
+		/>
+		<div class:separator={true}></div>
+		<StoriesList storiesList={storiesList.slice(1)} hadToRotateIcons={categoryDatas.couldBeRotated} />
+	{:catch error}
+		<p>{error.message}</p>
+	{/await}
 </ImagePageWrapper>
 
 <style lang="scss">

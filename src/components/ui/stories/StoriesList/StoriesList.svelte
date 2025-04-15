@@ -3,13 +3,21 @@
 	import StoryTilePreview from "./StoryTilePreview.svelte"
 	import type { StoryBasic } from "../../../../utils/types/StoryBasic"
 
-	const { storiesList }: { storiesList: StoryBasic[] } = $props()
+	const {
+		storiesList,
+		hadToRotateIcons = true,
+	}: {
+		storiesList: StoryBasic[]
+		hadToRotateIcons?: boolean
+	} = $props()
+
+	console.log(hadToRotateIcons)
 </script>
 
 <div>
 	<SectionTitle text="Suggestions" />
 	{#each storiesList as story (story.uid)}
-		<StoryTilePreview {...story} onRight={false} />
+		<StoryTilePreview {...story} onRight={false} hadToRotateIcon={hadToRotateIcons} />
 	{/each}
 </div>
 

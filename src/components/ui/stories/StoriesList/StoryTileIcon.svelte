@@ -5,10 +5,12 @@
 
 	const {
 		stringForRotation,
+		hadToRotateIcon = true,
 		type,
 	}: {
 		stringForRotation: string
 		type: TalesCategories
+		hadToRotateIcon?: boolean
 	} = $props()
 
 	function hashToAngle(string_: string): number {
@@ -19,15 +21,24 @@
 		let normalized = hash / 0xff_ff_ff_ff
 		return normalized * Math.PI * 2
 	}
-	function getTransform(string_: string) {
-		const angle = hashToAngle(string_)
-		const translateX = Math.cos(angle) * 10 // de -20% à 20%
-		const translateY = Math.sin(angle) * 10 // de -20% à 20%
+	function getSmallAngle(previusAngle: number): number {
+		const minRad = -15 * (Math.PI / 180) // ≈ -0.26
+		const maxRad = 15 * (Math.PI / 180)  // ≈ 0.26
+		const range = maxRad - minRad
+		const normalizedSmall = (previusAngle % (2 * Math.PI)) / (2 * Math.PI) // entre 0 et 1
+		return minRad + normalizedSmall * range
+	}
+	function getTransform(string_: string, hadToRotate: boolean = true): string {
+		const angleForCalc = hashToAngle(string_)
+		const translateX = Math.cos(angleForCalc) * 10 // de -20% à 20%
+		const translateY = Math.sin(angleForCalc) * 10 // de -20% à 20%
+
+		const angle = hadToRotate ? angleForCalc : getSmallAngle(angleForCalc)
 
 		return `rotate(${String(angle)}rad) translate(${String(translateX)}%, ${String(translateY)}%)`
 	}
 
-	let transform = getTransform(stringForRotation)
+	let transform = getTransform(stringForRotation, hadToRotateIcon)
 </script>
 
 <span

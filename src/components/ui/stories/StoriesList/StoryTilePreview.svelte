@@ -9,20 +9,24 @@
 		type,
 		uid,
 		onRight = false,
-	}: StoryBasic & { onRight?: boolean } = $props()
+		hadToRotateIcon = true,
+	}: StoryBasic & {
+		onRight?: boolean
+		hadToRotateIcon?: boolean
+	} = $props()
 </script>
 
 <a href={`/story/${uid}`}>
 	<div use:touchHandlers class:global={true} class:right={onRight}>
 		{#if !onRight}
-			<StoryTileIcon stringForRotation={title} {type} />
+			<StoryTileIcon stringForRotation={title} {type} {hadToRotateIcon} />
 		{/if}
 		<div class:datas={true}>
 			<h3 style:text-align={onRight ? "right" : "left"}>{title}</h3>
 			<p style:text-align={onRight ? "right" : "left"}>{blurb}</p>
 		</div>
 		{#if onRight}
-			<StoryTileIcon stringForRotation={title} {type} />
+			<StoryTileIcon stringForRotation={title} {type} {hadToRotateIcon} />
 		{/if}
 	</div>
 </a>

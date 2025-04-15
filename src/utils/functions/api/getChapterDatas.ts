@@ -1,5 +1,4 @@
 import { ErrorOffline } from "../../errors/ErrorOffline"
-import { ErrorApiNoResult } from "../../errors/ErrorApiNoResult"
 import type { Chapter } from "../../types/Chapter"
 
 /**
@@ -12,10 +11,10 @@ export default async function getChapterDatas(
 	// @todo fetch story from API
 	if (!navigator.onLine) throw new ErrorOffline()
 
-	await new Promise(resolve => setTimeout(resolve, 1000))
-	if (Math.random() < 0.1) throw new ErrorApiNoResult("No story found")
+	await new Promise(resolve => setTimeout(resolve, 395))
+	//if (Math.random() < 0.1) throw new ErrorApiNoResult("No story found")
 	return {
-		title: "Sous le pont",
+		title: "Sous les étoiles de Paris",
 		body:
 			"\n" +
 			"\n" +
