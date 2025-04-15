@@ -10,8 +10,6 @@
 		storiesList: StoryBasic[]
 		hadToRotateIcons?: boolean
 	} = $props()
-
-	console.log(hadToRotateIcons)
 </script>
 
 <div>
