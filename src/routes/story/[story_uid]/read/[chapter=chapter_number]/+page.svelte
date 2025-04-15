@@ -166,8 +166,11 @@
 				{storyUid}
 				{chapter}
 				colors={category.isAlternated
-					? [category.colorText, category.colorBackground]
-					: [category.colorBackground, category.colorText]}
+					? [category.colorText ?? "black", category.colorBackground ?? "white"]
+					: [
+							category.colorBackground ?? "black",
+							category.colorText ?? "white",
+						]}
 			/>
 		{:catch error}
 			<p>{error.message}</p>
