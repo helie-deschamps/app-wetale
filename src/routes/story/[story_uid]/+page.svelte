@@ -13,6 +13,7 @@
 	import { onMount } from "svelte"
 	import { lastCategory } from "../../../utils/writables/lastCategory"
 	import { isUserConnected } from "../../../utils/stores/currentUser"
+	import { TalesCategories } from "../../../utils/enums/TalesCategories"
 
 	let {
 		data,
@@ -28,8 +29,31 @@
 	let story: StoryBasic | undefined = $state()
 
 	let imageUri: string = $derived<string>(
-		`/stories_preview_images/${story?.type.toString() ?? "default"}.webp`,
+		`/stories_preview_images/${story?.type.toString() ?? $lastCategory?.toString()  ?? "default"}.webp`,
 	)
+	let getViewTransitionName = (storyType: TalesCategories | undefined): string => {
+		switch (storyType) {
+			case TalesCategories.Romance: {
+				return "romancepaganim";
+			}
+			case TalesCategories.Detective: {
+				return "detectivepaganim";
+			}
+			case TalesCategories.ScienceFiction: {
+				return "sfpaganim";
+			}
+			case TalesCategories.Adventure: {
+				return "adventurepaganim";
+			}
+			case TalesCategories.Thriller: {
+				return "thrillerpaganim";
+			}
+			default: {
+				return "fantasypaganim";
+			}
+		}
+	}
+	let viewTransitionName: string = $derived<string>(getViewTransitionName(story?.type ?? $lastCategory))
 
 	onMount(async () => {
 		try {
@@ -53,7 +77,7 @@
 		<p>Une erreur inconnu est survenue: {error.message}</p>
 	{/if}
 {:else}
-	<ImagePageWrapper viewTransitionName="" backgroundImageUri={imageUri}>
+	<ImagePageWrapper {viewTransitionName} backgroundImageUri={imageUri}>
 		<div class:container={true}>
 			<div class:titleDiv={true}>
 				<SectionTitle

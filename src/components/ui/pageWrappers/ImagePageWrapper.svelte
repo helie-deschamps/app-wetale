@@ -29,6 +29,7 @@
 	class:image={true}
 	style:background-image={`url(${backgroundImageUri})`}
 	style:filter={`blur(${String(blurState)}px)`}
+	style:view-transition-name="image-from-wrapper"
 ></div>
 <main style:view-transition-name={viewTransitionName}>
 	{@render children()}
@@ -66,4 +67,13 @@
 			);
 		}
 	}
+  :global(::view-transition-group(romancepaganim)),
+  :global(::view-transition-group(detectivepaganim)),
+  :global(::view-transition-group(sfpaganim)),
+  :global(::view-transition-group(adventurepaganim)),
+  :global(::view-transition-group(thrillerpaganim)),
+  :global(::view-transition-group(fantasypaganim))
+   {
+    z-index: 755;
+  }
 </style>
