@@ -10,7 +10,6 @@
 	import DefaultLoader from "../../../../../components/ui/skeleton/DefaultLoader.svelte"
 	import { lastCategory } from "../../../../../utils/writables/lastCategory"
 	import getCategoryDatas from "../../../../../utils/functions/categories/getCategoryDatas"
-	import type { TalesCategories } from "../../../../../utils/enums/TalesCategories"
 
 	let {
 		data,
@@ -66,6 +65,8 @@
 	let navBarPosition = 0
 	let ticking = false
 
+	let thisHeaderXPosition: number = $state(0)
+
 	const onScrollDiv = () => {
 		const newScroll = window.scrollY
 		const scrollDiff = oldScroll - newScroll
@@ -80,6 +81,8 @@
 				if ($navBar)
 					($navBar as HTMLElement).style.translate =
 						`0 ${String(navBarPosition)}px`
+				thisHeaderXPosition = -navBarPosition
+				console.log(thisHeaderXPosition)
 				ticking = false
 			})
 		}
@@ -147,6 +150,7 @@
 		bind:height={headerHeight}
 		bind:textSizeMultiplier
 		bind:isSettingOpen
+		topPosition={thisHeaderXPosition}
 	/>
 
 	<ClassicPageWrapper>

@@ -11,6 +11,7 @@
 		font = $bindable(),
 		interlignes = $bindable(),
 		isSettingOpen = $bindable(),
+		topPosition,
 	}: {
 		height: number
 		textSizeMultiplier: number
@@ -18,10 +19,11 @@
 		font: "'Inter'" | "'Comic Neue'" | "system-ui"
 		interlignes: number
 		isSettingOpen: boolean
+		topPosition: number
 	} = $props()
 </script>
 
-<header bind:offsetHeight={height}>
+<header bind:offsetHeight={height} style:top={`${topPosition.toString()}px`}>
 	<BackButton />
 	<div>
 		<TextSizeSelect bind:textSizeMultiplier />
@@ -42,7 +44,7 @@
 
 	header {
 		z-index: 1000;
-		position: absolute;
+		position: fixed;
 		width: calc(100% - 68px);
 		background-color: #1a191d;
 		margin: 16px 14px 0;
