@@ -6,6 +6,7 @@
 	import createUser from "../../utils/functions/currentUser/createUser"
 	import { goto } from "$app/navigation"
 	import { currentUser, isUserConnected } from "../../utils/stores/currentUser"
+	import { onDestroy, onMount } from "svelte"
 
 	let email = $state(page.url.searchParams.get("email") ?? "")
 	let password = $state("")
@@ -21,6 +22,16 @@
 			void goto("/my-account")
 		}
 	})()
+
+	const previousBodyPaddingBottom = document.body.style.paddingBottom
+	onMount(() => {
+		console.log(previousBodyPaddingBottom)
+		console.log(document.body.style.paddingBottom)
+		document.body.style.paddingBottom = "0"
+	})
+	onDestroy(() => {
+		document.body.style.paddingBottom = previousBodyPaddingBottom
+	})
 </script>
 
 <div class:global_container={true} out:fade>
