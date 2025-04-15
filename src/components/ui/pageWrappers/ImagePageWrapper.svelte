@@ -67,13 +67,12 @@
 			);
 		}
 	}
-  :global(::view-transition-group(romancepaganim)),
-  :global(::view-transition-group(detectivepaganim)),
-  :global(::view-transition-group(sfpaganim)),
-  :global(::view-transition-group(adventurepaganim)),
-  :global(::view-transition-group(thrillerpaganim)),
-  :global(::view-transition-group(fantasypaganim))
-   {
-    z-index: 755;
-  }
+	:global(::view-transition-group(romancepaganim)),
+	:global(::view-transition-group(detectivepaganim)),
+	:global(::view-transition-group(sfpaganim)),
+	:global(::view-transition-group(adventurepaganim)),
+	:global(::view-transition-group(thrillerpaganim)),
+	:global(::view-transition-group(fantasypaganim)) {
+		z-index: 755;
+	}
 </style>

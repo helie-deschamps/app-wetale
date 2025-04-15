@@ -162,7 +162,13 @@
 				{chapter.body}
 			</p>
 			{@const category = getCategoryDatas(chapter.category)}
-			<Poll {storyUid} {chapter} colors={category.isAlternated ? [category.colorText, category.colorBackground] : [category.colorBackground, category.colorText]} />
+			<Poll
+				{storyUid}
+				{chapter}
+				colors={category.isAlternated
+					? [category.colorText, category.colorBackground]
+					: [category.colorBackground, category.colorText]}
+			/>
 		{:catch error}
 			<p>{error.message}</p>
 		{/await}

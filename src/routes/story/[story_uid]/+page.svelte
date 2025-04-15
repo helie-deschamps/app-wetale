@@ -29,31 +29,35 @@
 	let story: StoryBasic | undefined = $state()
 
 	let imageUri: string = $derived<string>(
-		`/stories_preview_images/${story?.type.toString() ?? $lastCategory?.toString()  ?? "default"}.webp`,
+		`/stories_preview_images/${story?.type.toString() ?? $lastCategory?.toString() ?? "default"}.webp`,
 	)
-	let getViewTransitionName = (storyType: TalesCategories | undefined): string => {
+	let getViewTransitionName = (
+		storyType: TalesCategories | undefined,
+	): string => {
 		switch (storyType) {
 			case TalesCategories.Romance: {
-				return "romancepaganim";
+				return "romancepaganim"
 			}
 			case TalesCategories.Detective: {
-				return "detectivepaganim";
+				return "detectivepaganim"
 			}
 			case TalesCategories.ScienceFiction: {
-				return "sfpaganim";
+				return "sfpaganim"
 			}
 			case TalesCategories.Adventure: {
-				return "adventurepaganim";
+				return "adventurepaganim"
 			}
 			case TalesCategories.Thriller: {
-				return "thrillerpaganim";
+				return "thrillerpaganim"
 			}
 			default: {
-				return "fantasypaganim";
+				return "fantasypaganim"
 			}
 		}
 	}
-	let viewTransitionName: string = $derived<string>(getViewTransitionName(story?.type ?? $lastCategory))
+	let viewTransitionName: string = $derived<string>(
+		getViewTransitionName(story?.type ?? $lastCategory),
+	)
 
 	onMount(async () => {
 		try {

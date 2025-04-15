@@ -18,7 +18,8 @@ export default async function getStoryFromUid(
 		//if (Math.random() < 0.1) throw new ErrorApiNoResult("No story found")
 		storiesCache.set(UID, {
 			title: "Sous les étoiles de Paris",
-			blurb: "Une artiste de rue et un chef étoilé tombent amoureux lors d’un concours culinaire insolite.",
+			blurb:
+				"Une artiste de rue et un chef étoilé tombent amoureux lors d’un concours culinaire insolite.",
 			type: TalesCategories.Romance,
 			uid: UID,
 			lastChapitre: 8,

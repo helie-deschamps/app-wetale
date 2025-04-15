@@ -26,7 +26,9 @@
 		console.log(error)
 	}
 
-	let storiesListPromise: Promise<StoryBasic[]> = getStoriesListFromCategory(data.category)
+	let storiesListPromise: Promise<StoryBasic[]> = getStoriesListFromCategory(
+		data.category,
+	)
 </script>
 
 <ImagePageWrapper
@@ -36,17 +38,22 @@
 	{#await storiesListPromise}
 		<DefaultLoader
 			text="Chargement de l'histoire"
-			color={categoryDatas.isAlternated ? categoryDatas.colorText : categoryDatas.colorBackground}
+			color={categoryDatas.isAlternated
+				? categoryDatas.colorText
+				: categoryDatas.colorBackground}
 		/>
 	{:then storiesList}
 		<InProgressStory
 			story={storiesList[0]}
 			mainColor={(categoryDatas.isAlternated
-			? categoryDatas.colorText
-			: categoryDatas.colorBackground) ?? "black"}
+				? categoryDatas.colorText
+				: categoryDatas.colorBackground) ?? "black"}
 		/>
 		<div class:separator={true}></div>
-		<StoriesList storiesList={storiesList.slice(1)} hadToRotateIcons={categoryDatas.couldBeRotated} />
+		<StoriesList
+			storiesList={storiesList.slice(1)}
+			hadToRotateIcons={categoryDatas.couldBeRotated}
+		/>
 	{:catch error}
 		<p>{error.message}</p>
 	{/await}

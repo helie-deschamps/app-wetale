@@ -17,7 +17,11 @@
 <div>
 	<SectionTitle text="Suggestions" />
 	{#each storiesList as story (story.uid)}
-		<StoryTilePreview {...story} onRight={false} hadToRotateIcon={hadToRotateIcons} />
+		<StoryTilePreview
+			{...story}
+			onRight={false}
+			hadToRotateIcon={hadToRotateIcons}
+		/>
 	{/each}
 </div>
 

@@ -18,7 +18,7 @@ export default async function getChapterDatas(
 		category: TalesCategories.Romance,
 		title: "Sous les étoiles de Paris",
 		body:
-		"Par une douce nuit d’été, les lumières de la ville s’éteignaient doucement derrière les toits parisiens, laissant place à un ciel clair où les étoiles brillaient comme des secrets suspendus dans l’air. Sur le Pont des Arts, là où les promesses d’amour se nouent et parfois se dénouent, Élise regardait la Seine s’écouler, perdue dans ses pensées.\n" +
+			"Par une douce nuit d’été, les lumières de la ville s’éteignaient doucement derrière les toits parisiens, laissant place à un ciel clair où les étoiles brillaient comme des secrets suspendus dans l’air. Sur le Pont des Arts, là où les promesses d’amour se nouent et parfois se dénouent, Élise regardait la Seine s’écouler, perdue dans ses pensées.\n" +
 			"\n" +
 			"Elle venait là chaque soir depuis qu’elle avait croisé le regard de Julien, un photographe passionné qui capturait la beauté de Paris la nuit. Leur rencontre avait été fortuite : un parapluie partagé sous une averse imprévue, un sourire échangé, puis un café dans un bistrot encore ouvert. Depuis, ils s’étaient revus. Plusieurs fois. Toujours au même endroit. Toujours sous les étoiles.\n" +
 			"\n" +
@@ -34,7 +34,8 @@ export default async function getChapterDatas(
 			"\n" +
 			"« Alors aimons-nous... sous les étoiles de Paris. »\n" +
 			"\n" +
-			"Ils restèrent là, mains liées, cœurs battants à l’unisson, pendant que le ciel continuait son ballet silencieux au-dessus de la ville qui ne dort jamais tout à fait." + "Élise et Julien restèrent ainsi, silencieux, comme si le monde s’était arrêté autour d’eux. Les bruits de la ville semblaient s’être évanouis, ne laissant que le doux murmure (murmure = chuchotement) de la Seine et le chant discret du vent entre les feuilles.\n" +
+			"Ils restèrent là, mains liées, cœurs battants à l’unisson, pendant que le ciel continuait son ballet silencieux au-dessus de la ville qui ne dort jamais tout à fait." +
+			"Élise et Julien restèrent ainsi, silencieux, comme si le monde s’était arrêté autour d’eux. Les bruits de la ville semblaient s’être évanouis, ne laissant que le doux murmure (murmure = chuchotement) de la Seine et le chant discret du vent entre les feuilles.\n" +
 			"\n" +
 			"« Viens, » dit Julien en se levant, toujours la main d’Élise dans la sienne.\n" +
 			"\n" +

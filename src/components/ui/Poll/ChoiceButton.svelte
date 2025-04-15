@@ -5,7 +5,7 @@
 		voteId,
 		choiceText,
 		userVote = $bindable(),
-		colors
+		colors,
 	}: {
 		voteId: string
 		choiceText: string
@@ -52,7 +52,12 @@
 >
 	{choiceText}
 	<input type="radio" name="poll" value={voteId} bind:group={userVote} />
-	<span bind:this={selectedLayer} class:selectedLayer={true} style:background-color={colors[0]} style:color={colors[1]}>{choiceText}</span>
+	<span
+		bind:this={selectedLayer}
+		class:selectedLayer={true}
+		style:background-color={colors[0]}
+		style:color={colors[1]}>{choiceText}</span
+	>
 </button>
 
 <style lang="scss">

@@ -20,16 +20,16 @@ export default function createUser(
 	}
 
 	//if (user) {
-		void (async () => {
-			const currentUserStore = get(currentUser)
-			await currentUserStore?.set("eMail", user.eMail)
-			await currentUserStore?.set("jwToken", user.jwToken)
-			await currentUserStore?.set("jwTExpiration", user.jwTExpiration)
-			await currentUserStore?.set("username", generateUsername())
-			await currentUserStore?.set("subscriptionPlan", SubscriptionPlans.Free)
-			await currentUserStore?.save()
-			isUserConnected.set(true)
-		})()
+	void (async () => {
+		const currentUserStore = get(currentUser)
+		await currentUserStore?.set("eMail", user.eMail)
+		await currentUserStore?.set("jwToken", user.jwToken)
+		await currentUserStore?.set("jwTExpiration", user.jwTExpiration)
+		await currentUserStore?.set("username", generateUsername())
+		await currentUserStore?.set("subscriptionPlan", SubscriptionPlans.Free)
+		await currentUserStore?.save()
+		isUserConnected.set(true)
+	})()
 	//}
 
 	return user

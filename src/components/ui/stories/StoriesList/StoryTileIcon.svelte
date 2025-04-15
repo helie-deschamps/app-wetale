@@ -23,7 +23,7 @@
 	}
 	function getSmallAngle(previusAngle: number): number {
 		const minRad = -15 * (Math.PI / 180) // ≈ -0.26
-		const maxRad = 15 * (Math.PI / 180)  // ≈ 0.26
+		const maxRad = 15 * (Math.PI / 180) // ≈ 0.26
 		const range = maxRad - minRad
 		const normalizedSmall = (previusAngle % (2 * Math.PI)) / (2 * Math.PI) // entre 0 et 1
 		return minRad + normalizedSmall * range
