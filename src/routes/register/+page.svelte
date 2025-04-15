@@ -63,7 +63,8 @@
 		display: flex;
 		align-items: center;
 		height: 100vh;
-		background-color: #d9d9d9;
+    background: url("/images/connection_background.png") no-repeat;
+    background-size: cover;
 	}
 	.login_container {
 		background-color: colors.$main-light;
