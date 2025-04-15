@@ -10,6 +10,7 @@
 	import DefaultLoader from "../../../../../components/ui/skeleton/DefaultLoader.svelte"
 	import { lastCategory } from "../../../../../utils/writables/lastCategory"
 	import getCategoryDatas from "../../../../../utils/functions/categories/getCategoryDatas"
+	import type { TalesCategories } from "../../../../../utils/enums/TalesCategories"
 
 	let {
 		data,
@@ -160,7 +161,8 @@
 			<p class="text_body" style="font-size: {textSizeMultiplier}rem">
 				{chapter.body}
 			</p>
-			<Poll {storyUid} {chapter}></Poll>
+			{@const category = getCategoryDatas(chapter.category)}
+			<Poll {storyUid} {chapter} colors={category.isAlternated ? [category.colorText, category.colorBackground] : [category.colorBackground, category.colorText]} />
 		{:catch error}
 			<p>{error.message}</p>
 		{/await}

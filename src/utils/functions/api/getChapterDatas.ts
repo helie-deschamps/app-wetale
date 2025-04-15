@@ -1,5 +1,6 @@
 import { ErrorOffline } from "../../errors/ErrorOffline"
 import type { Chapter } from "../../types/Chapter"
+import { TalesCategories } from "../../enums/TalesCategories"
 
 /**
  * @throws {ErrorOffline, ErrorApiNoResult}
@@ -14,6 +15,7 @@ export default async function getChapterDatas(
 	await new Promise(resolve => setTimeout(resolve, 395))
 	//if (Math.random() < 0.1) throw new ErrorApiNoResult("No story found")
 	return {
+		category: TalesCategories.Romance,
 		title: "Sous les étoiles de Paris",
 		body:
 		"Par une douce nuit d’été, les lumières de la ville s’éteignaient doucement derrière les toits parisiens, laissant place à un ciel clair où les étoiles brillaient comme des secrets suspendus dans l’air. Sur le Pont des Arts, là où les promesses d’amour se nouent et parfois se dénouent, Élise regardait la Seine s’écouler, perdue dans ses pensées.\n" +

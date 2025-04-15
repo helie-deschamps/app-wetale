@@ -5,10 +5,12 @@
 		voteId,
 		choiceText,
 		userVote = $bindable(),
+		colors
 	}: {
 		voteId: string
 		choiceText: string
 		userVote: string | null
+		colors: [string, string]
 	} = $props()
 
 	let buttonWidth: number | undefined = $state()
@@ -50,7 +52,7 @@
 >
 	{choiceText}
 	<input type="radio" name="poll" value={voteId} bind:group={userVote} />
-	<span bind:this={selectedLayer} class:selectedLayer={true}>{choiceText}</span>
+	<span bind:this={selectedLayer} class:selectedLayer={true} style:background-color={colors[0]} style:color={colors[1]}>{choiceText}</span>
 </button>
 
 <style lang="scss">
@@ -72,7 +74,7 @@
 			border-radius: 16px;
 			box-sizing: border-box;
 			font-weight: 700;
-			background-color: #87801f;
+			background-color: #303030;
 			color: white;
 			outline: none;
 			position: absolute;

@@ -5,9 +5,11 @@
 
 	const {
 		chapter,
+		colors
 	}: {
 		storyUid: string
 		chapter: Chapter
+		colors: [string, string]
 	} = $props()
 
 	let userVote = $state<string | null>(null)
@@ -15,8 +17,7 @@
 
 <form>
 	{#each chapter.poll.choices as choice (choice.id)}
-		<ChoiceButton voteId={choice.id} choiceText={choice.text} bind:userVote
-		></ChoiceButton>
+		<ChoiceButton voteId={choice.id} choiceText={choice.text} bind:userVote {colors} />
 	{/each}
 	<input use:touchHandlers type="submit" value="S’abonner pour voter" />
 </form>
