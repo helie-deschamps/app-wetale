@@ -63,9 +63,11 @@
 	input {
 		padding: 7px 46px;
 		border-radius: 11px;
-		border: #000000 solid 2px;
+		border: var(--text-color) solid 2px;
+		color: var(--text-color);
 		box-sizing: border-box;
 		align-self: center;
-		background-color: transparent;
+    font-weight: 700;
+    background-color:  var(--background-color);
 	}
 </style>

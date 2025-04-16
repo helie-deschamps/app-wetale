@@ -66,10 +66,11 @@
 		padding: 19px 2em;
 		text-align: center;
 		border-radius: 16px;
-		outline: #000000 solid 2px;
+		outline: var(--text-color) solid 2px;
+		color: var(--text-color);
 		font-weight: 700;
 		border: none;
-		background-color: rgba(0, 0, 0, 0);
+		background-color:  var(--background-color);
 		&:hover {
 			cursor: pointer;
 		}
@@ -79,7 +80,7 @@
 			border-radius: 16px;
 			box-sizing: border-box;
 			font-weight: 700;
-			background-color: #303030;
+			background-color:  var(--text-color);
 			color: white;
 			outline: none;
 			position: absolute;

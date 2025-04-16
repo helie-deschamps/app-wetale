@@ -30,13 +30,15 @@ class ExamplePlugin(private val activity: Activity): Plugin(activity) {
 
     @Command
     fun getStatusBarHeight(invoke: Invoke) {
-        val height = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+        val height = 0
+
+        /*val height = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             val insets = activity.window.decorView.rootWindowInsets
             insets?.getInsets(WindowInsets.Type.statusBars())?.top ?: 0
         } else {
             val resourceId = activity.resources.getIdentifier("status_bar_height", "dimen", "android")
             if (resourceId > 0) activity.resources.getDimensionPixelSize(resourceId) else 0
-        }
+        }*/
 
         val ret = JSObject()
         ret.put("height", height)

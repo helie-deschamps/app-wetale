@@ -41,6 +41,7 @@
 		void $userPrefs
 			?.set("darkTheme", darkTheme)
 			.then(() => void $userPrefs.save())
+		document.body.style.background = darkTheme ? "#1a191d" : "#f7f0e6"
 	})
 	let font = $state<"'Inter'" | "'Comic Neue'" | "system-ui">("system-ui")
 	void (async () => {
@@ -121,6 +122,7 @@
 			null
 	}
 
+	const oldBodyBackground = document.body.style.background
 	onMount(() => {
 		if ($header) ($header as HTMLElement).style.display = "none"
 		globalThis.addEventListener("scroll", onScrollDiv)
@@ -133,6 +135,7 @@
 		globalThis.removeEventListener("scroll", onScrollDiv)
 		globalThis.removeEventListener("pointerdown", onTapStart)
 		globalThis.removeEventListener("pointerup", onTapEnd)
+		document.body.style.background = oldBodyBackground
 	})
 </script>
 
