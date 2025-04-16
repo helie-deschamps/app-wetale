@@ -83,7 +83,6 @@
 					($navBar as HTMLElement).style.translate =
 						`0 ${String(navBarPosition)}px`
 				thisHeaderXPosition = -navBarPosition
-				console.log(thisHeaderXPosition)
 				ticking = false
 			})
 		}

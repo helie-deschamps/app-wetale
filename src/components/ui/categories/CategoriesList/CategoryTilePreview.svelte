@@ -50,7 +50,7 @@
 			position: absolute;
 			font-size: 1.24em;
 			max-width: 80%;
-      font-family: "Kibanka", serif;
+			font-family: "Kibanka", serif;
 		}
 		span {
 			position: absolute;

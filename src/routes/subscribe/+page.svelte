@@ -12,12 +12,11 @@
 	let currentStep: number = $state<number>(0)
 
 	;(async () => {
-		if(await get(currentUser)?.get("subscriptionPlan"))
-			void goto("/login")
+		if (await get(currentUser)?.get("subscriptionPlan")) void goto("/login")
 	})()
 
 	const startPayment = async (plan: SubscriptionPlans) => {
-		if(await get(currentUser)?.get("subscriptionPlan") === plan) {
+		if ((await get(currentUser)?.get("subscriptionPlan")) === plan) {
 			void message("Vous avez déjà cet abonnement", {
 				title: "Abonnement déjà actif",
 				kind: "error",
@@ -30,24 +29,28 @@
 				currentStep = 1
 				answer = await ask(
 					"Vous pouvez résilier à tout moment dans réglages de votre compte Google au moins un jour avant chaque date de renouvellement.\n" +
-					"L’abonnement se renouvellera automatiquement jusqu’a sa résiliation.", {
+						"L’abonnement se renouvellera automatiquement jusqu’a sa résiliation.",
+					{
 						title: "Abonnement mensuel de 14,99€",
 						kind: "info",
 						okLabel: "Payer",
 						cancelLabel: "Annuler",
-					})
+					},
+				)
 				break
 			}
 			case SubscriptionPlans.Interactif: {
 				currentStep = 1
 				answer = await ask(
 					"Vous pouvez résilier à tout moment dans réglages de votre compte Google au moins un jour avant chaque date de renouvellement.\n" +
-					"L’abonnement se renouvellera automatiquement jusqu’a sa résiliation.", {
+						"L’abonnement se renouvellera automatiquement jusqu’a sa résiliation.",
+					{
 						title: "Abonnement mensuel de 29,99€",
 						kind: "info",
 						okLabel: "Payer",
 						cancelLabel: "Annuler",
-					})
+					},
+				)
 			}
 		}
 
@@ -63,6 +66,7 @@
 	const paymentGranted = (plan: SubscriptionPlans) => {
 		currentStep = 2
 		void get(currentUser)?.set("subscriptionPlan", plan)
+		void get(currentUser)?.save()
 	}
 </script>
 

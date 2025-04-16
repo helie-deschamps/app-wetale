@@ -20,6 +20,15 @@
 
 	let userVote = $state<string | null>(null)
 
+	let sendButtonText = $state("S’abonner pour voter")
+	;void (async () => {
+		sendButtonText =
+			((await $currentUser?.get("subscriptionPlan")) as SubscriptionPlans) ===
+			SubscriptionPlans.Free
+				? "S’abonner pour voter"
+				: "Voter"
+	})()
+
 	async function vote(event: SubmitEvent) {
 		event.preventDefault()
 
@@ -49,7 +58,7 @@
 			{colors}
 		/>
 	{/each}
-	<input use:touchHandlers type="submit" value="S’abonner pour voter" />
+	<input use:touchHandlers type="submit" value={sendButtonText} />
 </form>
 
 <style lang="scss">
@@ -67,7 +76,7 @@
 		color: var(--text-color);
 		box-sizing: border-box;
 		align-self: center;
-    font-weight: 700;
-    background-color:  var(--background-color);
+		font-weight: 700;
+		background-color: var(--background-color);
 	}
 </style>

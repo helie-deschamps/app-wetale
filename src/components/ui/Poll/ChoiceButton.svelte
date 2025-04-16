@@ -70,7 +70,7 @@
 		color: var(--text-color);
 		font-weight: 700;
 		border: none;
-		background-color:  var(--background-color);
+		background-color: var(--background-color);
 		&:hover {
 			cursor: pointer;
 		}
@@ -80,7 +80,7 @@
 			border-radius: 16px;
 			box-sizing: border-box;
 			font-weight: 700;
-			background-color:  var(--text-color);
+			background-color: var(--text-color);
 			color: white;
 			outline: none;
 			position: absolute;
