@@ -4,33 +4,65 @@
 	import PriceTile from "../../components/ui/subscribe/PriceTile.svelte"
 	import { ask, message } from "@tauri-apps/plugin-dialog"
 	import DefaultLoader from "../../components/ui/skeleton/DefaultLoader.svelte"
+	import { SubscriptionPlans } from "../../utils/enums/SubscriptionPlans"
+	import { currentUser } from "../../utils/stores/currentUser"
+	import { get } from "svelte/store"
+	import { goto } from "$app/navigation"
 
-	let currentStep = $state(0)
+	let currentStep: number = $state<number>(0)
 
-	let pricingFormula = $state<"INTERACTIVE" | "IMMERSIVE" | undefined>()
-	const startPayment = async () => {
-		if (pricingFormula) {
-			currentStep = 1
+	;(async () => {
+		if(await get(currentUser)?.get("subscriptionPlan"))
+			void goto("/login")
+	})()
 
-			const answer = await ask("Cette popup émule un achat in app", {
-				title: "Payer 12€",
-				kind: "info",
-				okLabel: "Payer",
-				cancelLabel: "Annuler",
+	const startPayment = async (plan: SubscriptionPlans) => {
+		if(await get(currentUser)?.get("subscriptionPlan") === plan) {
+			void message("Vous avez déjà cet abonnement", {
+				title: "Abonnement déjà actif",
+				kind: "error",
 			})
-
-			if (answer) paymentGranted()
-			else {
-				void message("Votre payment à échoué", {
-					title: "Payment échoué",
-					kind: "error",
-				})
-				currentStep = 0
+			return
+		}
+		let answer: boolean = false
+		switch (plan) {
+			case SubscriptionPlans.Immersif: {
+				currentStep = 1
+				answer = await ask(
+					"Vous pouvez résilier à tout moment dans réglages de votre compte Google au moins un jour avant chaque date de renouvellement.\n" +
+					"L’abonnement se renouvellera automatiquement jusqu’a sa résiliation.", {
+						title: "Abonnement mensuel de 14,99€",
+						kind: "info",
+						okLabel: "Payer",
+						cancelLabel: "Annuler",
+					})
+				break
+			}
+			case SubscriptionPlans.Interactif: {
+				currentStep = 1
+				answer = await ask(
+					"Vous pouvez résilier à tout moment dans réglages de votre compte Google au moins un jour avant chaque date de renouvellement.\n" +
+					"L’abonnement se renouvellera automatiquement jusqu’a sa résiliation.", {
+						title: "Abonnement mensuel de 29,99€",
+						kind: "info",
+						okLabel: "Payer",
+						cancelLabel: "Annuler",
+					})
 			}
 		}
+
+		if (answer) paymentGranted(plan)
+		else {
+			void message("Votre payment à échoué", {
+				title: "Payment échoué",
+				kind: "error",
+			})
+			currentStep = 0
+		}
 	}
-	const paymentGranted = () => {
+	const paymentGranted = (plan: SubscriptionPlans) => {
 		currentStep = 2
+		void get(currentUser)?.set("subscriptionPlan", plan)
 	}
 </script>
 
@@ -40,8 +72,7 @@
 		<h2>Choisis son abonnement</h2>
 		<PriceTile
 			onTap={() => {
-				pricingFormula = "INTERACTIVE"
-				void startPayment()
+				void startPayment(SubscriptionPlans.Interactif)
 			}}
 			color="#7C1430"
 			textColor="white"
@@ -56,8 +87,7 @@
 		/>
 		<PriceTile
 			onTap={() => {
-				pricingFormula = "IMMERSIVE"
-				void startPayment()
+				void startPayment(SubscriptionPlans.Immersif)
 			}}
 			color="#F8BE3F"
 			textColor="black"
