@@ -29,8 +29,10 @@
 			<a class:link_simple={true} use:touchHandlers href="/story/{uid}"
 				>Voir le résumé</a
 			>
-			<a class:link_simple={true} use:touchHandlers href="/story/{uid}"
-				>Continuer l’histoire</a
+			<a
+				class:link_simple={true}
+				use:touchHandlers
+				href="/story/{uid}/read/{lastChapitre}">Continuer l’histoire</a
 			>
 		</div>
 	</div>
