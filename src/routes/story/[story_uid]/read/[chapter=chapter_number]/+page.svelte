@@ -21,7 +21,7 @@
 	} = $props()
 	let { storyUid, chapterNumber } = data
 
-	let chapterPromise = getChapterDatas(storyUid, chapterNumber)
+	let chapterPromise = $state(getChapterDatas(storyUid, chapterNumber))
 
 	let isSettingOpen = $state(false)
 	let textSizeMultiplier = $state<number>(1)
@@ -136,6 +136,19 @@
 		globalThis.removeEventListener("pointerup", onTapEnd)
 		document.body.style.background = oldBodyBackground
 	})
+
+	let votingTransform = $state("translateX(100%) scaleX(-.2)")
+	const onVote = async (vote: Promise<boolean>) => {
+		await vote
+		votingTransform = "translateX(0%) scaleX(1)"
+		await new Promise<boolean>(resolve =>
+			setTimeout(() => {
+				resolve(true)
+			}, 1900),
+		)
+		votingTransform = "translateX(100%) scaleX(-.2)"
+		chapterPromise = getChapterDatas(storyUid, chapterNumber)
+	}
 </script>
 
 <div
@@ -145,6 +158,13 @@
 	style:--text-line-height="{interlignes}%"
 	style:display="contents"
 >
+	<div
+		class:voted={true}
+		style:transform={votingTransform}
+		style:background={supposedCategoryColor}
+	>
+		<div>Votre vote a bien été pris en compte.</div>
+	</div>
 	<ReadHeader
 		bind:darkTheme
 		bind:font
@@ -154,7 +174,6 @@
 		bind:isSettingOpen
 		topPosition={thisHeaderXPosition}
 	/>
-
 	<ClassicPageWrapper>
 		<div style:height="{headerHeight + 12}px"></div>
 		{#await chapterPromise}
@@ -177,6 +196,7 @@
 							category.colorBackground ?? "black",
 							category.colorText ?? "white",
 						]}
+				onSubmit={onVote}
 			/>
 		{:catch error}
 			<p>{error.message}</p>
@@ -185,6 +205,27 @@
 </div>
 
 <style lang="scss">
+	.voted {
+		z-index: 500;
+		position: fixed;
+		left: 0;
+		top: 0;
+		height: 100vh;
+		width: 100vw;
+		justify-content: center;
+		align-items: center;
+		display: flex;
+		transition: transform 0.5s ease-in-out;
+		div {
+			text-align: center;
+			font-weight: 800;
+			font-size: 1.15em;
+			background: white;
+			border-radius: 16px;
+			padding: 97px 4em;
+			margin: 0 2em;
+		}
+	}
 	.text_body {
 		line-height: var(--text-line-height, 142);
 		user-select: text;

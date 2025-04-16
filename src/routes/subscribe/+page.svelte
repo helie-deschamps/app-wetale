@@ -11,7 +11,7 @@
 
 	let currentStep: number = $state<number>(0)
 
-	;(async () => {
+	;void (async () => {
 		if (await get(currentUser)?.get("subscriptionPlan")) void goto("/login")
 	})()
 

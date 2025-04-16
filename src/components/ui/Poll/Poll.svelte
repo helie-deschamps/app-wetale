@@ -8,20 +8,33 @@
 	} from "../../../utils/stores/currentUser"
 	import { SubscriptionPlans } from "../../../utils/enums/SubscriptionPlans"
 	import { goto } from "$app/navigation"
+	import DefaultLoader from "../skeleton/DefaultLoader.svelte"
 
 	const {
 		chapter,
 		colors,
+		onSubmit,
 	}: {
 		storyUid: string
 		chapter: Chapter
 		colors: [string, string]
+		/**
+		 * onSubmit is called when the user submits the form.
+		 * The Promise are resolved when the vote are accepted or refused by the server.
+		 * If the vote is refused, the promise are false, else, its true.
+		 */
+		onSubmit: (vote: Promise<boolean>) => void
 	} = $props()
 
 	let userVote = $state<string | null>(null)
+	$effect(() => {
+		submitDisabled = userVote === null
+	})
+	let waitForSubmit = $state<boolean>(false)
+	let submitDisabled = $state<boolean>(true)
 
 	let sendButtonText = $state("S’abonner pour voter")
-	;void (async () => {
+	void (async () => {
 		sendButtonText =
 			((await $currentUser?.get("subscriptionPlan")) as SubscriptionPlans) ===
 			SubscriptionPlans.Free
@@ -42,8 +55,17 @@
 			}
 			case SubscriptionPlans.Immersif:
 			case SubscriptionPlans.Interactif: {
-				// @todo vote
-				return
+				// @todo vote in API
+				waitForSubmit = true
+				const APIResult = new Promise<boolean>(resolve =>
+					setTimeout(() => {
+						resolve(true)
+					}, 350),
+				)
+				onSubmit(APIResult)
+				await APIResult
+				waitForSubmit = false
+				break
 			}
 		}
 	}
@@ -58,7 +80,17 @@
 			{colors}
 		/>
 	{/each}
-	<input use:touchHandlers type="submit" value={sendButtonText} />
+	{#if waitForSubmit}
+		<DefaultLoader color={colors[0]} noMargin={true} />
+	{:else}
+		<input
+			use:touchHandlers
+			type="submit"
+			value={sendButtonText}
+			disabled={submitDisabled}
+			class:disabled={submitDisabled}
+		/>
+	{/if}
 </form>
 
 <style lang="scss">
@@ -78,5 +110,9 @@
 		align-self: center;
 		font-weight: 700;
 		background-color: var(--background-color);
+		&:disabled {
+			opacity: 0.2;
+			cursor: not-allowed;
+		}
 	}
 </style>
