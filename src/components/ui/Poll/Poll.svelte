@@ -35,11 +35,21 @@
 
 	let sendButtonText = $state("S’abonner pour voter")
 	void (async () => {
-		sendButtonText =
-			((await $currentUser?.get("subscriptionPlan")) as SubscriptionPlans) ===
-			SubscriptionPlans.Free
-				? "S’abonner pour voter"
-				: "Voter"
+		switch (await $currentUser?.get("subscriptionPlan")) {
+			case SubscriptionPlans.Free: {
+				sendButtonText = "S’abonner pour voter"
+				break
+			}
+			case SubscriptionPlans.Interactif:
+			case SubscriptionPlans.Immersif: {
+				sendButtonText = "Voter"
+				break
+			}
+			default: {
+				sendButtonText = "Créer un compte pour voter"
+				break
+			}
+		}
 	})()
 
 	async function vote(event: SubmitEvent) {
